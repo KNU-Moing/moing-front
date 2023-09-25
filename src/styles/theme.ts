@@ -47,9 +47,29 @@ export const theme = {
       fontWeight: "500",
       fontSize: "1.4rem",
     },
+    body4Bold: {
+      fontWeight: "Bold",
+      fontSize: "1.2rem",
+    },
     body4: {
       fontWeight: "500",
       fontSize: "1.2rem",
+    },
+    body5Bold: {
+      fontWeight: "Bold",
+      fontSize: "1.0rem",
+    },
+    body5: {
+      fontWeight: "500",
+      fontSize: "1.0rem",
+    },
+    body6Bold: {
+      fontWeight: "Bold",
+      fontSize: "0.8rem",
+    },
+    body6: {
+      fontWeight: "500",
+      fontSize: "0.8rem",
     },
   },
   palette: {
