@@ -1,37 +1,41 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Header from "../header/header";
-import Branding from "./mainComponent/branding";
-import { Weekhelp } from "./mainComponent/weekhelp";
-import { Intro } from './mainComponent/intro';
-import { Consider } from './mainComponent/consider';
-import { Howwecanhelp } from './mainComponent/howwecanhelp';
-import { Mainfooter } from './mainComponent/mainfooter';
+import Branding from './mainComponent/Branding/branding';
+import { Weekhelp } from "./mainComponent/Weekhelp/weekhelp";
+import { Intro } from './mainComponent/Intro/intro';
+import { Consider } from './mainComponent/Consider/consider';
+import { Howwecanhelp } from './mainComponent/Howwecanhelp/howwecanhelp';
+import { Mainfooter } from './mainComponent/Mainfooter/mainfooter';
 
 export const Main = () => {
+  // 현재 섹션을 관리하는 state
   const [currentSection, setCurrentSection] = useState(0);
+  // 모든 섹션 컴포넌트를 배열로 저장
   const sections = [<Branding />, <Weekhelp />, <Intro />, <Consider />, <Howwecanhelp />, <Mainfooter />];
+  // 각 섹션의 Ref를 저장하는 배열
   const sectionRefs = useRef<Array<HTMLDivElement | null>>([]);
 
-  // Initialize sectionRefs
+  // sectionRefs 배열 초기화
   useEffect(() => {
     sectionRefs.current = sections.map(() => null);
   }, [sections]);
 
+  // 마우스 휠 이벤트 처리
   const handleWheel = (e: React.WheelEvent) => {
     if (e.deltaY < 0 && currentSection > 0) {
-      // Scroll up
       setCurrentSection(currentSection - 1);
     } else if (e.deltaY > 0 && currentSection < sections.length - 1) {
-      // Scroll down
       setCurrentSection(currentSection + 1);
     }
     e.preventDefault();
   };
 
-  // 로드할 섹션 개수와 무한 스크롤 임계값 설정
+  // 한 번에 표시할 섹션 수
   const sectionsPerPage = 1;
+  // 스크롤 로딩 임계값
   const threshold = 0.9;
 
+  // 더 많은 섹션 로딩 함수
   const loadMoreSections = () => {
     const lastSectionIndex = currentSection + sectionsPerPage;
     if (lastSectionIndex >= sections.length) {
@@ -40,6 +44,7 @@ export const Main = () => {
     setCurrentSection(lastSectionIndex);
   };
 
+  // 스크롤 이벤트 리스너 추가
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     return () => {
@@ -47,13 +52,14 @@ export const Main = () => {
     };
   }, []);
 
+  // currentSection 변경 시 해당 섹션으로 스크롤
   useEffect(() => {
-    // 현재 섹션의 높이만큼 스크롤 위치 이동
     if (sectionRefs.current[currentSection]) {
       sectionRefs.current[currentSection]?.scrollIntoView({ behavior: 'smooth' });
     }
   }, [currentSection]);
 
+  // 스크롤 이벤트 처리 함수
   const handleScroll = () => {
     const scrollHeight = window.document.documentElement.scrollHeight;
     const scrollTop = window.document.documentElement.scrollTop;
@@ -66,14 +72,12 @@ export const Main = () => {
 
   return (
     <div>
-      {/* Header 컴포넌트에 z-index 추가 */}
+      {/* 상단에 고정된 헤더 */}
       <div style={{ position: 'fixed', top: '0', width: '100%', zIndex: 100 }}>
         <Header />
       </div>
-      {/* onWheel 이벤트에 handleWheel 함수 연결. */}
-      {/* 또한 해당 div는 화면 전체 높이를 차지하며 overflow는 hidden으로 설정 */}
+      {/* 마우스 휠 이벤트 처리 및 섹션 표시 */}
       <div onWheel={handleWheel} style={{ height: '100vh', overflow: 'hidden' }}>
-        {/* 각 섹션을 순회하며 렌더링 */}
         {sections.map((section, index) => (
           <div
             key={index}
@@ -86,7 +90,6 @@ export const Main = () => {
               transition: 'transform ease-in-out 1s',
             }}
           >
-            {/* 각 섹션 내용 렌더링 */}
             {section}
           </div>
         ))}
