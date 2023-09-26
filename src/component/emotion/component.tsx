@@ -3,17 +3,24 @@ import React from "react";
 import { css } from "@emotion/react";
 import theme from "../../styles/theme";
 
-export const Overlay = ({ children }: { children: React.ReactNode }) => (
+export const Overlay = ({
+  children,
+  closeModal,
+}: {
+  children: React.ReactNode;
+  closeModal: () => void;
+}) => (
   <div
     css={css`
       background-color: rgba(27, 27, 27, 0.8);
-      position: fixed; /* 불투명한 배경을 뷰포트에 고정 */
+      position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       overflow: hidden;
     `}
+    onClick={closeModal} // Overlay 클릭 시 모달 닫기
   >
     {children}
   </div>
@@ -33,8 +40,16 @@ export const ModalBack = ({ children }: { children: React.ReactNode }) => (
     {children}
   </div>
 );
-export const Modal = ({ children }: { children: React.ReactNode }) => (
-  <div css={css``}>{children}</div>
+export const Modal = ({
+  children,
+  closeModal,
+}: {
+  children: React.ReactNode;
+  closeModal: () => void;
+}) => (
+  <div css={css``} onClick={(e) => e.stopPropagation()}>
+    {children}
+  </div>
 );
 
 export const Modaldiv = ({ children }: { children: React.ReactNode }) => (

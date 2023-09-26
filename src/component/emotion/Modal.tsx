@@ -27,9 +27,9 @@ export const ModalSignup = ({ setModalOpen, openSignInModal }: any) => {
   };
 
   return (
-    <Overlay>
+    <Overlay closeModal={closeModal}>
       <ModalBack>
-        <Modal>
+        <Modal closeModal={closeModal}>
           <TopContainer>
             <TopSelectContainer
               color="#CACACA"
@@ -91,9 +91,9 @@ export const ModalSignIn = ({ setModalOpen, openSignupModal }: any) => {
     openSignupModal();
   };
   return (
-    <Overlay>
+    <Overlay closeModal={closeModal}>
       <ModalBack>
-        <Modal>
+        <Modal closeModal={closeModal}>
           <TopContainer>
             <TopSelectContainer
               color="#F4F4F4"
