@@ -17,7 +17,7 @@ import {
   InputWithBtn,
   InputPwd,
   InputBox,
-} from "./component";
+} from "./modalComponent";
 
 interface ModalProps {
   isOpen: boolean;
@@ -127,12 +127,14 @@ export const InfoModal = ({
           <InputWithBtn
             context="변경 이메일"
             btnContext="인증하기"
+            state={updateEmail}
             setState={setUpdateEmail}
             onClick={handleEmailClick}
           ></InputWithBtn>
           <InputWithBtn
             context="인증 번호"
             btnContext="인증확인"
+            state={verificationCode}
             setState={setVerificationCode}
             onClick={handleVeriClick}
           ></InputWithBtn>
