@@ -16,7 +16,7 @@ import {
   EmailInfo,
   InputWithBtn,
   InputPwd,
-  InputBox,
+  InputHospital,
 } from "./modalComponent";
 
 interface ModalProps {
@@ -63,7 +63,7 @@ export const HospitalModal = ({ isOpen, closeModal }: ModalProps) => {
       ) : (
         <div>
           변경 할 산부인과를 검색해주세요
-          <InputBox context={name} setContext={setName}></InputBox>
+          <InputHospital context={name} setContext={setName}></InputHospital>
           {name === "" ? null : <SubmitBtn onClick={handleSubmit} />}
         </div>
       )}

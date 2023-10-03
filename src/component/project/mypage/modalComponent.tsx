@@ -90,7 +90,7 @@ const InputText = ({
   onChange,
 }: {
   value: string;
-  onChange: () => void;
+  onChange: React.ChangeEventHandler<HTMLInputElement>;
 }) => (
   <input
     type="text"
@@ -101,6 +101,7 @@ const InputText = ({
       width: 73%;
       background-color: ${theme.palette.gray[300]};
       border: none;
+
       &:focus {
         outline: none;
       }
@@ -119,7 +120,7 @@ const InputBtn = ({
     onClick={onClick}
     css={css`
       background-color: ${theme.palette.gray[300]};
-      border-left: solid 1px ${theme.palette.gray[500]};
+      border-left: solid 2px ${theme.palette.gray[400]};
       fontsize: ${theme.font.xs};
       border: none;
     `}
@@ -160,11 +161,7 @@ export const EmailInfo = ({ email, handleShow }: EmailInfoProps) => {
     <InfoContainer>
       이메일
       <InputContainer>
-        <InputText
-          value={email}
-          onChange={() => {}}
-          css={css`readOnly`}
-        ></InputText>
+        <InputText value={email} onChange={() => {}}></InputText>
         <InputBtn onClick={handleShow} context="변경"></InputBtn>
       </InputContainer>
     </InfoContainer>
@@ -187,14 +184,14 @@ export const InputWithBtn = ({
     <InfoContainer>
       {context}
       <InputContainer>
-        <InputText value={state} onChange={() => onChange}></InputText>
+        <InputText value={state} onChange={onChange}></InputText>
         <InputBtn onClick={onClick} context={btnContext}></InputBtn>
       </InputContainer>
     </InfoContainer>
   );
 };
 
-export const InputBox = ({
+export const InputHospital = ({
   context,
   setContext,
 }: {

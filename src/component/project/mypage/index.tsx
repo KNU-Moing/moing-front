@@ -1,11 +1,22 @@
 import React, { useState } from "react";
 import {
+  Overlay,
+  MyPageContainer,
+  ProfileSection,
   Profile,
   PregancyPeriod,
   BlankSection,
-  Information,
+  InfoLayer,
+  InfoDetail,
+  InfoProfile,
   ChangeButton,
+  ProfileImg,
+  InfoSection,
+  InfoLeftSection,
+  InfoBtnSection,
 } from "./component";
+/** @jsxImportSource @emotion/react */
+import { css } from "@emotion/react";
 import { HospitalModal, UpdatedModal, InfoModal } from "./modal";
 import theme from "../../../styles/theme";
 
@@ -16,107 +27,56 @@ export const MyPage = () => {
   const [isOpenInfo, setIsOpenedInfo] = useState(false);
   const [isOpenUpdated, setIsOpenUpdated] = useState(false);
 
+  const [username, setUsername] = useState("");
+  const [partner, setPartner] = useState("");
+
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-      }}
-    >
-      <p style={{ display: "flex", flexDirection: "row", margin: "20px" }}>
+    <Overlay>
+      <ProfileSection>
         <Profile name="쑥쑥이 엄마" src={dummyImage}></Profile>
         <PregancyPeriod name="쑥쑥이" day={97} week={14}></PregancyPeriod>
         <Profile name="쑥쑥이 아빠" src={dummyImage}></Profile>
-      </p>
-      <p>
-        <div
-          style={{
-            fontSize: theme.typography.body2Bold.fontSize,
-            fontWeight: theme.typography.body2Bold.fontWeight,
-          }}
-        >
-          내 정보
-        </div>
-        <div
-          style={{
-            backgroundColor: theme.palette.gray[200],
-            width: "73vw",
-            padding: theme.spacing.sm,
-            marginTop: theme.spacing.xs,
-            borderRadius: "20px",
-            display: "flex",
-          }}
-        >
-          <img
-            src={dummyImage2}
-            style={{ borderRadius: "70%", margin: theme.spacing.sm }}
-          ></img>
-          <div style={{ padding: theme.spacing.sm }}>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                marginBottom: theme.spacing.md,
-              }}
-            >
-              <div
-                style={{
-                  fontSize: theme.typography.body1Bold.fontSize,
-                  fontWeight: theme.typography.body1Bold.fontWeight,
-                  marginRight: "2vw",
-                }}
-              >
-                쑥쑥이 엄마
-              </div>
-              <div>14주차 1일 임신 초기</div>
-            </div>
+      </ProfileSection>
 
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "flex-start",
-              }}
-            >
-              <div
-                style={{
-                  width: "28vw",
-                  borderRight: `solid 2px ${theme.palette.gray[300]}`,
-                }}
-              >
-                <Information title="보호자" context="쑥쑥이아빠"></Information>
-                <div
-                  style={{ display: "flex", justifyContent: "space-between" }}
-                >
-                  <Information
-                    title="병원"
-                    context="가나다라산부인과"
-                  ></Information>
-                  <ChangeButton
-                    onClick={() => setIsOpenedHospital(true)}
-                  ></ChangeButton>
-                </div>
-              </div>
-              <div style={{ marginLeft: theme.spacing.md }}>
-                <Information
-                  title="이메일"
-                  context="rudgml742@gmail.com"
-                ></Information>
-                <div
-                  style={{ display: "flex", justifyContent: "space-between" }}
-                >
-                  <Information title="비밀번호 변경" context=""></Information>
-                  <ChangeButton
-                    onClick={() => setIsOpenedInfo(true)}
-                  ></ChangeButton>
-                </div>
-              </div>
+      <MyPageContainer title="내 정보">
+        <ProfileImg src={dummyImage2} size="180px"></ProfileImg>
+        <div
+          css={css`
+            padding: ${theme.spacing.sm};
+          `}
+        >
+          <InfoProfile name="쑥쑥이엄마" day={97}></InfoProfile>
+
+          <InfoLayer>
+            <InfoLeftSection>
+              <InfoDetail title="보호자" context="쑥쑥이아빠"></InfoDetail>
+              <InfoBtnSection>
+                <InfoDetail
+                  title="병원"
+                  context="가나다라산부인과"
+                ></InfoDetail>
+                <ChangeButton
+                  onClick={() => setIsOpenedHospital(true)}
+                ></ChangeButton>
+              </InfoBtnSection>
+            </InfoLeftSection>
+            <div style={{ marginLeft: theme.spacing.md }}>
+              <InfoDetail
+                title="이메일"
+                context="rudgml742@gmail.com"
+              ></InfoDetail>
+              <InfoBtnSection>
+                <InfoDetail title="비밀번호 변경" context=""></InfoDetail>
+                <ChangeButton
+                  onClick={() => setIsOpenedInfo(true)}
+                ></ChangeButton>
+              </InfoBtnSection>
             </div>
-          </div>
+          </InfoLayer>
         </div>
-      </p>
-      <p style={{ display: "flex" }}>
+      </MyPageContainer>
+
+      <p style={{ display: "flex", justifyContent: "space-between" }}>
         <BlankSection title="몸 상태"></BlankSection>
         <BlankSection title="주차별 도움"></BlankSection>
       </p>
@@ -133,6 +93,6 @@ export const MyPage = () => {
         isOpen={isOpenUpdated}
         closeModal={() => setIsOpenUpdated(false)}
       ></UpdatedModal>
-    </div>
+    </Overlay>
   );
 };
