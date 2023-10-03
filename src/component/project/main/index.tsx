@@ -1,17 +1,24 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from "react";
 import Header from "../header/header";
-import Branding from './mainComponent/Branding/branding';
+import Branding from "./mainComponent/Branding/branding";
 import { Weekhelp } from "./mainComponent/Weekhelp/weekhelp";
-import { Intro } from './mainComponent/Intro/intro';
-import { Consider } from './mainComponent/Consider/consider';
-import { Howwecanhelp } from './mainComponent/Howwecanhelp/howwecanhelp';
-import { MainFooter } from './mainComponent/Mainfooter/mainfooter';
+import { Intro } from "./mainComponent/Intro/intro";
+import { Consider } from "./mainComponent/Consider/consider";
+import { Howwecanhelp } from "./mainComponent/Howwecanhelp/howwecanhelp";
+import { MainFooter } from "./mainComponent/Mainfooter/mainfooter";
 
 export const Main = () => {
   // 현재 섹션을 관리하는 state
   const [currentSection, setCurrentSection] = useState(0);
   // 모든 섹션 컴포넌트를 배열로 저장
-  const sections = [<Branding />, <Weekhelp />, <Intro />, <Consider />, <Howwecanhelp />, <MainFooter/>];
+  const sections = [
+    <Branding />,
+    <Weekhelp />,
+    <Intro />,
+    <Consider />,
+    <Howwecanhelp />,
+    <MainFooter />,
+  ];
   // 각 섹션의 Ref를 저장하는 배열
   const sectionRefs = useRef<Array<HTMLDivElement | null>>([]);
 
@@ -46,16 +53,18 @@ export const Main = () => {
 
   // 스크롤 이벤트 리스너 추가
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   // currentSection 변경 시 해당 섹션으로 스크롤
   useEffect(() => {
     if (sectionRefs.current[currentSection]) {
-      sectionRefs.current[currentSection]?.scrollIntoView({ behavior: 'smooth' });
+      sectionRefs.current[currentSection]?.scrollIntoView({
+        behavior: "smooth",
+      });
     }
   }, [currentSection]);
 
@@ -73,21 +82,21 @@ export const Main = () => {
   return (
     <div>
       {/* 상단에 고정된 헤더 */}
-      <div style={{ position: 'fixed', top: '0', width: '100%', zIndex: 100 }}>
-        <Header />
-      </div>
       {/* 마우스 휠 이벤트 처리 및 섹션 표시 */}
-      <div onWheel={handleWheel} style={{ height: '100vh', overflow: 'hidden' }}>
+      <div
+        onWheel={handleWheel}
+        style={{ height: "100vh", overflow: "hidden" }}
+      >
         {sections.map((section, index) => (
           <div
             key={index}
             ref={(el) => (sectionRefs.current[index] = el)}
             style={{
-              height: '100vh',
-              width: '100%',
-              position: 'relative',
+              height: "100vh",
+              width: "100%",
+              position: "relative",
               transform: `translateY(-${100 * currentSection}%)`,
-              transition: 'transform ease-in-out 1s',
+              transition: "transform ease-in-out 1s",
             }}
           >
             {section}
