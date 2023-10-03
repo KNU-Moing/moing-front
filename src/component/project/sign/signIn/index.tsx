@@ -4,7 +4,6 @@ export const SignIn = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalOpen2, setModalOpen2] = useState(false);
 
-  // 모달 열기 함수
   const openModal = () => {
     setModalOpen(true);
   };
@@ -15,18 +14,18 @@ export const SignIn = () => {
 
   return (
     <div>
-      <button onClick={openModal}>모달 띄우기</button>
+      <button onClick={openModal}>로그인</button>
       {modalOpen && (
         <ModalSignup
           setModalOpen={setModalOpen}
-          openSignInModal={openModal2} // ModalSignup에서 ModalSignIn을 열기 위한 함수 전달
+          openSignInModal={openModal2}
         />
       )}
-      <button onClick={openModal2}>모달 띄우기</button>
+      <button onClick={openModal2}>회원가입</button>
       {modalOpen2 && (
         <ModalSignIn
           setModalOpen={setModalOpen2}
-          openSignupModal={openModal} // ModalSignIn에서 ModalSignup을 열기 위한 함수 전달
+          openSignupModal={openModal} 
         />
       )}
     </div>
