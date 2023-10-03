@@ -2,8 +2,8 @@ import styled from "@emotion/styled";
 
 export const Container = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center; /* Updated to center vertically */
+  justify-content: left;
+  align-items:  left; /* Updated to center vertically */
   height: 100vh;
 `;
 
@@ -17,4 +17,5 @@ export const ConsiderBoxItem = styled.div`
   justify-content: center;
   align-items: center;
   margin: 0 10px;
+  font-size: 30px;
 `;

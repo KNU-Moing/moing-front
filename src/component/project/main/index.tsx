@@ -5,13 +5,13 @@ import { Weekhelp } from "./mainComponent/Weekhelp/weekhelp";
 import { Intro } from './mainComponent/Intro/intro';
 import { Consider } from './mainComponent/Consider/consider';
 import { Howwecanhelp } from './mainComponent/Howwecanhelp/howwecanhelp';
-import { Mainfooter } from './mainComponent/Mainfooter/mainfooter';
+import { MainFooter } from './mainComponent/Mainfooter/mainfooter';
 
 export const Main = () => {
   // 현재 섹션을 관리하는 state
   const [currentSection, setCurrentSection] = useState(0);
   // 모든 섹션 컴포넌트를 배열로 저장
-  const sections = [<Branding />, <Weekhelp />, <Intro />, <Consider />, <Howwecanhelp />, <Mainfooter />];
+  const sections = [<Branding />, <Weekhelp />, <Intro />, <Consider />, <Howwecanhelp />, <MainFooter/>];
   // 각 섹션의 Ref를 저장하는 배열
   const sectionRefs = useRef<Array<HTMLDivElement | null>>([]);
 

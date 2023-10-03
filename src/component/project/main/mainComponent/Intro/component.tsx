@@ -14,6 +14,7 @@ export const Button = styled.button<{ active: boolean }>`
   line-height: normal;
   padding: 10px 20px;
   margin: 5px;
+  margin-top: 200px;
   border: none;
   cursor: pointer;
 `;
@@ -39,5 +40,5 @@ export const ContentContainer = styled.div`
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin-top: 100px;
+  margin-top: 200px;
 `;
