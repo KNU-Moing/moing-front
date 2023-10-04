@@ -20,7 +20,7 @@ const StyledHeader = styled.header`
   .nav_logo {
     position: relative;
     left: 122px;
-    font-size: 40px;
+    font-size: 30px;
     font-family: Inter;
     font-style: normal;
     font-weight: 500;
@@ -36,7 +36,7 @@ const StyledHeader = styled.header`
   .menuToggleBtn {
     display: none;
     color: #808080;
-    font-size: 30px;
+    font-size: 15px;
     position: absolute;
     right: 20px;
     top: 15px;
@@ -57,10 +57,10 @@ const NavMenu = styled.ul<NavMenuProps>`
   list-style: none;
   display: flex;
   position: absolute;
-  left: 391.5px;
+  left: 400px;
   color: #808080;
   font-family: Inter;
-  font-size: 30px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
@@ -110,7 +110,7 @@ const RightHeader = styled.div`
 
     img {
       width: auto; /* 가로 크기 자동으로 조정 */
-      height: 30px; /* 이미지 높이 고정 */
+      height: 16px; /* 이미지 높이 고정 */
     }
   }
 `;

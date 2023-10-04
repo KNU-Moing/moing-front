@@ -4,11 +4,11 @@ export const Container = styled.div`
   display: flex;
   justify-content: left;
   align-items:  left; /* Updated to center vertically */
-  height: 100vh;
+  height: 80vh;
 `;
 
 export const ConsiderBoxItem = styled.div`
-  width: 951px;
+  width: 500px;
   flex-shrink: 0;
   border-radius: 60px;
   background: #D9D9D9;
@@ -17,5 +17,5 @@ export const ConsiderBoxItem = styled.div`
   justify-content: center;
   align-items: center;
   margin: 0 10px;
-  font-size: 30px;
+  font-size: 16px;
 `;
