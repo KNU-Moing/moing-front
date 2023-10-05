@@ -57,6 +57,7 @@ export const MyPageContainer = ({
 export const ProfileSection = ({ children }: { children: React.ReactNode }) => (
   <div
     css={css`
+      padding-top: 110px;
       display: flex;
       flex-direction: row;
       margin: 20px;

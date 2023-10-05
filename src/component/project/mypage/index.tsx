@@ -15,6 +15,7 @@ import {
   InfoLeftSection,
   InfoBtnSection,
 } from "./component";
+import Header from "../header/header";
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import { HospitalModal, UpdatedModal, InfoModal } from "./modal";
@@ -32,6 +33,7 @@ export const MyPage = () => {
 
   return (
     <Overlay>
+      <Header></Header>
       <ProfileSection>
         <Profile name="쑥쑥이 엄마" src={dummyImage}></Profile>
         <PregancyPeriod name="쑥쑥이" day={97} week={14}></PregancyPeriod>
