@@ -132,7 +132,7 @@ const Header: React.FC = () => {
 
       <NavMenu isToggleOpen={isToggleOpen}>
         <li>
-          <Link to={"/"} className="nav-menu-list">
+          <Link to={"/Notebook"} className="nav-menu-list">
             산모수첩/일기
           </Link>
         </li>
