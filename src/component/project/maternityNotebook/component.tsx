@@ -47,7 +47,7 @@ export const CategoryButton = ({
     border: none;
     background-color: #FFFFFF;
     padding: ${theme.spacing.md};
-    color: ${theme.palette.gray[500]};
+    color: ${theme.palette.gray[600]};
     font-size: ${theme.typography.body4};
     font-weight: 
         ${
