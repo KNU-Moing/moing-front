@@ -1,5 +1,33 @@
-import React from "react";
+import {
+  Overlay,
+  Category,
+  CategoryButton,
+  ContextOverlay,
+} from "../component";
+import { useNavigate } from "react-router-dom";
+import Header from "../../header/header";
 
 export const Diary = () => {
-  return <div>산모일기</div>;
+  const navigate = useNavigate();
+
+  return (
+    <div>
+      <Header></Header>
+      <Overlay>
+        <Category>
+          <CategoryButton
+            clicked={false}
+            content="수첩"
+            onClick={() => navigate("/notebook")}
+          ></CategoryButton>
+          <CategoryButton
+            clicked={true}
+            content="일기"
+            onClick={() => {}}
+          ></CategoryButton>
+        </Category>
+        <ContextOverlay>내용</ContextOverlay>
+      </Overlay>
+    </div>
+  );
 };
