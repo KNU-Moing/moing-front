@@ -1,5 +1,4 @@
 import React, { useState, ChangeEvent } from 'react';
-import Header from '../header';
 import {
   StyledInput,
   StyledButton,
@@ -7,6 +6,8 @@ import {
   QABox,
   ContainerDiv,
 } from "./component";
+
+import { LeftHeader, RightHeader, StyledHeader } from '../header/component';
 
 export const Question = () => {
   const [questionText, setQuestionText] = useState('');
@@ -22,7 +23,10 @@ export const Question = () => {
 
   return (
     <>
-      <Header />
+    <StyledHeader>
+      <LeftHeader /> 
+      <RightHeader />
+    </StyledHeader>
       <ContainerDiv>
         <div>
           <h2>오늘의 질문</h2>
