@@ -8,7 +8,7 @@ import {
   RightBottomDiv,
 } from "./component";
 import { ModalSignIn, ModalSignup } from "../../../../emotion/Modal";
-import Header from "../../../header/header";
+import Header from "../../../header";
 
 const Branding: React.FC = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -24,7 +24,7 @@ const Branding: React.FC = () => {
   return (
     <div>
       <div>
-        <Header />
+        <Header/>
       </div>
       <Text1>같이의 가치</Text1>
       <Text2>MO-ING</Text2>

@@ -1,14 +1,11 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import styled from "styled-components";
-import { FaBars } from "react-icons/fa";
+import styled from "@emotion/styled";
 
 // 타입 선언
 type NavMenuProps = {
-  isToggleOpen: boolean;
-};
-
-const StyledHeader = styled.header`
+    isToggleOpen: boolean;
+  };
+  
+export const StyledHeader = styled.header`
   background-color: transparent;
   width: 100%;
   display: flex;
@@ -53,7 +50,7 @@ const StyledHeader = styled.header`
   }
 `;
 
-const NavMenu = styled.ul<NavMenuProps>`
+export const NavMenu = styled.ul<NavMenuProps>`
   list-style: none;
   display: flex;
   position: absolute;
@@ -96,7 +93,7 @@ const NavMenu = styled.ul<NavMenuProps>`
   }
 `;
 
-const RightHeader = styled.div`
+export const RightHeader = styled.div`
   display: flex;
   align-items: center;
   margin-top: 10px; /* 오른쪽 헤더와 메뉴 간의 간격 조정 */
@@ -104,7 +101,9 @@ const RightHeader = styled.div`
   right: 131px;
 
   .searchBtn,
-  .mypageBtn {
+  .mypageBtn,
+  .questionBtn,
+  .allimBtn {
     margin-left: 28px; /* 이미지 간격을 28px로 설정 */
     cursor: pointer;
 
@@ -115,54 +114,5 @@ const RightHeader = styled.div`
   }
 `;
 
-const Header: React.FC = () => {
-  const [isToggleOpen, setIsToggleOpen] = useState<boolean>(false);
-
-  const handleToggleOpen = () => {
-    setIsToggleOpen(!isToggleOpen);
-  };
-
-  return (
-    <StyledHeader>
-      <div className="nav_logo">
-        <Link to={"/"} className="nav-logo-link">
-          MO-ING
-        </Link>
-      </div>
-
-      <NavMenu isToggleOpen={isToggleOpen}>
-        <li>
-          <Link to={"/"} className="nav-menu-list">
-            산모수첩/일기
-          </Link>
-        </li>
-        <li>
-          <Link to={"/"} className="nav-menu-list">
-            커뮤니티
-          </Link>
-        </li>
-        <li>
-          <Link to={"/"} className="nav-menu-list">
-            산모용품
-          </Link>
-        </li>
-        <li>
-          <Link to={"/"} className="nav-menu-list">
-            조리원신청
-          </Link>
-        </li>
-      </NavMenu>
-      <RightHeader>
-        <Link to="/search" className="searchBtn">
-          <img src="/Img/mainSearch.jpg" alt="Search" />
-        </Link>
-        <Link to="/mypage" className="mypageBtn">
-          <img src="/Img/mainMypage.jpg" alt="Mypage" />
-        </Link>
-      </RightHeader>
-      <FaBars className="menuToggleBtn" onClick={handleToggleOpen} />
-    </StyledHeader>
-  );
-};
-
-export default Header;
+export const NavLogo = styled.div`
+`;
