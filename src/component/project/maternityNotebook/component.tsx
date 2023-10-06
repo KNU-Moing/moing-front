@@ -61,3 +61,16 @@ export const CategoryButton = ({
     {content}
   </button>
 );
+
+export const TitleContent = ({ content }: { content: string }) => {
+  return (
+    <div
+      css={css`
+        flex-grow: 8;
+        ${theme.typography.body4Bold};
+      `}
+    >
+      {content}
+    </div>
+  );
+};

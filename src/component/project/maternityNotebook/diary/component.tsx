@@ -12,7 +12,6 @@ export const TitleBar = ({ children }: { children: React.ReactNode }) => (
       display: flex;
       padding: ${theme.spacing.sm} 0;
       color: ${theme.palette.gray[600]};
-      ${theme.typography.body4Bold};
     `}
   >
     {children}
@@ -42,18 +41,6 @@ export const WriteButton = () => {
         `}
       ></img>
     </button>
-  );
-};
-
-export const TitleContent = () => {
-  return (
-    <div
-      css={css`
-        flex-grow: 8;
-      `}
-    >
-      예비 엄마와 아이의 일기장
-    </div>
   );
 };
 

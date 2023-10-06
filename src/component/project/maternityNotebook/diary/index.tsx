@@ -3,11 +3,11 @@ import {
   Category,
   CategoryButton,
   ContextOverlay,
+  TitleContent,
 } from "../component";
 import {
   TitleBar,
   WriteButton,
-  TitleContent,
   CustomSelect,
   DiaryOverlay,
   DiaryBox,
@@ -56,7 +56,7 @@ export const Diary = () => {
 
         <ContextOverlay>
           <TitleBar>
-            <TitleContent></TitleContent>
+            <TitleContent content="예비 엄마와 아이의 일기장"></TitleContent>
             <CustomSelect
               setState={setSelected}
               selected={selected}
