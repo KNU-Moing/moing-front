@@ -15,6 +15,7 @@ import {
   HospitalVisitDay,
   MoreButton,
   EtcOverLay,
+  WeeksChart,
 } from "./component";
 import { useNavigate } from "react-router-dom";
 import Header from "../../header/header";
@@ -45,6 +46,32 @@ export const Notebook = () => {
       title: "부부간의 성생활을 해주세요",
       content:
         "엄마 몸에 안정이 찾아오고 임신에 대한 두려움이 사라지는 단계예요! 부부간의 성생활이 유산을 초래할 수 있다는 말은 과민이에요 적당한 성생활은 좋아요 단, 임산부의 배를 고려한 체위로 해주세요",
+    },
+  ]);
+  const [hospitalChart, setHospitalChart] = useState([
+    {
+      index: 1,
+      src: "/img/DummyPicture.png",
+    },
+    {
+      index: 2,
+      src: "/img/DummyPicture.png",
+    },
+    {
+      index: 3,
+      src: "/img/DummyPicture.png",
+    },
+    {
+      index: 4,
+      src: "/img/DummyPicture.png",
+    },
+    {
+      index: 5,
+      src: "/img/DummyPicture.png",
+    },
+    {
+      index: 6,
+      src: "/img/DummyPicture.png",
     },
   ]);
   const moreHandle = () => {
@@ -149,6 +176,9 @@ export const Notebook = () => {
               styleHeight="40vh"
             >
               <MoreButton onClick={moreHandle} styleLeft="33vw"></MoreButton>
+              <div>
+                <WeeksChart week={1} src="/img/DummyPicture.png"></WeeksChart>
+              </div>
             </ContentBoxLayer>
             <ContentBoxLayer
               title="임신 중기 추천 제품!"

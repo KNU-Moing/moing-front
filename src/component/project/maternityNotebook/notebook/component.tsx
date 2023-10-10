@@ -233,3 +233,22 @@ export const EtcOverLay = ({ children }: { children: React.ReactNode }) => (
     {children}
   </div>
 );
+
+export const WeeksChart = ({ week, src }: { week: number; src: string }) => {
+  return (
+    <div
+      css={css`
+        text-align: center;w
+        width: 12vw;
+      `}
+    >
+      <img
+        src={src}
+        css={css`
+          width: 10vw;
+        `}
+      ></img>
+      <div>{week}주차</div>
+    </div>
+  );
+};
