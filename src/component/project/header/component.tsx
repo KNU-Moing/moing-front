@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from 'react';
+import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
-import styled from "styled-components";
-import { FaBars } from "react-icons/fa";
 
 // 타입 선언
 type NavMenuProps = {
@@ -15,7 +14,7 @@ const StyledHeader = styled.header`
   align-items: center;
   justify-content: space-between;
   position: absolute;
-  top: 73px; /* 헤더의 top을 73px로 설정 */
+  top: 73px;
 
   .nav_logo {
     position: relative;
@@ -53,7 +52,22 @@ const StyledHeader = styled.header`
   }
 `;
 
-const NavMenu = styled.ul<NavMenuProps>`
+const StyledLeftHeader = styled.div`
+position: relative;
+left: 122px;
+font-size: 30px;
+font-family: Inter;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+color: #808080;
+.nav-logo-link {
+text-decoration: none;
+color: #808080;
+}
+`
+
+const StyledNavMenu = styled.ul<NavMenuProps>`
   list-style: none;
   display: flex;
   position: absolute;
@@ -96,73 +110,79 @@ const NavMenu = styled.ul<NavMenuProps>`
   }
 `;
 
-const RightHeader = styled.div`
+const StyledRightHeader = styled.div`
   display: flex;
   align-items: center;
-  margin-top: 10px; /* 오른쪽 헤더와 메뉴 간의 간격 조정 */
+  margin-top: 10px;
   position: absolute;
   right: 131px;
 
-  .searchBtn,
-  .mypageBtn {
-    margin-left: 28px; /* 이미지 간격을 28px로 설정 */
+  .header-button {
+    margin-left: 28px;
     cursor: pointer;
 
     img {
-      width: auto; /* 가로 크기 자동으로 조정 */
-      height: 16px; /* 이미지 높이 고정 */
+      width: auto;
+      height: 16px;
     }
   }
 `;
 
-const Header: React.FC = () => {
-  const [isToggleOpen, setIsToggleOpen] = useState<boolean>(false);
 
-  const handleToggleOpen = () => {
-    setIsToggleOpen(!isToggleOpen);
-  };
-
+const LeftHeader = () => {
   return (
-    <StyledHeader>
-      <div className="nav_logo">
+      <StyledLeftHeader>
         <Link to={"/"} className="nav-logo-link">
           MO-ING
         </Link>
-      </div>
-
-      <NavMenu isToggleOpen={isToggleOpen}>
-        <li>
-          <Link to={"/"} className="nav-menu-list">
-            산모수첩/일기
-          </Link>
-        </li>
-        <li>
-          <Link to={"/"} className="nav-menu-list">
-            커뮤니티
-          </Link>
-        </li>
-        <li>
-          <Link to={"/"} className="nav-menu-list">
-            산모용품
-          </Link>
-        </li>
-        <li>
-          <Link to={"/"} className="nav-menu-list">
-            조리원신청
-          </Link>
-        </li>
-      </NavMenu>
-      <RightHeader>
-        <Link to="/search" className="searchBtn">
-          <img src="/Img/mainSearch.jpg" alt="Search" />
-        </Link>
-        <Link to="/mypage" className="mypageBtn">
-          <img src="/Img/mainMypage.jpg" alt="Mypage" />
-        </Link>
-      </RightHeader>
-      <FaBars className="menuToggleBtn" onClick={handleToggleOpen} />
-    </StyledHeader>
+      </StyledLeftHeader>
   );
 };
 
-export default Header;
+const NavMenu = ({ isToggleOpen }: NavMenuProps) => {
+  return (
+    <StyledNavMenu isToggleOpen={isToggleOpen}>
+      <li>
+        <Link to={'/'} className="nav-menu-list">
+          산모수첩/일기
+        </Link>
+      </li>
+      <li>
+        <Link to={'/'} className="nav-menu-list">
+          커뮤니티
+        </Link>
+      </li>
+      <li>
+        <Link to={'/'} className="nav-menu-list">
+          산모용품
+        </Link>
+      </li>
+      <li>
+        <Link to={'/'} className="nav-menu-list">
+          조리원신청
+        </Link>
+      </li>
+    </StyledNavMenu>
+  );
+};
+
+const RightHeader = () => {
+  return (
+    <StyledRightHeader>
+      <div className="header-button">
+        <img src="/Img/allim.png" alt="Allim" />
+      </div>
+      <Link to="/question" className="header-button">
+        <img src="/Img/Union (Stroke).png" alt="Question" />
+      </Link>
+      <Link to="/search" className="header-button">
+        <img src="/Img/mainSearch.jpg" alt="Search" />
+      </Link>
+      <Link to="/mypage" className="header-button">
+        <img src="/Img/mainMypage.jpg" alt="Mypage" />
+      </Link>
+    </StyledRightHeader>
+  );
+};
+
+export { StyledHeader, LeftHeader, NavMenu, RightHeader };
