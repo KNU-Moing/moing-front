@@ -4,6 +4,7 @@ import { css } from "@emotion/react";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import styled from "@emotion/styled";
 import { useState } from "react";
+import { DiaryType } from "./index";
 
 export const TitleBar = ({ children }: { children: React.ReactNode }) => (
   <div
@@ -171,12 +172,10 @@ export const DiaryOverlay = ({ children }: { children: React.ReactNode }) => (
   </div>
 );
 
-interface DiaryData {
-  index: number;
-  img: string;
-  week: string;
-  content: string;
-}
+type UserProps = {
+  Diary: DiaryType; // 부모컴포넌트에서 import 해온 타입을 재사용 해 줍시다.
+};
+
 export const DiaryBox = () => {
   const [diary, setDiary] = useState({
     index: 1,
