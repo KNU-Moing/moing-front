@@ -142,7 +142,7 @@ const NavMenu = ({ isToggleOpen }: NavMenuProps) => {
   return (
     <StyledNavMenu isToggleOpen={isToggleOpen}>
       <li>
-        <Link to={"/"} className="nav-menu-list">
+        <Link to={"/notebook"} className="nav-menu-list">
           산모수첩/일기
         </Link>
       </li>
@@ -157,7 +157,7 @@ const NavMenu = ({ isToggleOpen }: NavMenuProps) => {
         </Link>
       </li>
       <li>
-        <Link to={"/"} className="nav-menu-list">
+        <Link to={"/cook"} className="nav-menu-list">
           조리원신청
         </Link>
       </li>

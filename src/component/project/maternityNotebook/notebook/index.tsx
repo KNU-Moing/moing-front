@@ -18,7 +18,7 @@ import {
   WeeksChart,
 } from "./component";
 import { useNavigate } from "react-router-dom";
-import Header from "../../header/header";
+import StyledHeader from "../../header";
 import { useEffect, useState } from "react";
 
 export const Notebook = () => {
@@ -80,7 +80,7 @@ export const Notebook = () => {
 
   return (
     <div>
-      <Header></Header>
+      <StyledHeader></StyledHeader>
       <Overlay>
         <Category>
           <CategoryButton
