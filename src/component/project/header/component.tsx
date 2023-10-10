@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
 
@@ -53,19 +53,19 @@ const StyledHeader = styled.header`
 `;
 
 const StyledLeftHeader = styled.div`
-position: relative;
-left: 122px;
-font-size: 30px;
-font-family: Inter;
-font-style: normal;
-font-weight: 500;
-line-height: normal;
-color: #808080;
-.nav-logo-link {
-text-decoration: none;
-color: #808080;
-}
-`
+  position: relative;
+  left: 122px;
+  font-size: 30px;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  color: #808080;
+  .nav-logo-link {
+    text-decoration: none;
+    color: #808080;
+  }
+`;
 
 const StyledNavMenu = styled.ul<NavMenuProps>`
   list-style: none;
@@ -128,14 +128,13 @@ const StyledRightHeader = styled.div`
   }
 `;
 
-
 const LeftHeader = () => {
   return (
-      <StyledLeftHeader>
-        <Link to={"/"} className="nav-logo-link">
-          MO-ING
-        </Link>
-      </StyledLeftHeader>
+    <StyledLeftHeader>
+      <Link to={"/"} className="nav-logo-link">
+        MO-ING
+      </Link>
+    </StyledLeftHeader>
   );
 };
 
@@ -143,22 +142,22 @@ const NavMenu = ({ isToggleOpen }: NavMenuProps) => {
   return (
     <StyledNavMenu isToggleOpen={isToggleOpen}>
       <li>
-        <Link to={'/'} className="nav-menu-list">
+        <Link to={"/"} className="nav-menu-list">
           산모수첩/일기
         </Link>
       </li>
       <li>
-        <Link to={'/'} className="nav-menu-list">
+        <Link to={"/"} className="nav-menu-list">
           커뮤니티
         </Link>
       </li>
       <li>
-        <Link to={'/'} className="nav-menu-list">
+        <Link to={"/"} className="nav-menu-list">
           산모용품
         </Link>
       </li>
       <li>
-        <Link to={'/'} className="nav-menu-list">
+        <Link to={"/"} className="nav-menu-list">
           조리원신청
         </Link>
       </li>
