@@ -13,7 +13,7 @@ import {
   DiaryBox,
 } from "./component";
 import { useNavigate } from "react-router-dom";
-import Header from "../../header/header";
+import StyledHeader from "../../header";
 import { useEffect, useState } from "react";
 
 export type DiaryType = {
@@ -62,7 +62,7 @@ export const Diary = () => {
 
   return (
     <div>
-      <Header></Header>
+      <StyledHeader></StyledHeader>
       <Overlay>
         <Category>
           <CategoryButton

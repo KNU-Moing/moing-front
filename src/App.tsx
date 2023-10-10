@@ -6,6 +6,8 @@ import { SignIn } from "./component/project/sign/signIn";
 import { SignUp } from "./component/project/sign/signUp";
 import { Notebook } from "./component/project/maternityNotebook/notebook";
 import { Diary } from "./component/project/maternityNotebook/diary";
+import { Question } from "./component/project/question";
+
 function App() {
   return (
     <div className="App">
@@ -16,6 +18,7 @@ function App() {
         <Route path="/SignUp" element={<SignUp />} />
         <Route path="/Notebook" element={<Notebook />} />
         <Route path="/Diary" element={<Diary />} />
+        <Route path="/Question" element={<Question />} />
       </Routes>
     </div>
   );
