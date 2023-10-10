@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent } from 'react';
+import React, { useState, ChangeEvent } from "react";
 import {
   StyledInput,
   StyledButton,
@@ -7,11 +7,10 @@ import {
   ContainerDiv,
 } from "./component";
 
-import { LeftHeader, RightHeader, StyledHeader } from '../header/component';
-
+import { LeftHeader, RightHeader, StyledHeader } from "../header/component";
 export const Question = () => {
-  const [questionText, setQuestionText] = useState('');
-  const [submittedText, setSubmittedText] = useState('');
+  const [questionText, setQuestionText] = useState("");
+  const [submittedText, setSubmittedText] = useState("");
 
   const handleTextChange = (e: ChangeEvent<HTMLInputElement>) => {
     setQuestionText(e.target.value);
@@ -23,14 +22,17 @@ export const Question = () => {
 
   return (
     <>
-    <StyledHeader>
-      <LeftHeader /> 
-      <RightHeader />
-    </StyledHeader>
+      <StyledHeader>
+        <LeftHeader />
+        <RightHeader />
+      </StyledHeader>
       <ContainerDiv>
         <div>
           <h2>이번주 질문</h2>
-          <p>오늘은 날이 화창하네요 쑥쑥이 엄마가 오늘 낮에 먹고 싶었던 음식은 무엇인가요?</p>
+          <p>
+            오늘은 날이 화창하네요 쑥쑥이 엄마가 오늘 낮에 먹고 싶었던 음식은
+            무엇인가요?
+          </p>
         </div>
         <div>
           <StyledInput
@@ -41,9 +43,7 @@ export const Question = () => {
           />
         </div>
         <div>
-          <StyledButton onClick={handleSubmit}>
-            작성 완료
-          </StyledButton>
+          <StyledButton onClick={handleSubmit}>작성 완료</StyledButton>
         </div>
         <StyledQuestionContainer>
           <QABox />

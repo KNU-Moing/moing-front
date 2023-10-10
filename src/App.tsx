@@ -4,8 +4,12 @@ import { Main } from "./component/project/main";
 import { MyPage } from "./component/project/mypage";
 import { SignIn } from "./component/project/sign/signIn";
 import { SignUp } from "./component/project/sign/signUp";
+
 import { Notebook } from "./component/project/maternityNotebook/notebook";
 import { Diary } from "./component/project/maternityNotebook/diary";
+
+import { Cook } from "./component/project/cook";
+
 import { Question } from "./component/project/question";
 
 function App() {
@@ -16,8 +20,12 @@ function App() {
         <Route path="/Mypage" element={<MyPage />} />
         <Route path="/SignIn" element={<SignIn />} />
         <Route path="/SignUp" element={<SignUp />} />
+
         <Route path="/Notebook" element={<Notebook />} />
         <Route path="/Diary" element={<Diary />} />
+
+        <Route path="/Cook" element={<Cook />} />
+
         <Route path="/Question" element={<Question />} />
       </Routes>
     </div>
