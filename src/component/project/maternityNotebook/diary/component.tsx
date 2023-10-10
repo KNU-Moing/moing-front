@@ -172,19 +172,7 @@ export const DiaryOverlay = ({ children }: { children: React.ReactNode }) => (
   </div>
 );
 
-type UserProps = {
-  Diary: DiaryType; // 부모컴포넌트에서 import 해온 타입을 재사용 해 줍시다.
-};
-
-export const DiaryBox = () => {
-  const [diary, setDiary] = useState({
-    index: 1,
-    img: "/img/DummyPicture.png",
-    week: "14주차",
-    content:
-      "안녕 아가야 ~ 이제 우리 아가가 곧 나오겠구나 우리 쑥쑥이 빨리 보고싶다! 쑥쑥아 근데 밤에 왜이렇게 발로 차는거니 힘이 정말 장사야 엄마 넘 힘들어 좀 살살차봐 ~ 그리고 우리 쑥쑥이 지금 여름인데 수박을 왜이렇게 좋아하니!! 쑥쑥이는 수박이 정말 좋나봐 ㅠㅠ 어쩌구 저쩌구 많을 경우 자를 거임",
-  });
-
+export const DiaryBox = ({ diary }: { diary: DiaryType }) => {
   const handleNavi = () => {
     alert(`diary/${diary.index}페이지로 이동`);
   };

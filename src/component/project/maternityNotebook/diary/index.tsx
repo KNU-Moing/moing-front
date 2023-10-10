@@ -88,10 +88,9 @@ export const Diary = () => {
             <WriteButton></WriteButton>
           </TitleBar>
           <DiaryOverlay>
-            <DiaryBox></DiaryBox>
-            <DiaryBox></DiaryBox>
-            <DiaryBox></DiaryBox>
-            <DiaryBox></DiaryBox>
+            {diaryList.map((dairy) => (
+              <DiaryBox key={dairy.index} diary={dairy} />
+            ))}
           </DiaryOverlay>
         </ContextOverlay>
       </Overlay>
