@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 export const Text1 = styled.p`
   position: absolute;
   left: 310px;
-  top: 449px;
+  top: 300px;
   font-family: Inter;
   font-size: 30px;
   font-style: normal;
@@ -16,7 +16,7 @@ export const Text1 = styled.p`
 export const Text2 = styled.p`
    position: absolute;
    left :310px ;
-   top :415px ;
+   top : 300px ;
    font-family :Inter ;
    font-size :100px ;
    font-style :normal ;
@@ -31,7 +31,7 @@ export const CustomButton = styled.button`
     height: 68px;
     position: absolute;
     left: 310px;
-    top: 634px;
+    top: 550px;
     border: 1px solid #a5a5a5;
     border-radius: 87px;
     font-size: 25px;

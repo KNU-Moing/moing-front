@@ -15,12 +15,10 @@ import {
   Inner,
   RowContainer,
 } from "./component";
-import Header from "../header/header";
 
 export const Cook = () => {
   return (
     <div>
-      <Header />
       <Inner>
         <FlexsContainer />
         <RowContainer>

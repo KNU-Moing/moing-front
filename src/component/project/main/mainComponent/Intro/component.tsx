@@ -8,13 +8,13 @@ export const Button = styled.button<{ active: boolean }>`
   background: ${(props) => (props.active ? '#9C9C9C' : 'transparent')};
   color: ${(props) => (props.active ? 'white' : '#808080')};
   font-family: Inter;
-  font-size: 30px;
+  font-size: 24px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
   padding: 10px 20px;
   margin: 5px;
-  margin-top: 200px;
+  margin-top: 150px;
   border: none;
   cursor: pointer;
 `;
@@ -29,10 +29,10 @@ export const PageContainer = styled.div`
 `;
 
 export const HeaderContainer = styled.div`
-  text-align: left;
+  text-align: center;
   margin-left: 211px;
-  margin-top: 100px;
   align-self: flex-start;
+  color: #808080;
 `;
 
 export const ContentContainer = styled.div`

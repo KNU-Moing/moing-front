@@ -6,7 +6,7 @@ export const MainFooterContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh; /* 화면 전체 높이를 채우도록 설정합니다. */
+  height: 80vh;
 `;
 
 export const MainFooterText = styled.div`
@@ -19,10 +19,10 @@ export const MainFooterText = styled.div`
   line-height: normal;
 
   h3 {
-    font-size: 36px; /* 원하는 사이즈로 조절하세요. */
+    font-size: 36px; 
   }
 
   h1 {
-    font-size: 48px; /* 원하는 사이즈로 조절하세요. */
+    font-size: 48px; 
   }
 `;

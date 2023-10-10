@@ -5,6 +5,7 @@ import { MyPage } from "./component/project/mypage";
 import { SignIn } from "./component/project/sign/signIn";
 import { SignUp } from "./component/project/sign/signUp";
 import { Cook } from "./component/project/cook";
+import { Question } from "./component/project/question";
 function App() {
   return (
     <div className="App">
@@ -14,6 +15,7 @@ function App() {
         <Route path="/SignIn" element={<SignIn />} />
         <Route path="/SignUp" element={<SignUp />} />
         <Route path="/Cook" element={<Cook />} />
+        <Route path="/Question" element={<Question />} />
       </Routes>
     </div>
   );
