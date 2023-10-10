@@ -11,6 +11,7 @@ import {
   CookSubTitte,
   CookTestBlock,
   FlexContainer,
+  FlexsContainer,
   Inner,
   RowContainer,
 } from "./component";
@@ -19,7 +20,9 @@ import Header from "../header/header";
 export const Cook = () => {
   return (
     <div>
+      <Header />
       <Inner>
+        <FlexsContainer />
         <RowContainer>
           <CookMainBlock>
             [경기 용인] 자연속에서 함께하는 용인뽀송조리원

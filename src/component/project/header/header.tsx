@@ -15,6 +15,7 @@ const StyledHeader = styled.header`
   align-items: center;
   justify-content: space-between;
   position: absolute;
+
   top: 73px; /* 헤더의 top을 73px로 설정 */
 
   .nav_logo {
