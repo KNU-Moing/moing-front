@@ -13,13 +13,18 @@ import {
   ContentBoxLayer,
   ChartContent,
   HospitalVisitDay,
+  WeeksTipLayout,
+  WeeksTipLContainer,
   MoreButton,
   EtcOverLay,
+  ChartContainer,
   WeeksChart,
 } from "./component";
 import { useNavigate } from "react-router-dom";
 import StyledHeader from "../../header";
 import { useEffect, useState } from "react";
+import { css } from "@emotion/react";
+import theme from "../../../../styles/theme";
 
 export const Notebook = () => {
   const navigate = useNavigate();
@@ -102,6 +107,7 @@ export const Notebook = () => {
               <ChartDetailSection>
                 <ContentBoxLayer
                   title="산모 정보"
+                  styleFlex="flex"
                   styleWidth="100%"
                   styleHeight="16vh"
                 >
@@ -123,6 +129,7 @@ export const Notebook = () => {
                 </ContentBoxLayer>
                 <ContentBoxLayer
                   title="태아 정보"
+                  styleFlex="flex"
                   styleWidth="100%"
                   styleHeight="16vh"
                 >
@@ -139,6 +146,7 @@ export const Notebook = () => {
                 </ContentBoxLayer>
                 <ContentBoxLayer
                   title="다음 내원일"
+                  styleFlex="flex"
                   styleWidth="100%"
                   styleHeight="16vh"
                 >
@@ -153,39 +161,52 @@ export const Notebook = () => {
               <ChartDetailSection>
                 <ContentBoxLayer
                   title="주차별 Tip!"
+                  styleFlex="block"
                   styleWidth="100%"
                   styleHeight="50.2vh"
                 >
                   <MoreButton
                     onClick={moreHandle}
-                    styleLeft="26vw"
+                    styleLeft="35.5vw"
                   ></MoreButton>
+                  <WeeksTipLayout>
+                    <WeeksTipLContainer days={97}></WeeksTipLContainer>
+                  </WeeksTipLayout>
                 </ContentBoxLayer>
               </ChartDetailSection>
             </ChartDetailLayout>
           </TodayChart>
 
-          <ContentBoxLayer title="그래프" styleWidth="90%" styleHeight="40vh">
+          <ContentBoxLayer
+            title="그래프"
+            styleFlex="block"
+            styleWidth="90%"
+            styleHeight="40vh"
+          >
             그래프
           </ContentBoxLayer>
 
           <EtcOverLay>
             <ContentBoxLayer
+              styleFlex="block"
               title="진료 기록 보기"
               styleWidth="60%"
-              styleHeight="40vh"
+              styleHeight="50vh"
             >
-              <MoreButton onClick={moreHandle} styleLeft="33vw"></MoreButton>
-              <div>
-                <WeeksChart week={1} src="/img/DummyPicture.png"></WeeksChart>
-              </div>
+              <MoreButton onClick={moreHandle} styleLeft="44vw"></MoreButton>
+              <ChartContainer>
+                {hospitalChart.map((chart) => (
+                  <WeeksChart week={chart.index} src={chart.src}></WeeksChart>
+                ))}
+              </ChartContainer>
             </ContentBoxLayer>
             <ContentBoxLayer
               title="임신 중기 추천 제품!"
+              styleFlex="block"
               styleWidth="39%"
-              styleHeight="40vh"
+              styleHeight="50vh"
             >
-              <div></div>
+              {""}
             </ContentBoxLayer>
           </EtcOverLay>
         </ContextOverlay>

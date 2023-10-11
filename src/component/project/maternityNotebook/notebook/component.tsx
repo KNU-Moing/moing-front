@@ -1,23 +1,26 @@
 import theme from "../../../../styles/theme";
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import { on } from "events";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 export const ContentBoxLayer = ({
   children,
   title,
+  styleFlex,
   styleWidth,
   styleHeight,
 }: {
   children: React.ReactNode;
   title: string;
+  styleFlex: string;
   styleWidth: string;
   styleHeight: string;
 }) => (
   <div
     css={css`
-      display: flex;
+      display: ${styleFlex};
+
       border: 1px solid ${theme.palette.gray[300]};
       border-radius: 20px;
       width: ${styleWidth};
@@ -52,11 +55,12 @@ export const MoreButton = ({
       ${theme.typography.body5}
       background-color: #fff;
       color: ${theme.palette.gray[600]};
-      height: 4.6rem;
+      height: 3rem;
       padding: 0;
       border: none;
       position: relative;
       left: ${styleLeft};
+      bottom: 7.8vh;
     `}
     onClick={onClick}
   >
@@ -221,6 +225,75 @@ export const HospitalVisitDay = ({
   );
 };
 
+//주차별 Tip
+
+export const WeeksTipLayout = ({ children }: { children: React.ReactNode }) => (
+  <div
+    css={css`
+      width: 100%;
+      height: 80%;
+      display: flex;
+      margin-top: -3rem;
+    `}
+  >
+    {children}
+  </div>
+);
+
+export const WeeksTipLContainer = ({ days }: { days: number }) => {
+  const [circles, setCircles] = useState([
+    "width: 60px; height: 60px; top: 15px; left: 25px;",
+    "width: 150px; height: 150px; top: 60px; left: 50px;",
+    "width: 30px; height: 30px; top: 205px; left: 185px;",
+    "width: 20px; height: 20px; top: 247px; left: 165px;",
+  ]);
+  const week = 0;
+  const day = 0;
+
+  return (
+    <div
+      css={css`
+        width: 40%;
+        height: 100%;
+        position: relative;
+      `}
+    >
+      {circles.map((circle) => (
+        <Circle styles={circle}></Circle>
+      ))}
+      <div
+        css={css`
+          position: absolute;
+        `}
+      >
+        <div>{days}일</div>
+        <div>
+          {week}주차 {day}일
+        </div>
+      </div>
+    </div>
+  );
+};
+const Circle = ({ styles }: { styles: string }) => {
+  return (
+    <div
+      css={css`
+        background-color: ${theme.palette.gray[200]};
+        border-radius: 100%;
+        position: absolute;
+        z-index: 0;
+        ${styles}
+      `}
+    ></div>
+  );
+};
+
+/*
+*
+하단 정보
+*
+*/
+
 export const EtcOverLay = ({ children }: { children: React.ReactNode }) => (
   <div
     css={css`
@@ -234,21 +307,59 @@ export const EtcOverLay = ({ children }: { children: React.ReactNode }) => (
   </div>
 );
 
+export const ChartContainer = ({ children }: { children: React.ReactNode }) => (
+  <div
+    css={css`
+      width: 95%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: ${theme.spacing.xxs};
+      margin-top: -3rem;
+      margin-left: ${theme.spacing.xs};
+    `}
+  >
+    {children}
+  </div>
+);
+
 export const WeeksChart = ({ week, src }: { week: number; src: string }) => {
+  const navigate = useNavigate();
+
+  const handleGOChart = () => {
+    alert(`chart/${week}로 이동`);
+  };
   return (
     <div
       css={css`
-        text-align: center;w
-        width: 12vw;
+        padding-top: ${theme.spacing.xxs};
+        text-align: center;
+        width: 15vw;
+        &:hover {
+          background-color: ${theme.palette.gray[200]};
+          border-radius: 10px;
+          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16),
+            0 3px 6px rgba(0, 0, 0, 0.23);
+        }
       `}
+      onClick={handleGOChart}
     >
       <img
         src={src}
         css={css`
-          width: 10vw;
+          border-radius: 10px;
+          width: 14vw;
         `}
       ></img>
-      <div>{week}주차</div>
+      <div
+        css={css`
+          margin: ${theme.spacing.xxxs} 0;
+          color: ${theme.palette.gray[600]};
+          ${theme.typography.body5};
+        `}
+      >
+        {week}주차
+      </div>
     </div>
   );
 };
