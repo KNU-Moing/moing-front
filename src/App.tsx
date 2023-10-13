@@ -6,6 +6,7 @@ import { SignIn } from "./component/project/sign/signIn";
 import { SignUp } from "./component/project/sign/signUp";
 import { Cook } from "./component/project/cook";
 import { Question } from "./component/project/question";
+import { Detail } from "./component/project/cook/detail.tsx";
 function App() {
   return (
     <div className="App">
@@ -15,6 +16,7 @@ function App() {
         <Route path="/SignIn" element={<SignIn />} />
         <Route path="/SignUp" element={<SignUp />} />
         <Route path="/Cook" element={<Cook />} />
+        <Route path="/Detail" element={<Detail />} />
         <Route path="/Question" element={<Question />} />
       </Routes>
     </div>
