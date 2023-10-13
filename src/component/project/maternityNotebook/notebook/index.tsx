@@ -15,6 +15,14 @@ import {
   HospitalVisitDay,
   WeeksTipLayout,
   WeeksTipLContainer,
+  WeeksTipRContainer,
+  TipTitle,
+  TipContent,
+  GraphLayout,
+  GraphBtnContainer,
+  GraphButton,
+  GraphContainer,
+  Gragh,
   MoreButton,
   EtcOverLay,
   ChartContainer,
@@ -23,8 +31,16 @@ import {
 import { useNavigate } from "react-router-dom";
 import StyledHeader from "../../header";
 import { useEffect, useState } from "react";
-import { css } from "@emotion/react";
-import theme from "../../../../styles/theme";
+
+export type TipType = {
+  index: number;
+  title: string;
+  content: string;
+};
+export type GraphBtnType = {
+  title: string;
+  checked: boolean;
+};
 
 export const Notebook = () => {
   const navigate = useNavigate();
@@ -42,17 +58,24 @@ export const Notebook = () => {
     },
     {
       index: 2,
-      title: "부부간의 성생활을 해주세요",
+      title: "카페인에 대한 경각심을 늦추지 마세요!",
       content:
         "엄마 몸에 안정이 찾아오고 임신에 대한 두려움이 사라지는 단계예요! 부부간의 성생활이 유산을 초래할 수 있다는 말은 과민이에요 적당한 성생활은 좋아요 단, 임산부의 배를 고려한 체위로 해주세요",
     },
     {
       index: 3,
-      title: "부부간의 성생활을 해주세요",
+      title: "초유가 만들어지기 시작해요",
       content:
         "엄마 몸에 안정이 찾아오고 임신에 대한 두려움이 사라지는 단계예요! 부부간의 성생활이 유산을 초래할 수 있다는 말은 과민이에요 적당한 성생활은 좋아요 단, 임산부의 배를 고려한 체위로 해주세요",
     },
   ]);
+  const [graphCategory, setGraphCategory] = useState([
+    { id: 1, title: "산모 체중", checked: true },
+    { id: 2, title: "산모 혈압", checked: false },
+    { id: 3, title: "태아 크기", checked: false },
+    { id: 4, title: "태아 체중", checked: false },
+  ]);
+  const [selecedGraph, setSelecedGraph] = useState("산모 체중");
   const [hospitalChart, setHospitalChart] = useState([
     {
       index: 1,
@@ -82,6 +105,16 @@ export const Notebook = () => {
   const moreHandle = () => {
     alert("더보기 버튼");
   };
+
+  useEffect(() => {
+    let newArr = [...graphCategory];
+    newArr.forEach((category) => {
+      selecedGraph === category.title
+        ? (category.checked = true)
+        : (category.checked = false);
+    });
+    setGraphCategory(newArr);
+  }, [selecedGraph]);
 
   return (
     <div>
@@ -171,6 +204,12 @@ export const Notebook = () => {
                   ></MoreButton>
                   <WeeksTipLayout>
                     <WeeksTipLContainer days={97}></WeeksTipLContainer>
+                    <WeeksTipRContainer>
+                      <TipTitle moment="중기"></TipTitle>
+                      {weeksTip.map((tip) => (
+                        <TipContent tip={tip}></TipContent>
+                      ))}
+                    </WeeksTipRContainer>
                   </WeeksTipLayout>
                 </ContentBoxLayer>
               </ChartDetailSection>
@@ -183,7 +222,19 @@ export const Notebook = () => {
             styleWidth="90%"
             styleHeight="40vh"
           >
-            그래프
+            <GraphLayout>
+              <GraphBtnContainer>
+                {graphCategory.map((content) => (
+                  <GraphButton
+                    content={content}
+                    setCategory={setSelecedGraph}
+                  ></GraphButton>
+                ))}
+              </GraphBtnContainer>
+              <GraphContainer>
+                <Gragh></Gragh>
+              </GraphContainer>
+            </GraphLayout>
           </ContentBoxLayer>
 
           <EtcOverLay>
