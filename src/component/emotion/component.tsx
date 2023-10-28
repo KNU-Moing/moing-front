@@ -336,3 +336,28 @@ const ContentTitle = ({ title }: { title: string }) => (
     {title}
   </div>
 );
+
+export const MoreButton = ({
+  onClick,
+  styleLeft,
+}: {
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
+  styleLeft: string;
+}) => (
+  <button
+    css={css`
+      ${theme.typography.body5}
+      background-color: #fff;
+      color: ${theme.palette.gray[600]};
+      height: 3rem;
+      padding: 0;
+      border: none;
+      position: relative;
+      left: ${styleLeft};
+      bottom: 7.8vh;
+    `}
+    onClick={onClick}
+  >
+    더보기
+  </button>
+);
