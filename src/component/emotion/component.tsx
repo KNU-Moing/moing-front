@@ -296,3 +296,43 @@ export const LoginButton = ({ children }: { children: React.ReactNode }) => (
     </div>
   </div>
 );
+
+export const ContentBoxLayer = ({
+  children,
+  title,
+  styleFlex,
+  styleWidth,
+  styleHeight,
+}: {
+  children: React.ReactNode;
+  title: string;
+  styleFlex: string;
+  styleWidth: string;
+  styleHeight: string;
+}) => (
+  <div
+    css={css`
+      display: ${styleFlex};
+
+      border: 1px solid ${theme.palette.gray[300]};
+      border-radius: 20px;
+      width: ${styleWidth};
+      height: ${styleHeight};
+      margin-top: ${theme.spacing.xxs};
+    `}
+  >
+    <ContentTitle title={title}></ContentTitle>
+    {children}
+  </div>
+);
+const ContentTitle = ({ title }: { title: string }) => (
+  <div
+    css={css`
+      color: ${theme.palette.gray[700]};
+      ${theme.typography.body4Bold}
+      padding: ${theme.spacing.sm};
+    `}
+  >
+    {title}
+  </div>
+);

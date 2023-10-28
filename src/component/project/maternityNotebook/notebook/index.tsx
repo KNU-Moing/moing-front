@@ -5,12 +5,12 @@ import {
   ContextOverlay,
   TitleContent,
 } from "../component";
+import { ContentBoxLayer } from "../../../emotion/component";
 import {
   TodayChart,
   ImgContainer,
   ChartDetailLayout,
   ChartDetailSection,
-  ContentBoxLayer,
   ChartContent,
   HospitalVisitDay,
   WeeksTipLayout,
@@ -259,7 +259,7 @@ export const Notebook = () => {
                     <WeeksTipRContainer>
                       <TipTitle moment="중기"></TipTitle>
                       {weeksTip.map((tip) => (
-                        <TipContent tip={tip}></TipContent>
+                        <TipContent key={tip.index} tip={tip}></TipContent>
                       ))}
                     </WeeksTipRContainer>
                   </WeeksTipLayout>
@@ -278,6 +278,7 @@ export const Notebook = () => {
               <GraphBtnContainer>
                 {graphCategory.map((content) => (
                   <GraphButton
+                    key={content.id}
                     content={content}
                     setCategory={setSelecedGraph}
                   ></GraphButton>
@@ -299,7 +300,11 @@ export const Notebook = () => {
               <MoreButton onClick={moreHandle} styleLeft="44vw"></MoreButton>
               <ChartContainer>
                 {hospitalChart.map((chart) => (
-                  <WeeksChart week={chart.index} src={chart.src}></WeeksChart>
+                  <WeeksChart
+                    key={chart.index}
+                    week={chart.index}
+                    src={chart.src}
+                  ></WeeksChart>
                 ))}
               </ChartContainer>
             </ContentBoxLayer>
