@@ -15,6 +15,7 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
+import type { ChartData, ChartOptions } from "chart.js";
 import { Line } from "react-chartjs-2";
 
 ChartJS.register(
@@ -458,43 +459,7 @@ const options = {
   },
 };
 
-const labels = [
-  "",
-  "1주차",
-  "2주차",
-  "3주차",
-  "4주차",
-  "5주차",
-  "6주차",
-  "",
-  " ",
-  " ",
-  " ",
-  " ",
-  " ",
-  " ",
-  " ",
-  " ",
-  " ",
-  " ",
-  " ",
-  " ",
-  " ",
-  " ",
-];
-
-const data = {
-  labels,
-  datasets: [
-    {
-      data: [null, 56, 56.8, 57, 59, 55.9, 56],
-      borderColor: "rgb(255, 99, 132)",
-      backgroundColor: "rgba(255, 99, 132, 0.5)",
-    },
-  ],
-};
-
-export function Gragh() {
+export function Gragh({ data }: { data: ChartData<"line"> }) {
   return <Line options={options} data={data} />;
 }
 
@@ -552,7 +517,6 @@ export const ChartContainer = ({ children }: { children: React.ReactNode }) => (
       width: 95%;
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
       gap: ${theme.spacing.xxs};
       margin-top: -3rem;
       margin-left: ${theme.spacing.xs};

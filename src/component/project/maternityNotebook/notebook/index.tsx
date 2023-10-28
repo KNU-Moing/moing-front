@@ -93,15 +93,41 @@ export const Notebook = () => {
       index: 4,
       src: "/img/DummyPicture.png",
     },
-    {
-      index: 5,
-      src: "/img/DummyPicture.png",
-    },
-    {
-      index: 6,
-      src: "/img/DummyPicture.png",
-    },
   ]);
+  const labels = [
+    "",
+    "1주차",
+    "2주차",
+    "3주차",
+    "4주차",
+    "5주차",
+    "6주차",
+    "",
+    " ",
+    " ",
+    " ",
+    " ",
+    " ",
+    " ",
+    " ",
+    " ",
+    " ",
+    " ",
+    " ",
+    " ",
+    " ",
+    " ",
+  ];
+  const [graphData, setGraphData] = useState({
+    labels,
+    datasets: [
+      {
+        data: [null, 56, 56.8, 57, 59, 55.9, 56],
+        borderColor: "rgb(255, 99, 132)",
+        backgroundColor: "rgba(255, 99, 132, 0.5)",
+      },
+    ],
+  });
   const moreHandle = () => {
     alert("더보기 버튼");
   };
@@ -114,6 +140,32 @@ export const Notebook = () => {
         : (category.checked = false);
     });
     setGraphCategory(newArr);
+
+    //그래프 데이터 변경
+    if (selecedGraph === "산모 체중") {
+      setGraphData({
+        labels,
+        datasets: [
+          {
+            data: [null, 56, 56.8, 57, 59, 55.9, 56],
+            borderColor: "rgb(255, 99, 132)",
+            backgroundColor: "rgba(255, 99, 132, 0.5)",
+          },
+        ],
+      });
+    }
+    if (selecedGraph === "산모 혈압") {
+      setGraphData({
+        labels,
+        datasets: [
+          {
+            data: [null, 96, 96.8, 97, 96, 95.9, 96],
+            borderColor: "rgb(255, 99, 132)",
+            backgroundColor: "rgba(255, 99, 132, 0.5)",
+          },
+        ],
+      });
+    }
   }, [selecedGraph]);
 
   return (
@@ -232,7 +284,7 @@ export const Notebook = () => {
                 ))}
               </GraphBtnContainer>
               <GraphContainer>
-                <Gragh></Gragh>
+                <Gragh data={graphData}></Gragh>
               </GraphContainer>
             </GraphLayout>
           </ContentBoxLayer>
