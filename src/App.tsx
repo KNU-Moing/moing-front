@@ -7,6 +7,7 @@ import { SignUp } from "./component/project/sign/signUp";
 import { Cook } from "./component/project/cook";
 import { Question } from "./component/project/question";
 import { Detail } from "./component/project/cook/detail.tsx";
+import { Supplies } from "./component/project/supplies";
 function App() {
   return (
     <div className="App">
@@ -17,6 +18,7 @@ function App() {
         <Route path="/SignUp" element={<SignUp />} />
         <Route path="/Cook" element={<Cook />} />
         <Route path="/Cook/:item" element={<Detail />} />
+        <Route path="/Supplies" element={<Supplies />} />
         <Route path="/Question" element={<Question />} />
       </Routes>
     </div>
