@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { css } from "@emotion/react";
 import theme from "../../../styles/theme";
+import { useNavigate } from "react-router-dom";
 
 export const CookMainBlock = ({ children }: { children: React.ReactNode }) => (
   <div
@@ -295,6 +296,7 @@ export const FlexsContainer = () => {
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
   const [Option, setOption] = useState<string>("지역을 선택해주세요");
+  const navigate = useNavigate();
   const getDataForOption = (option: string | null) => {
     if (option === "서울") {
       return [
@@ -448,8 +450,14 @@ export const FlexsContainer = () => {
   };
 
   const handleItemSelect = (item: string) => {
-    setSelectedItem(item);
-    setOption(item);
+    if (selectedItem === item) {
+      const encodedItem = encodeURIComponent(item);
+      setSelectedItem(encodedItem);
+      navigate(`/Cook/${encodedItem}`);
+    } else {
+      setSelectedItem(item);
+      setOption(item);
+    }
   };
 
   const selectedData = getDataForOption(selectedOption);

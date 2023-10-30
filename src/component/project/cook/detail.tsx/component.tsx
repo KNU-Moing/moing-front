@@ -313,7 +313,7 @@ export const SearchContainer = () => (
     ></div>
   </div>
 );
-export const HeadContainer = () => (
+export const HeadContainer = ({ children }: { children: React.ReactNode }) => (
   <div
     css={css`
       display: flex;
@@ -345,7 +345,7 @@ export const HeadContainer = () => (
           font-size: 3rem;
         `}
       >
-        강남/역삼/삼성
+        {children}
       </div>
       <div
         css={css`

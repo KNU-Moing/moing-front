@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import { Main } from "./component/project/main";
 import { MyPage } from "./component/project/mypage";
 import { SignIn } from "./component/project/sign/signIn";
@@ -16,7 +16,7 @@ function App() {
         <Route path="/SignIn" element={<SignIn />} />
         <Route path="/SignUp" element={<SignUp />} />
         <Route path="/Cook" element={<Cook />} />
-        <Route path="/Detail" element={<Detail />} />
+        <Route path="/Cook/:item" element={<Detail />} />
         <Route path="/Question" element={<Question />} />
       </Routes>
     </div>

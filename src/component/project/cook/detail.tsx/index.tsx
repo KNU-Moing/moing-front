@@ -19,12 +19,14 @@ import {
   RowContainer,
   SearchContainer,
 } from "./component";
+import { useLocation, useParams } from "react-router-dom";
 
 export const Detail = () => {
+  const { item } = useParams();
   return (
     <div>
       <Inner>
-        <HeadContainer />
+        <HeadContainer> {item}</HeadContainer>
         <SearchContainer />
         <FlexsContainer />
         <RowContainer>
