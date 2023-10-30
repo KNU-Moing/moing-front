@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from 'react';
 import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
 
@@ -127,6 +127,20 @@ const StyledRightHeader = styled.div`
     }
   }
 `;
+const Modal = styled.div`
+  background: white;
+  width: 405.35px;
+  height: 557.805px;
+  border: 2px solid #FFE2E2;
+  border-radius: 17px; 
+  position: fixed;
+  top: 440px;
+  right: 20px;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  z-index: 999;
+`;
+
 
 const LeftHeader = () => {
   return (
@@ -166,10 +180,29 @@ const NavMenu = ({ isToggleOpen }: NavMenuProps) => {
 };
 
 const RightHeader = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false); // useState를 RightHeader 컴포넌트 내에서 선언
+
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen); // 모달 열림/닫힘 상태를 토글합니다.
+  }
+
   return (
     <StyledRightHeader>
-      <div className="header-button">
+      <div className="header-button" onClick={toggleModal}>
         <img src="/Img/allim.png" alt="Allim" />
+        {isModalOpen && (
+        <Modal className="modal">
+          {/* 모달 내용 */}
+          <h1 style={{
+          color: '#000',
+          fontFamily: 'Pretendard', 
+          fontSize: '25px', 
+          fontStyle: 'normal', 
+          fontWeight: 500,
+          lineHeight: 'normal' 
+          }}>알림</h1>
+        </Modal>
+        )}
       </div>
       <Link to="/question" className="header-button">
         <img src="/Img/Union (Stroke).png" alt="Question" />
