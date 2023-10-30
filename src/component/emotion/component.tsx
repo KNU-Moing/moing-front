@@ -2,6 +2,33 @@
 import React from "react";
 import { css } from "@emotion/react";
 import theme from "../../styles/theme";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
+
+export const BackButton = () => {
+  const navigate = useNavigate();
+
+  const goBack = () => {
+    navigate(-1);
+  };
+
+  return (
+    <img
+      src= "./img/goBack.png"
+      alt="뒤로 가기"
+      css={css`
+        cursor: pointer;
+        width: 20px; 
+        height: 30px; 
+        position: absolute; 
+        top: 170px;
+        left: 120px; 
+      `}
+      onClick={goBack}
+    />
+  );
+};
+
+
 export const Overlay = ({
   children,
   closeModal,
