@@ -2,7 +2,6 @@
 import React from "react";
 import { css } from "@emotion/react";
 import theme from "../../styles/theme";
-
 export const Overlay = ({
   children,
   closeModal,
