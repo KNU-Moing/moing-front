@@ -146,7 +146,7 @@ const LeftHeader = () => {
   return (
     <StyledLeftHeader>
       <Link to={"/"} className="nav-logo-link">
-        MO-ING
+        <img src='./img/headerLogo.png'alt=''/>
       </Link>
     </StyledLeftHeader>
   );

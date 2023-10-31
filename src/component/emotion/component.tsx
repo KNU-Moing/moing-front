@@ -17,10 +17,10 @@ export const BackButton = () => {
       alt="뒤로 가기"
       css={css`
         cursor: pointer;
-        width: 20px; 
-        height: 30px; 
+        width: 30px; 
+        height: 49px; 
         position: absolute; 
-        top: 170px;
+        top: 25%;
         left: 120px; 
       `}
       onClick={goBack}
