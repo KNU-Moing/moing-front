@@ -3,7 +3,7 @@ import theme from "../../../styles/theme";
 import { css } from "@emotion/react";
 
 interface ButtonProp {
-  onClick: () => void;
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 export const Overlay = ({ children }: { children: React.ReactNode }) => (
@@ -19,23 +19,33 @@ export const Overlay = ({ children }: { children: React.ReactNode }) => (
 );
 
 export const MyPageContainer = ({
+  styleWidth,
   title,
   children,
 }: {
+  styleWidth: string;
   title: string;
   children: React.ReactNode;
 }) => (
   <div
     css={css`
-      font-size: ${theme.typography.body2Bold.fontSize};
-      font-weight: ${theme.typography.body2Bold.fontWeight};
-      width: 70%;
+      width: ${styleWidth};
+      position: relative;
     `}
   >
-    {title}
     <div
       css={css`
-        background-color: ${theme.palette.gray[200]};
+        ${theme.typography.body3Bold}
+        padding: 0 ${theme.spacing.xl};
+      `}
+    >
+      {title}
+    </div>
+
+    <div
+      css={css`
+        border: 1px solid ${theme.palette.pink[600]};
+        box-shadow: 0 1px 3px ${theme.palette.pink[600]};
         width: 100%;
         padding: ${theme.spacing.sm};
         margin-top: ${theme.spacing.xs};
@@ -83,8 +93,8 @@ export const Profile = (props: { name: string; src: string }) => {
 };
 
 export const ProfileImg = (props: { src: string; size: string }) => {
-  return (
-    <img
+  /* 기존 img 코드 현재는 잠시 div 및 색상 대체
+<img
       css={css`
         border-radius: 70%;
         margin: ${theme.spacing.sm};
@@ -93,7 +103,50 @@ export const ProfileImg = (props: { src: string; size: string }) => {
       `}
       src={props.src}
       alt="프로필 사진"
-    ></img>
+    ></img> 
+  */
+  return (
+    <div
+      css={css`
+        border-radius: 70%;
+        background-color: ${props.src};
+        margin: ${theme.spacing.sm};
+        width: ${props.size};
+        height: ${props.size};
+      `}
+    >
+      {" "}
+    </div>
+  );
+};
+export const ProfileBtn = ({
+  onClick,
+}: {
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
+}) => {
+  return (
+    <button
+      css={css`
+        border: none;
+        border-radius: 100%;
+        width: 2.5rem;
+        height: 2.5rem;
+        background-color: ${theme.palette.pink[100]};
+        position: absolute;
+        bottom: 2.8rem;
+        left: 10.8rem;
+      `}
+      onClick={onClick}
+    >
+      <img
+        src="img\myPageWriteIcon.png"
+        width="20rem"
+        height="20rem"
+        css={css`
+          margin: 0.2rem 0 0 0.2rem;
+        `}
+      ></img>
+    </button>
   );
 };
 
@@ -118,13 +171,13 @@ export const PregancyPeriod = (props: {
       </div>
       <div
         css={css`
-          font-size: ${theme.font.xl};
+          ${theme.typography.header2};
           padding-top: ${theme.spacing.xxs};
         `}
       >
         {props.day}일
       </div>
-      <div>{props.week}주차</div>
+      <div>{props.week}주차 1일</div>
     </div>
   );
 };
@@ -134,8 +187,17 @@ export const PregancyPeriod = (props: {
 내 정보
 *
 */
+export const InfoLayout = ({ children }: { children: React.ReactNode }) => (
+  <div
+    css={css`
+      padding: ${theme.spacing.xl} 0 0 ${theme.spacing.sm};
+    `}
+  >
+    {children}
+  </div>
+);
 
-export const InfoLayer = ({ children }: { children: React.ReactNode }) => (
+export const InfoContainer = ({ children }: { children: React.ReactNode }) => (
   <div
     css={css`
       display: flex;
@@ -147,60 +209,54 @@ export const InfoLayer = ({ children }: { children: React.ReactNode }) => (
   </div>
 );
 
-export const InfoSection = ({ children }: { children: React.ReactNode }) => (
+export const InfoSection = ({
+  children,
+  left,
+}: {
+  children: React.ReactNode;
+  left: boolean;
+}) => (
   <div
     css={css`
       width: 50%;
-    `}
-  >
-    {children}
-  </div>
-);
-export const InfoLeftSection = ({
-  children,
-}: {
-  children: React.ReactNode;
-}) => (
-  <InfoSection
-    css={css`
-      background-color: ${theme.palette.gray[800]};
-      border-right: solid 2px ${theme.palette.gray[300]};
-    `}
-  >
-    {children}
-  </InfoSection>
-);
-export const InfoBtnSection = ({ children }: { children: React.ReactNode }) => (
-  <div
-    css={css`
-      display: flex;
-      justify-content: space-between;
+      padding-top: ${theme.spacing.xs};
+      ${left ? ` border-right: solid 1px ${theme.palette.pink[100]};` : ""}
+      margin-right: ${theme.spacing.md};
     `}
   >
     {children}
   </div>
 );
 
-export const InfoDetail = (props: { title: string; context: string }) => {
+export const InfoDetail = ({
+  title,
+  context,
+  children,
+}: {
+  title: string;
+  context: string;
+  children: React.ReactNode;
+}) => {
   return (
     <div
       css={css`
         display: flex;
         margin-bottom: ${theme.spacing.sm};
-        font-size: ${theme.typography.body4.fontSize};
-        font-weight: ${theme.typography.body4.fontWeight};
+        width: ${context === "" ? `21vw` : `25vw`};
+        position: relative;
+        ${theme.typography.body5};
       `}
     >
       <div
         css={css`
-          font-size: ${theme.typography.body3Bold.fontSize};
-          font-weight: ${theme.typography.body3Bold.fontWeight};
-          width: 10vw;
+          ${theme.typography.body4Bold};
+          width: 8vw;
         `}
       >
-        {props.title}
+        {title}
       </div>
-      {props.context}
+      {context}
+      {children}
     </div>
   );
 };
@@ -211,15 +267,13 @@ export const InfoProfile = (props: { name: string; day: number }) => {
       css={css`
         display: flex;
         align-items: center;
-        margin-bottom: ${theme.spacing.md};
-        font-size: ${theme.typography.body4.fontSize};
-        font-weight: ${theme.typography.body4.fontWeight};
+        margin-bottom: ${theme.spacing.sm};
+        ${theme.typography.body4}
       `}
     >
       <div
         css={css`
-          font-size: ${theme.typography.body1Bold.fontSize};
-          font-weight: ${theme.typography.body1Bold.fontWeight};
+          ${theme.typography.body2Bold}
           margin-right: 2vw;
         `}
       >
@@ -235,9 +289,11 @@ export const ChangeButton = ({ onClick }: ButtonProp) => {
     <button
       css={css`
         border: none;
+        background-color: #ffffff;
         height: ${theme.spacing.md};
-        margin-right: ${theme.spacing.xxs};
-        text-decoration: underline;
+        color: ${theme.palette.pink[100]};
+        position: absolute;
+        right: ${theme.spacing.md};
       `}
       onClick={onClick}
     >

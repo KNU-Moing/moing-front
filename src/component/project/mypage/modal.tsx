@@ -17,6 +17,8 @@ import {
   InputWithBtn,
   InputPwd,
   InputHospital,
+  ModalTitle,
+  SubmitContext,
 } from "./modalComponent";
 
 interface ModalProps {
@@ -43,6 +45,7 @@ export const HospitalModal = ({ isOpen, closeModal }: ModalProps) => {
     closeModal();
   };
 
+  //모달 창이 열리거나 닫힐 때 input창 데이터 초기화
   useEffect(() => {
     setName("");
     setSendRequest(false);
@@ -56,13 +59,14 @@ export const HospitalModal = ({ isOpen, closeModal }: ModalProps) => {
       <CancelBtn onClick={handleCancel} />
 
       {sendRequest === true ? (
-        <p>
-          <b>{name}</b>에 요청을 보냈습니다
-          <p>병원 방문 후 인증 후에 변경이 완료됩니다</p>
-        </p>
+        <SubmitContext name={name}></SubmitContext>
       ) : (
         <div>
-          변경 할 산부인과를 검색해주세요
+          {name === "" ? (
+            <ModalTitle title="변경 할 산부인과를 검색해주세요"></ModalTitle>
+          ) : (
+            <ModalTitle title="산부인과를 변경하시겠습니까?"></ModalTitle>
+          )}
           <InputHospital context={name} setContext={setName}></InputHospital>
           {name === "" ? null : <SubmitBtn onClick={handleSubmit} />}
         </div>
@@ -112,38 +116,35 @@ export const InfoModal = ({
 
       <div
         css={css`
-          margin-bottom: ${theme.spacing.lg};
+          margin-bottom: ${theme.spacing.xl};
         `}
       >
-        변경 할 정보를 입력해주세요.
+        <ModalTitle title="변경 할 정보를 입력해주세요."></ModalTitle>
+        <EmailInfo email={email} handleShow={handleShow}></EmailInfo>
+        {isShown === false ? (
+          ""
+        ) : (
+          <div>
+            <InputWithBtn
+              context="변경 이메일"
+              btnContext="인증하기"
+              state={updateEmail}
+              setState={setUpdateEmail}
+              onClick={handleEmailClick}
+            ></InputWithBtn>
+            <InputWithBtn
+              context="인증 번호"
+              btnContext="인증확인"
+              state={verificationCode}
+              setState={setVerificationCode}
+              onClick={handleVeriClick}
+            ></InputWithBtn>
+          </div>
+        )}
+        <InputPwd context="새 비밀번호" setPwd={setUpdatePwd}></InputPwd>
+        <InputPwd context="새 비밀번호 확인" setPwd={setCheckPwd}></InputPwd>
       </div>
 
-      <EmailInfo email={email} handleShow={handleShow}></EmailInfo>
-
-      {isShown === false ? (
-        ""
-      ) : (
-        <div>
-          <InputWithBtn
-            context="변경 이메일"
-            btnContext="인증하기"
-            state={updateEmail}
-            setState={setUpdateEmail}
-            onClick={handleEmailClick}
-          ></InputWithBtn>
-          <InputWithBtn
-            context="인증 번호"
-            btnContext="인증확인"
-            state={verificationCode}
-            setState={setVerificationCode}
-            onClick={handleVeriClick}
-          ></InputWithBtn>
-          <hr></hr>
-        </div>
-      )}
-
-      <InputPwd context="새 비밀번호" setPwd={setUpdatePwd}></InputPwd>
-      <InputPwd context="새 비밀번호 확인" setPwd={setCheckPwd}></InputPwd>
       <SubmitBtn onClick={handleSubmit} />
     </Modal>
   );
