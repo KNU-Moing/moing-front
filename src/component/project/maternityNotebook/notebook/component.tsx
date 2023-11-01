@@ -28,70 +28,6 @@ ChartJS.register(
   Legend
 );
 
-export const ContentBoxLayer = ({
-  children,
-  title,
-  styleFlex,
-  styleWidth,
-  styleHeight,
-}: {
-  children: React.ReactNode;
-  title: string;
-  styleFlex: string;
-  styleWidth: string;
-  styleHeight: string;
-}) => (
-  <div
-    css={css`
-      display: ${styleFlex};
-
-      border: 1px solid ${theme.palette.gray[300]};
-      border-radius: 20px;
-      width: ${styleWidth};
-      height: ${styleHeight};
-      margin-top: ${theme.spacing.xxs};
-    `}
-  >
-    <ContentTitle title={title}></ContentTitle>
-    {children}
-  </div>
-);
-const ContentTitle = ({ title }: { title: string }) => (
-  <div
-    css={css`
-      color: ${theme.palette.gray[700]};
-      ${theme.typography.body4Bold}
-      padding: ${theme.spacing.sm};
-    `}
-  >
-    {title}
-  </div>
-);
-export const MoreButton = ({
-  onClick,
-  styleLeft,
-}: {
-  onClick: React.MouseEventHandler<HTMLButtonElement>;
-  styleLeft: string;
-}) => (
-  <button
-    css={css`
-      ${theme.typography.body5}
-      background-color: #fff;
-      color: ${theme.palette.gray[600]};
-      height: 3rem;
-      padding: 0;
-      border: none;
-      position: relative;
-      left: ${styleLeft};
-      bottom: 7.8vh;
-    `}
-    onClick={onClick}
-  >
-    더보기
-  </button>
-);
-
 /*
 *
 오늘의 진료 기록
@@ -129,12 +65,13 @@ export const ImgContainer = ({ imgList }: { imgList: string[] }) => (
       }
     `}
   >
-    {imgList.map((img) => (
+    {imgList.map((img, index) => (
       <img
         css={css`
           border-radius: 20px;
           width: 32vw;
         `}
+        key={index}
         src={img}
       ></img>
     ))}
@@ -296,8 +233,8 @@ export const WeeksTipLContainer = ({ days }: { days: number }) => {
         position: relative;
       `}
     >
-      {circles.map((circle) => (
-        <Circle styles={circle}></Circle>
+      {circles.map((circle, index) => (
+        <Circle key={index} styles={circle}></Circle>
       ))}
       <div
         css={css`
