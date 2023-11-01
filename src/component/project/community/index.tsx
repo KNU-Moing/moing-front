@@ -1,10 +1,52 @@
 import { useEffect, useState } from "react";
 import StyledHeader from "../header";
-import { Overlay, Container, CommunityContent } from "./component";
+import {
+  Overlay,
+  Container,
+  CommunityContent,
+  TitleBar,
+  TitleIcon,
+  RecommendLayout,
+} from "./component";
 import { ContentBoxLayer, MoreButton } from "../../emotion/component";
-import { ChartDetailLayout } from "../maternityNotebook/notebook/component";
+import {
+  ChartDetailLayout,
+  Circle,
+} from "../maternityNotebook/notebook/component";
 
 export const Community = () => {
+  const [circles, setCircles] = useState([
+    {
+      styles: "width: 4.5rem; height: 4.5rem; top: 12.5rem; left: -26.5rem;",
+      content: "튼살",
+      fontSize: "1.2rem",
+    },
+    {
+      styles: "width: 14.5rem; height: 14.5rem; top: 6rem; left: -20rem;",
+      content: "태동",
+      fontSize: "2rem",
+    },
+    {
+      styles: "width: 8rem; height: 8rem; top: 3rem; left: -6rem;",
+      content: "입덧",
+      fontSize: "1.7rem",
+    },
+    {
+      styles: "width: 6rem; height: 6rem; top: 8rem; left: 3rem;",
+      content: "졸림",
+      fontSize: "1.4rem",
+    },
+    {
+      styles: "width: 13rem; height: 13rem; top: 11rem; left: 9rem;",
+      content: "영양제",
+      fontSize: "1.9rem",
+    },
+    {
+      styles: "width: 11rem; height: 11rem; top: 6rem; left: 19rem;",
+      content: "철분",
+      fontSize: "1.7rem",
+    },
+  ]);
   const [recommends, setRecommends] = useState([
     {
       title: "입덧 극복하는 방법 꿀팁 (현재 3남매 기르는중)",
@@ -31,6 +73,9 @@ export const Community = () => {
   const moreHandle = () => {
     alert("더보기 버튼");
   };
+  const handleTopicDetail = (topic: string) => {
+    alert(`토픽 ${topic}으로 이동`);
+  };
 
   // 질문 데이터 앞에 Q.와 A.를 붙이는 작업
   useEffect(() => {
@@ -47,6 +92,22 @@ export const Community = () => {
     <div>
       <StyledHeader></StyledHeader>
       <Overlay>
+        <RecommendLayout>
+          {circles.map((circle, index) => (
+            <Circle
+              key={index}
+              styles={circle.styles}
+              content={circle.content}
+              fontSize={circle.fontSize}
+              onClick={() => handleTopicDetail(circle.content)}
+            ></Circle>
+          ))}
+        </RecommendLayout>
+        <TitleBar>
+          <TitleIcon styleRight="0rem"></TitleIcon>
+          <TitleIcon styleRight="3rem"></TitleIcon>
+          <TitleIcon styleRight="6rem"></TitleIcon>
+        </TitleBar>
         <ChartDetailLayout>
           <ContentBoxLayer
             title="의사 선생님께 많이 묻는 질문"
@@ -83,6 +144,24 @@ export const Community = () => {
             </Container>
           </ContentBoxLayer>
         </ChartDetailLayout>
+
+        <ContentBoxLayer
+          title="엄마들의 수다 수다"
+          styleFlex="block"
+          styleWidth="90%"
+          styleHeight="34vh"
+        >
+          <MoreButton onClick={moreHandle} styleLeft="77.4vw"></MoreButton>
+          <Container>
+            {recommends.map((recommend, index) => (
+              <CommunityContent
+                key={index}
+                title={recommend.title}
+                content={recommend.content}
+              ></CommunityContent>
+            ))}
+          </Container>
+        </ContentBoxLayer>
       </Overlay>
     </div>
   );
