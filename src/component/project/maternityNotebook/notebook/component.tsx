@@ -234,7 +234,13 @@ export const WeeksTipLContainer = ({ days }: { days: number }) => {
       `}
     >
       {circles.map((circle, index) => (
-        <Circle key={index} styles={circle}></Circle>
+        <Circle
+          key={index}
+          styles={circle}
+          content=""
+          fontSize=""
+          onClick={() => {}}
+        ></Circle>
       ))}
       <div
         css={css`
@@ -264,17 +270,46 @@ export const WeeksTipLContainer = ({ days }: { days: number }) => {
     </div>
   );
 };
-const Circle = ({ styles }: { styles: string }) => {
+export const Circle = ({
+  styles,
+  content,
+  fontSize,
+  onClick,
+}: {
+  styles: string;
+  content: string;
+  fontSize: string;
+  onClick: React.MouseEventHandler<HTMLDivElement>;
+}) => {
   return (
     <div
       css={css`
+        display: flex;
+        justify-content: center;
+        align-items: center;
         background-color: ${theme.palette.gray[200]};
+        color: ${theme.palette.gray[600]};
         border-radius: 100%;
         position: absolute;
         z-index: 0;
         ${styles}
+        font-weight:bold;
+        font-size: ${fontSize};
+        transform: scale(1);
+        transition-duration: 0.3s;
+        ${fontSize === ""
+          ? ""
+          : `&:hover {
+            transform: scale(1.05);
+           transition-duration: 0.3s;
+           box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+        }
+        `}
       `}
-    ></div>
+      onClick={onClick}
+    >
+      {content}
+    </div>
   );
 };
 
