@@ -1,8 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import React, { useState } from "react";
 import { css } from "@emotion/react";
-import theme from "../../../styles/theme";
-import { useNavigate } from "react-router-dom";
+import theme from "../../../../styles/theme";
 
 export const CookMainBlock = ({ children }: { children: React.ReactNode }) => (
   <div
@@ -292,11 +291,90 @@ const CookSlide2 = ({
     {children}
   </div>
 );
+export const SearchContainer = () => (
+  <div
+    css={css`
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 10rem;
+    `}
+  >
+    {" "}
+    <div
+      css={css`
+        background-color: antiquewhite;
+        width: 50%;
+        height: 6rem;
+        border-radius: 40px;
+      `}
+    ></div>
+  </div>
+);
+export const HeadContainer = ({ children }: { children: React.ReactNode }) => (
+  <div
+    css={css`
+      display: flex;
+      flex-direction: row;
+      gap: 1.6rem;
+      align-items: center;
+      justify-content: space-between;
+    `}
+  >
+    <div
+      css={css`
+        display: flex;
+        flex-direction: row;
+        gap: 2.4rem;
+        align-items: center;
+      `}
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="30"
+        height="56"
+        viewBox="0 0 30 56"
+        fill="none"
+      >
+        <path d="M29 1L2 28L29 55" stroke="#878787" stroke-width="2" />
+      </svg>
+      <div
+        css={css`
+          font-size: 3rem;
+        `}
+      >
+        {children}
+      </div>
+      <div
+        css={css`
+          font-size: 2rem;
+        `}
+      >
+        출산 예정일
+      </div>
+    </div>
+
+    <div
+      css={css`
+        display: flex;
+        flex-direction: row;
+        font-size: 2rem;
+        gap: 3rem;
+      `}
+    >
+      <div>VVIP</div>
+      <div>VIP</div>
+      <div>프리미엄</div>
+      <div>일반</div>
+    </div>
+  </div>
+);
 export const FlexsContainer = () => {
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
   const [Option, setOption] = useState<string>("지역을 선택해주세요");
-  const navigate = useNavigate();
   const getDataForOption = (option: string | null) => {
     if (option === "서울") {
       return [
@@ -450,14 +528,8 @@ export const FlexsContainer = () => {
   };
 
   const handleItemSelect = (item: string) => {
-    if (selectedItem === item) {
-      const encodedItem = encodeURIComponent(item);
-      setSelectedItem(encodedItem);
-      navigate(`/Cook/${encodedItem}`);
-    } else {
-      setSelectedItem(item);
-      setOption(item);
-    }
+    setSelectedItem(item);
+    setOption(item);
   };
 
   const selectedData = getDataForOption(selectedOption);

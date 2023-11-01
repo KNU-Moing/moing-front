@@ -183,36 +183,7 @@ export const CookTestBlock = ({ children }: { children: React.ReactNode }) => (
     {children}
   </div>
 );
-export const CookArrowBlock = ({ children }: { children: React.ReactNode }) => (
-  <div
-    css={css`
-      display: flex;
-      flex-direction: column;
-      gap: 1.6rem;
-      font-family: Inter;
-      width: 32.5rem;
-      height: 27.8rem;
-      align-items: center;
-      justify-content: center;
-      ${theme.typography.body1Bold}
-    `}
-  >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="176"
-      height="104"
-      viewBox="0 0 176 104"
-      fill="none"
-    >
-      <path
-        d="M0 48H174.5M174.5 48L127.5 103M174.5 48L127.5 1"
-        stroke="black"
-      />
-    </svg>
 
-    {children}
-  </div>
-);
 export const CookSubTitte = ({ children }: { children: React.ReactNode }) => (
   <div
     css={css`
@@ -535,3 +506,129 @@ export const FlexsContainer = () => {
     </div>
   );
 };
+
+export const SuppBlock = ({ children }: { children: React.ReactNode }) => (
+  <div
+    css={css`
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+      font-family: Inter;
+      ${theme.typography.body4Bold}
+    `}
+  >
+    <div
+      css={css`
+        display: flex;
+        flex-direction: column;
+        width: 24.5rem;
+        height: 30rem;
+        background-color: #d9d9d9;
+        font-family: Pretendard;
+        border-radius: 10px;
+        &:hover {
+          transform: scale(1.05);
+          transition: transform 0.3s ease;
+        }
+      `}
+    />
+    {children}
+  </div>
+);
+export const SuppTitte = ({ children }: { children: React.ReactNode }) => (
+  <div
+    css={css`
+      font-family: Pretendard;
+      width: 24rem;
+      ${theme.typography.body4Bold}
+    `}
+  >
+    {children}
+  </div>
+);
+export const SuppTitte2 = ({ children }: { children: React.ReactNode }) => (
+  <div
+    css={css`
+      font-family: Pretendard;
+      width: 23.5rem;
+      ${theme.typography.body3Bold}
+    `}
+  >
+    {children}
+  </div>
+);
+
+export const SuppCenBlock = ({ children }: { children: React.ReactNode }) => (
+  <div
+    css={css`
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+      font-family: Inter;
+      width: 24.5rem;
+      height: 30rem;
+      align-items: center;
+      justify-content: center;
+      ${theme.typography.body1Bold}
+    `}
+  >
+    {children}
+  </div>
+);
+export const SuppCenTitle = ({
+  Title,
+  text,
+}: {
+  Title: String;
+  text: String;
+}) => (
+  <div
+    css={css`
+      font-size: 2rem;
+      font-family: "JAM";
+      font-style: normal;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    `}
+  >
+    {Title}
+    <div
+      css={css`
+        font-size: 1rem;
+        font-family: "JAM";
+        font-style: normal;
+        font-weight: 700;
+      `}
+    >
+      {text}
+    </div>
+  </div>
+);
+export const BestContainer = ({ children }: { children: React.ReactNode }) => (
+  <div
+    css={css`
+      gap: 1.6rem;
+    `}
+  >
+    {children}
+  </div>
+);
+export const ImageContainer = () => (
+  <div
+    css={css`
+      width: 100%;
+      height: 30rem;
+      background-color: #d9d9d9;
+    `}
+  ></div>
+);
+export const SelectBox = () => (
+  <div
+    css={css`
+      width: 10rem;
+      height: 10rem;
+      background-color: #d9d9d9;
+      border-radius: 5rem;
+    `}
+  ></div>
+);
