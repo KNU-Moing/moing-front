@@ -4,6 +4,7 @@ import { Main } from "./component/project/main";
 import { MyPage } from "./component/project/mypage";
 import { SignIn } from "./component/project/sign/signIn";
 import { SignUp } from "./component/project/sign/signUp";
+import { Community } from "./component/project/community";
 import { Notebook } from "./component/project/maternityNotebook/notebook";
 import { Diary } from "./component/project/maternityNotebook/diary";
 import { Cook } from "./component/project/cook";
@@ -21,6 +22,7 @@ function App() {
         <Route path="/Notebook" element={<Notebook />} />
         <Route path="/Diary" element={<Diary />} />
         <Route path="/Cook" element={<Cook />} />
+        <Route path="/Community" element={<Community />} />
         <Route path="/Question" element={<Question />} />
         <Route path="/Question/Confirm" element={<QuestionConfirm/>}/>
       </Routes>

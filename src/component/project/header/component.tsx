@@ -161,7 +161,7 @@ const NavMenu = ({ isToggleOpen }: NavMenuProps) => {
         </Link>
       </li>
       <li>
-        <Link to={"/"} className="nav-menu-list">
+        <Link to={"/community"} className="nav-menu-list">
           커뮤니티
         </Link>
       </li>
