@@ -158,7 +158,7 @@ export const InputPwd = ({ context, setPwd }: InputPwdProps) => {
         onChange={onChange}
         css={css`
           width: 18vw;
-          height: 6vh;
+          height: 2.5rem;
           border-radius: 15px;
           background-color: ${theme.palette.gray.white};
           color: ${theme.palette.pink[100]};
