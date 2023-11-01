@@ -21,6 +21,18 @@ interface InputWithBtnProps {
   onClick: () => void;
 }
 
+export const ModalTitle = ({ title }: { title: string }) => {
+  return (
+    <div
+      css={css`
+        margin-bottom: ${theme.spacing.md};
+      `}
+    >
+      {title}
+    </div>
+  );
+};
+
 export const CancelBtn = ({ onClick }: ButtonProp) => {
   return (
     <button
@@ -30,10 +42,10 @@ export const CancelBtn = ({ onClick }: ButtonProp) => {
         top: ${theme.spacing.md};
         right: ${theme.spacing.md};
         border: none;
-        background-color: ${theme.palette.gray[100]};
+        background-color: ${theme.palette.pink[800]};
       `}
     >
-      X
+      <img src="/img/exitIcon.png" width="20rem" height="20rem"></img>
     </button>
   );
 };
@@ -47,7 +59,8 @@ export const SubmitBtn = ({ onClick }: ButtonProp) => {
         width: 8rem;
         height: 3rem;
         font-size: ${theme.font.xxs};
-        background-color: ${theme.palette.gray[300]};
+        color: ${theme.palette.gray.white};
+        background-color: ${theme.palette.pink[100]};
       `}
     >
       변경하기
@@ -75,7 +88,7 @@ const InputContainer = ({ children }: { children: React.ReactNode }) => (
       height: 2.5rem;
       width: 23vw;
       border-radius: 15px;
-      background-color: ${theme.palette.gray[300]};
+      background-color: ${theme.palette.gray.white};
       display: flex;
       justify-content: space-between;
       padding: 0 ${theme.spacing.xs} 0 ${theme.spacing.sm};
@@ -99,7 +112,8 @@ const InputText = ({
     css={css`
       height: 90%;
       width: 73%;
-      background-color: ${theme.palette.gray[300]};
+      background-color: ${theme.palette.gray.white};
+      color: ${theme.palette.pink[100]};
       border: none;
 
       &:focus {
@@ -119,8 +133,9 @@ const InputBtn = ({
   <button
     onClick={onClick}
     css={css`
-      background-color: ${theme.palette.gray[300]};
-      border-left: solid 2px ${theme.palette.gray[400]};
+      background-color: ${theme.palette.gray.white};
+      border-left: solid 2px ${theme.palette.pink[100]};
+      color: ${theme.palette.pink[100]};
       fontsize: ${theme.font.xs};
       border: none;
     `}
@@ -145,7 +160,8 @@ export const InputPwd = ({ context, setPwd }: InputPwdProps) => {
           width: 18vw;
           height: 6vh;
           border-radius: 15px;
-          background-color: ${theme.palette.gray[300]};
+          background-color: ${theme.palette.gray.white};
+          color: ${theme.palette.pink[100]};
           border: none;
           padding: 0 ${theme.spacing.sm};
           &:focus {
@@ -209,26 +225,60 @@ export const InputHospital = ({
         height: 2.5rem;
         display: flex;
         justify-content: space-between;
-        background-color: ${theme.palette.gray[300]};
-        margin: ${theme.spacing.sm} 0;
+        background-color: ${theme.palette.gray.white};
+        margin-top: ${theme.spacing.sm};
+        margin-bottom: ${theme.spacing.sm};
         padding: 0 ${theme.spacing.xl};
         border-radius: 15px;
+        position: relative;
       `}
     >
       <input
         type="text"
         onChange={onChange}
         css={css`
-          width: 85%;
+          width: 100%;
           height: 90%;
           border: none;
-          background-color: ${theme.palette.gray[300]};
+          text-align: center;
+          font-size: ${theme.font.xxs};
+          color: ${theme.palette.pink[100]};
+          background-color: ${theme.palette.gray.white};
           &:focus {
             outline: none;
           }
         `}
       ></input>
-      {context === "" ? <button></button> : ""}
+      {context === "" ? (
+        <img
+          src="img/myPageQuestionIcon.png"
+          width="17rem"
+          height="22rem"
+          css={css`
+            margin-top: 0.55rem;
+            position: absolute;
+            right: 3rem;
+          `}
+        ></img>
+      ) : (
+        ""
+      )}
     </div>
+  );
+};
+
+export const SubmitContext = ({ name }: { name: string }) => {
+  return (
+    <p>
+      <b>{name}</b>에 요청을 보냈습니다
+      <p
+        css={css`
+          margin-top: ${theme.spacing.sm};
+          ${theme.typography.body5};
+        `}
+      >
+        <b>병원 방문 후 인증</b> 후에 <b>변경</b>이 <b>완료</b>됩니다
+      </p>
+    </p>
   );
 };
