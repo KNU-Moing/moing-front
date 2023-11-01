@@ -2,6 +2,33 @@
 import React from "react";
 import { css } from "@emotion/react";
 import theme from "../../styles/theme";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
+
+export const BackButton = () => {
+  const navigate = useNavigate();
+
+  const goBack = () => {
+    navigate(-1);
+  };
+
+  return (
+    <img
+      src= "./img/goBack.png"
+      alt="뒤로 가기"
+      css={css`
+        cursor: pointer;
+        width: 30px; 
+        height: 49px; 
+        position: absolute; 
+        top: 25%;
+        left: 120px; 
+      `}
+      onClick={goBack}
+    />
+  );
+};
+
+
 export const Overlay = ({
   children,
   closeModal,
@@ -295,4 +322,69 @@ export const LoginButton = ({ children }: { children: React.ReactNode }) => (
       {children}
     </div>
   </div>
+);
+
+export const ContentBoxLayer = ({
+  children,
+  title,
+  styleFlex,
+  styleWidth,
+  styleHeight,
+}: {
+  children: React.ReactNode;
+  title: string;
+  styleFlex: string;
+  styleWidth: string;
+  styleHeight: string;
+}) => (
+  <div
+    css={css`
+      display: ${styleFlex};
+
+      border: 1px solid ${theme.palette.gray[300]};
+      border-radius: 20px;
+      width: ${styleWidth};
+      height: ${styleHeight};
+      margin-top: ${theme.spacing.xxs};
+    `}
+  >
+    <ContentTitle title={title}></ContentTitle>
+    {children}
+  </div>
+);
+const ContentTitle = ({ title }: { title: string }) => (
+  <div
+    css={css`
+      color: ${theme.palette.gray[700]};
+      ${theme.typography.body4Bold}
+      padding: ${theme.spacing.sm};
+    `}
+  >
+    {title}
+  </div>
+);
+
+export const MoreButton = ({
+  onClick,
+  styleLeft,
+}: {
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
+  styleLeft: string;
+}) => (
+  <button
+    css={css`
+      ${theme.typography.body5}
+      background-color: #fff;
+      color: ${theme.palette.gray[600]};
+      height: 3rem;
+      padding: 0;
+      border: none;
+      position: relative;
+      left: ${styleLeft};
+      bottom: 7.8vh;
+    `}
+    onClick={onClick}
+  >
+    더보기
+  </button>
 );
