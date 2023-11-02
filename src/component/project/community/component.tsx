@@ -8,7 +8,7 @@ export const Overlay = ({ children }: { children: React.ReactNode }) => (
       display: flex;
       flex-wrap: wrap;
       gap: ${theme.spacing.sm};
-      padding-top: 18vh;
+      padding-top: 24vh;
       padding-bottom: 4vh;
       padding-left: 8vw;
     `}
