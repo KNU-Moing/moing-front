@@ -6,7 +6,7 @@ import styled from "@emotion/styled";
 export const Overlay = ({ children }: { children: React.ReactNode }) => (
   <div
     css={css`
-      padding-top: 18vh;
+      padding-top: 24vh;
     `}
   >
     {children}
