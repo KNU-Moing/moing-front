@@ -45,13 +45,15 @@ export const SignUp = () => {
       >
         <TopContainer>
           <TopSelectContainer
-            color="#F4F4F4"
+            color="#FF9494"
+            fontcolor="black"
             style="border-radius: 25px 0 0 0;"
           >
             로그인
           </TopSelectContainer>
           <TopSelectContainer
             color="#cacaca"
+            fontcolor="white"
             style="border-radius: 0 25px 0 0;"
           >
             회원가입
@@ -89,13 +91,15 @@ export const SignUp = () => {
       >
         <TopContainer>
           <TopSelectContainer
-            color="#CACACA"
+            color="#FF9494"
+            fontcolor="white"
             style="border-radius: 25px 0 0 0;"
           >
             로그인
           </TopSelectContainer>
           <TopSelectContainer
             color="#F4F4F4"
+            fontcolor="black"
             style="border-radius: 0 25px 0 0;"
           >
             회원가입
@@ -124,8 +128,8 @@ export const SignUp = () => {
             <InputContainer placeholder="닉네임" />
           </BodyContainer>
           <Rowdiv>
-            <Images>산모</Images>
-            <Images>보호자</Images>
+            <Images backgroundColor="#FF9494">산모</Images>
+            <Images backgroundColor="#84BDFF">보호자</Images>
           </Rowdiv>
           <Rowdiv>
             <CheckButton>가입하기</CheckButton>

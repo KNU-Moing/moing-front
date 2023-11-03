@@ -16,17 +16,11 @@ export const SignIn = () => {
     <div>
       <button onClick={openModal}>로그인</button>
       {modalOpen && (
-        <ModalSignup
-          setModalOpen={setModalOpen}
-          openSignInModal={openModal2}
-        />
+        <ModalSignup setModalOpen={setModalOpen} openSignInModal={openModal2} />
       )}
       <button onClick={openModal2}>회원가입</button>
       {modalOpen2 && (
-        <ModalSignIn
-          setModalOpen={setModalOpen2}
-          openSignupModal={openModal} 
-        />
+        <ModalSignIn setModalOpen={setModalOpen2} openSignupModal={openModal} />
       )}
     </div>
   );

@@ -59,7 +59,7 @@ export const Modaldiv = ({ children }: { children: React.ReactNode }) => (
       gap: 1.6rem;
       padding: 3.2rem 3.2rem 1rem 3.2rem;
       width: 32rem;
-      background-color: #f5f6fa;
+      background-color: white;
       font-family: Inter;
       ${theme.typography.body4Bold}
       border-radius: 0 0 25px 25px;
@@ -75,9 +75,10 @@ export const BodyContainer = ({ children }: { children: React.ReactNode }) => (
       flex-direction: column;
       gap: 1.2rem;
       font-family: Inter;
-      color: #afafaf;
+      color: black;
       ${theme.typography.body4Bold}
       border-radius: 0 0 25px 25px;
+      font-size: 24px;
     `}
   >
     {children}
@@ -90,12 +91,17 @@ export const InputContainer = ({ placeholder }: { placeholder: string }) => (
       display: flex;
       flex-direction: column;
       padding: 1.2rem;
-      background-color: #cfcfcf;
+      background-color: #fff8f8;
       width: 29.6rem;
       border-radius: 20px;
       font-family: Inter;
       ${theme.typography.body4Bold}
       border: double 0px black;
+
+      color: #ffd1d1;
+      ::placeholder {
+        color: #ffd1d1;
+      }
     `}
     placeholder={placeholder}
   ></input>
@@ -118,12 +124,16 @@ export const InputSelectContainer = ({
         display: flex;
         flex-direction: column;
         padding: 1.2rem;
-        background-color: #cfcfcf;
+        background-color: #fff8f8;
         width: 22.6rem;
         border-radius: 20px 0 0 20px;
         font-family: Inter;
         ${theme.typography.body4Bold}
         border: double 0px black;
+        color: #ffd1d1;
+        ::placeholder {
+          color: #ffd1d1;
+        }
       `}
       placeholder={placeholder}
     />
@@ -132,7 +142,7 @@ export const InputSelectContainer = ({
         display: flex;
         flex-direction: column;
         padding: 1.2rem;
-        background-color: #cfcfcf;
+        background-color: #fff8f8;
         width: 7rem;
         border-radius: 0 20px 20px 0;
         font-family: Inter;
@@ -143,11 +153,11 @@ export const InputSelectContainer = ({
       <button
         type="button"
         css={css`
-          background-color: #cfcfcf;
+          background-color: #fff8f8;
           border: 0px solid black;
-          border-left: 2px solid #b9b9b9;
+          border-left: 2px solid #ffd1d1;
           font-family: Inter;
-          color: #808080;
+          color: #ffd1d1;
           cursor: pointer;
           ${theme.typography.body4Bold}
         `}
@@ -187,16 +197,23 @@ export const TopContainer = ({ children }: { children: React.ReactNode }) => (
     {children}
   </div>
 );
-export const Images = ({ children }: { children: React.ReactNode }) => (
+export const Images = ({
+  children,
+  backgroundColor,
+}: {
+  children: React.ReactNode;
+  backgroundColor: string;
+}) => (
   <div
     css={css`
       display: flex;
       flex-direction: column;
-      padding: 2rem;
-      background-color: #cfcfcf;
+      padding: 2.6rem;
+      background-color: ${backgroundColor};
       border-radius: 10px;
       align-items: center;
       justify-content: center;
+      color: white;
     `}
   >
     {children}
@@ -205,13 +222,15 @@ export const Images = ({ children }: { children: React.ReactNode }) => (
 export const TopSelectContainer = ({
   children,
   color,
+  fontcolor,
   style,
-  onClick, // onClick 이벤트 핸들러 추가
+  onClick,
 }: {
   children: React.ReactNode;
   color: string;
+  fontcolor: string;
   style?: string;
-  onClick?: () => void; // 클릭 이벤트 핸들러 타입 추가
+  onClick?: () => void;
 }) => (
   <div
     css={css`
@@ -219,7 +238,7 @@ export const TopSelectContainer = ({
       flex-direction: column;
       padding: 1.2rem;
       background-color: ${color};
-      color: #808080;
+      color: ${fontcolor};
       font-family: Inter;
       ${theme.typography.body4Bold}
       align-items: center;
@@ -254,9 +273,10 @@ export const CheckButton = ({ children }: { children: React.ReactNode }) => (
     css={css`
       display: flex;
       flex-direction: column;
-      padding: 1.2rem 2.4rem;
-      background-color: #cfcfcf;
-      border-radius: 25px;
+      padding: 1.2rem 3.2rem;
+      background-color: #ff9494;
+      color: white;
+      border-radius: 30px;
       align-items: center;
       justify-content: center;
     `}
@@ -268,8 +288,9 @@ export const LoginButton = ({ children }: { children: React.ReactNode }) => (
   <div
     css={css`
       display: flex;
-
       flex-direction: column;
+      justify-content: center;
+      align-items: center;
       gap: 2.4rem;
       width: 100%;
     `}
@@ -283,15 +304,37 @@ export const LoginButton = ({ children }: { children: React.ReactNode }) => (
     <div
       css={css`
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         padding: 0.8rem 1.2rem;
-        background-color: #cfcfcf;
-        border-radius: 25px;
+        width: 20rem;
+        background-color: #fee500;
+        border-radius: 10px;
         align-items: center;
         justify-content: center;
         margin-bottom: 3rem;
       `}
     >
+      <div
+        css={css`
+          margin-right: 1rem;
+        `}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="18"
+          height="19"
+          viewBox="0 0 18 19"
+          fill="none"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M9.00004 1.06695C4.02919 1.06695 1.8e-05 4.19635 1.8e-05 8.05594C1.8e-05 10.4563 1.55842 12.5723 3.93154 13.8309L2.93305 17.4977C2.84483 17.8217 3.21343 18.08 3.49648 17.8922L7.87336 14.9883C8.24272 15.0241 8.61809 15.045 9.00004 15.045C13.9705 15.045 17.9999 11.9157 17.9999 8.05594C17.9999 4.19635 13.9705 1.06695 9.00004 1.06695Z"
+            fill="black"
+          />
+        </svg>
+      </div>
+
       {children}
     </div>
   </div>

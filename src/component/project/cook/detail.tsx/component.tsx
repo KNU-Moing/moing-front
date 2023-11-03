@@ -9,22 +9,26 @@ export const CookMainBlock = ({ children }: { children: React.ReactNode }) => (
       display: flex;
       flex-direction: column;
       gap: 1.6rem;
+      border: 2px solid black;
+      padding: 1rem;
       font-family: Inter;
-      font-family: Inter;
+      border-radius: 1rem;
       ${theme.typography.body4Bold}
     `}
   >
-    <div
+    <img
+      src="/img/tests.PNG"
       css={css`
         display: flex;
         flex-direction: column;
-        width: 52.5rem;
+        width: 50.5rem;
         height: 253px;
         background-color: #d9d9d9;
         font-family: Inter;
         border-radius: 10px;
       `}
-    />
+    ></img>
+
     {children}
   </div>
 );
@@ -33,9 +37,9 @@ export const Inner = ({ children }: { children: React.ReactNode }) => (
   <div
     css={css`
       display: flex;
-      margin-top: 120px;
+      margin-top: 10px;
       flex-direction: column;
-      gap: 10rem;
+      gap: 5rem;
       padding: 7.5rem;
       ${theme.typography.body4Bold}
     `}
@@ -305,7 +309,7 @@ export const SearchContainer = () => (
     {" "}
     <div
       css={css`
-        background-color: antiquewhite;
+        border: 3px solid antiquewhite;
         width: 50%;
         height: 6rem;
         border-radius: 40px;
@@ -318,7 +322,7 @@ export const HeadContainer = ({ children }: { children: React.ReactNode }) => (
     css={css`
       display: flex;
       flex-direction: row;
-      gap: 1.6rem;
+      gap: 1.2rem;
       align-items: center;
       justify-content: space-between;
     `}
@@ -333,8 +337,8 @@ export const HeadContainer = ({ children }: { children: React.ReactNode }) => (
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="30"
-        height="56"
+        width="24"
+        height="36"
         viewBox="0 0 30 56"
         fill="none"
       >
@@ -342,7 +346,7 @@ export const HeadContainer = ({ children }: { children: React.ReactNode }) => (
       </svg>
       <div
         css={css`
-          font-size: 3rem;
+          font-size: 2.4rem;
         `}
       >
         {children}

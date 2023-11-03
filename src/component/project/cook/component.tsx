@@ -15,7 +15,8 @@ export const CookMainBlock = ({ children }: { children: React.ReactNode }) => (
       ${theme.typography.body4Bold}
     `}
   >
-    <div
+    <img
+      src="/img/hot.PNG"
       css={css`
         display: flex;
         flex-direction: column;
@@ -25,7 +26,7 @@ export const CookMainBlock = ({ children }: { children: React.ReactNode }) => (
         font-family: Inter;
         border-radius: 10px;
       `}
-    />
+    ></img>
     {children}
   </div>
 );
@@ -34,7 +35,7 @@ export const Inner = ({ children }: { children: React.ReactNode }) => (
   <div
     css={css`
       display: flex;
-      margin-top: 120px;
+      margin-top: 10px;
       flex-direction: column;
       gap: 10rem;
       padding: 7.5rem;
@@ -55,6 +56,21 @@ export const RowContainer = ({ children }: { children: React.ReactNode }) => (
     {children}
   </div>
 );
+export const TexContainer = ({ children }: { children: React.ReactNode }) => (
+  <div
+    css={css`
+      display: flex;
+      flex-direction: column;
+      gap: 2.4rem;
+      color: #000;
+      font-family: Inter;
+      font-size: 2.4rem;
+      font-weight: 600;
+    `}
+  >
+    {children}
+  </div>
+);
 export const FlexContainer = ({ children }: { children: React.ReactNode }) => (
   <div
     css={css`
@@ -70,13 +86,14 @@ export const FlexContainer = ({ children }: { children: React.ReactNode }) => (
   </div>
 );
 export const BlockContainer = () => (
-  <div
+  <img
+    src="/img/tex.PNG"
     css={css`
       width: 100%;
       height: 15rem;
       background-color: #d9d9d9;
     `}
-  ></div>
+  ></img>
 );
 export const CenterContainer = ({
   children,
@@ -109,6 +126,13 @@ export const CenterTitle = ({ children }: { children: React.ReactNode }) => (
       flex-direction: row;
       align-items: center;
       gap: 0.8rem;
+      color: #000;
+      text-align: center;
+      font-family: Pretendard Variable;
+      font-size: 40px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
     `}
   >
     {children}
@@ -141,7 +165,8 @@ export const CookSubBlock = ({ children }: { children: React.ReactNode }) => (
       ${theme.typography.body4Bold}
     `}
   >
-    <div
+    <img
+      src="/img/seul.PNG"
       css={css`
         display: flex;
         flex-direction: column;
@@ -155,7 +180,7 @@ export const CookSubBlock = ({ children }: { children: React.ReactNode }) => (
           transition: transform 0.3s ease;
         }
       `}
-    />
+    ></img>
     {children}
   </div>
 );
@@ -167,9 +192,11 @@ export const CookTestBlock = ({ children }: { children: React.ReactNode }) => (
       gap: 1.6rem;
       font-family: Inter;
       ${theme.typography.body4Bold}
+      font-weight: 600;
     `}
   >
-    <div
+    <img
+      src="/img/ab.PNG"
       css={css`
         display: flex;
         flex-direction: column;
@@ -178,6 +205,10 @@ export const CookTestBlock = ({ children }: { children: React.ReactNode }) => (
         background-color: #d9d9d9;
         font-family: Pretendard;
         border-radius: 10px;
+        &:hover {
+          transform: scale(1.05);
+          transition: transform 0.3s ease;
+        }
       `}
     />
     {children}
@@ -216,8 +247,9 @@ export const CookArrowBlock = ({ children }: { children: React.ReactNode }) => (
 export const CookSubTitte = ({ children }: { children: React.ReactNode }) => (
   <div
     css={css`
-      font-family: Pretendard;
       ${theme.typography.body3Bold}
+      font-family: Inter;
+      font-weight: 600;
     `}
   >
     {children}
@@ -229,6 +261,8 @@ export const CookSubTitle2 = ({ children }: { children: React.ReactNode }) => (
       font-family: Pretendard;
       width: 31.5rem;
       ${theme.typography.body4Bold}
+      font-family: Inter;
+      font-weight: 600;
     `}
   >
     {children}
@@ -252,12 +286,15 @@ const CookSlide = ({
       display: flex;
       align-items: center;
       justify-content: center;
-      background-color: ${isSelected ? "#aaa" : "#d9d9d9"};
+      background-color: ${isSelected ? "#FF9494" : "white"};
+      color: ${isSelected ? "white" : "black"};
       font-family: Pretendard;
-      border-radius: 10px;
+      border-radius: 20px;
       ${theme.typography.body3Bold}
       transform: translateY(${isSelected ? "0" : "10px"});
       transition: transform 0.3s ease;
+      font-weight: 600;
+      border: 1px solid #ff9494;
     `}
   >
     {children}
@@ -278,18 +315,27 @@ const CookSlide2 = ({
       display: flex;
       width: calc(32% - 1.6rem);
       align-items: center;
-      justify-content: center;
-      font-family: Pretendard;
-      ${theme.typography.body3Bold}
-      cursor: pointer;
-      padding: 10px;
-      border-radius: 10px;
-      background-color: ${isSelected ? "#d9d9d9" : "#fff"};
-      transform: translateY(${isSelected ? "0" : "20px"});
-      transition: transform 0.3s ease;
+      margin-left: 1rem;
     `}
   >
-    {children}
+    <div
+      onClick={onClick}
+      css={css`
+        display: flex;
+        font-family: Pretendard;
+        ${theme.typography.body3Bold}
+        cursor: pointer;
+        padding: 10px;
+        margin-left: 30%;
+        border-radius: 10px;
+        background-color: ${isSelected ? "#FF9494" : "#fff"};
+        color: ${isSelected ? "white" : "black"};
+        transform: translateY(${isSelected ? "0" : "10px"});
+        transition: transform 0.3s ease;
+      `}
+    >
+      {children}
+    </div>
   </div>
 );
 export const FlexsContainer = () => {
@@ -468,9 +514,11 @@ export const FlexsContainer = () => {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        gap: 3.2rem;
+        gap: 2rem;
         width: 100%;
         justify-content: space-around;
+        font-family: Inter;
+        ${theme.typography.body4Bold}
       `}
     >
       <CenterContainer>
@@ -513,9 +561,9 @@ export const FlexsContainer = () => {
             css={css`
               display: flex;
               flex-wrap: wrap;
-              gap: 1.6rem;
+              gap: 0.2rem;
               width: 100%;
-              margin-top: 3rem;
+              margin-top: rem;
               justify-content: flex-start;
               cursor: pointer;
             `}
