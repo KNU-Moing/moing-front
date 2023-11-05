@@ -1,37 +1,33 @@
 import React, { FC } from "react";
-
-const textStyle: React.CSSProperties = {
-  color: "#808080",
-  fontFamily: "Inter",
-  fontStyle: "normal",
-  textAlign: "center"
-};
-
-const roundStyle: React.CSSProperties = {
-  width:"360px", 
-  height:"360px",  
-  flexShrink :0,  
-  borderRadius :"50%",  
-  background :"#D9D9D9",
-  display:'flex',
-  alignItems:'center',
-  justifyContent:'center'
-};
+import { WeekhelpComponent } from "./component";
+import { WeekhelpText } from "./component";
+import { WeekhelpRound } from "./component";
+import { WeekhelpRoundContainer } from "./component";
 
 export const Weekhelp: FC = () => {
     return (
-        <div>
-          <div className="weekhelpText" style={{...textStyle, position: "relative", top: "150px", width: '100%'}}>
-            <h1 style={{...textStyle, fontSize: "48px", fontWeight:600}}>산모도 예비아빠도 편한 MO-ING</h1>
-            <p style={{...textStyle, fontSize:"25px", fontWeight :500, lineHeight:"161.023%"}}>임신 초기, 중기, 후기 어떤 증상이 일어나고 어떤 점을 조심해야하며 어떤 것을 준비해야하는 것들의<br />MO-ING에서 도와줍니다!</p>
-          </div>
-
-          <div className="weekhelpRound" style={{ display:"flex", justifyContent:"center", gap:'59px', marginTop:'200px' }}>
-            {["임신 초기","임신 중기","임신 후기"].map(text => 
-              <div style={roundStyle}>
-                <span style={{...textStyle, fontSize:"36px", fontWeight:"600"}}>{text}</span>
-              </div>)}
-          </div>
-        </div>
+        <WeekhelpComponent>
+          <WeekhelpText>
+            <h1 className="weekhelpH1">산모도 예비아빠도 편한 <img src="./img/weekhelpLogo.png" alt="주간도움로고"/></h1>
+            <p className="weekhelpP">
+              임신 초기, 중기, 후기 어떤 증상이 일어나고 어떤 점을 조심해야하며 어떤 것을 준비해야하는 것들의
+            <br />
+            <img className="weekhelpSmallLogo" src="./img/weekhelpLogo.png" alt="주간도움작은로고"/>에서 도와줍니다!</p>
+          </WeekhelpText>
+          <WeekhelpRoundContainer>
+          <WeekhelpRound>
+            <img src="./img/weekhelpImg01.png" alt="임신초기" className="emotion-img01" />
+            <p className="WeekhelpRoundText">임신초기</p>
+          </WeekhelpRound>
+          <WeekhelpRound>
+            <img src="./img/weekhelpImg02.png" alt="임신중기" className="emotion-img02" />
+            <p className="WeekhelpRoundText">임신중기</p>
+          </WeekhelpRound>
+          <WeekhelpRound>
+            <img src="./img/weekhelpImg03.png" alt="임신후기" className="emotion-img03" />
+            <p className="WeekhelpRoundText">임신후기</p>
+          </WeekhelpRound>
+          </WeekhelpRoundContainer>
+        </WeekhelpComponent>
     );
 };

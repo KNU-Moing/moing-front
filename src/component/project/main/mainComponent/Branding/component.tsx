@@ -1,63 +1,53 @@
 import styled from "@emotion/styled";
 
-export const Text1 = styled.p`
+export const BrandingLeft = styled.div`
+  display: flex;
+  align-items: center;
   position: absolute;
-  left: 310px;
-  top: 300px;
-  font-family: Inter;
-  font-size: 30px;
+  left: 250px;
+  top: 250px;
+  color: #000;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 36px;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 600;
   line-height: normal;
-  text-align: left;
-  color: #808080;
-`;
-
-export const Text2 = styled.p`
-   position: absolute;
-   left :310px ;
-   top : 300px ;
-   font-family :Inter ;
-   font-size :100px ;
-   font-style :normal ;
-   font-weight :500 ;
-   line-height :normal ;
-   text-align :left ;
-   color:#808080; 
+  .brandingLogo{
+    width: 329px;
+    height: 260px;
+    flex-shrink: 0;
+    margin-left:30px;
+  }
+  
 `;
 
 export const CustomButton = styled.button`
-    width: 382px;
-    height: 68px;
+    width: 282px;
+    height: 58px;
     position: absolute;
-    left: 310px;
+    left: 320px;
     top: 550px;
-    border: 1px solid #a5a5a5;
+    border: 1px solid #FF9494;
     border-radius: 87px;
-    font-size: 25px;
+    font-size: 16px;
     font-weight: bold;
     text-align: center;
-    color: #808080;
-    margin-top: 28px; 
+    color: #FF9494;
+    margin-top: 5px; 
+    background-color: transparent;
 `;
 
-export const RoundedDiv = styled.div`
-     position: absolute;
-     right: 594px;
-     top: 282px;
-     width: 334px;
-     height: 334px;
-     background-color: #D9D9D9;
-     border-radius: 50%; 
-`;
+export const BrandingRight = styled.div`
+z-index: -1;
+.ssugssugImg{
+  width: 529px;
+  height: 547px;
+  position: absolute;
+  bottom: 0;
+  right: 130px;
+  z-index: -1;
+}
+ `;
 
-export const RightBottomDiv = styled.div`
-       position: absolute;
-       right: 0;
-       bottom: 0;
-       width: 821px;
-       height: 821px;
-       background-color: #D9D9D9;  
-       border-radius: 50%;   
-`;
 

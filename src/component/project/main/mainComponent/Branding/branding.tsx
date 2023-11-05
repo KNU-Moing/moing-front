@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {
-  Text1,
-  Text2,
+  BrandingLeft,
   CustomButton,
-  RoundedDiv,
-  RightBottomDiv,
+  BrandingRight
 } from "./component";
 import { ModalSignIn, ModalSignup } from "../../../../emotion/Modal";
 import Header from "../../../header";
@@ -26,8 +24,10 @@ const Branding: React.FC = () => {
       <div>
         <Header/>
       </div>
-      <Text1>같이의 가치</Text1>
-      <Text2>MO-ING</Text2>
+      <BrandingLeft>
+      같이의 가치
+      <img className="brandingLogo" src="./img/brandingLogo.png" alt="브랜딩로고"/>
+      </BrandingLeft>
       <CustomButton onClick={openModal}>로그인/회원가입</CustomButton>
       {modalOpen && (
         <ModalSignup setModalOpen={setModalOpen} openSignInModal={openModal2} />
@@ -35,6 +35,9 @@ const Branding: React.FC = () => {
       {modalOpen2 && (
         <ModalSignIn setModalOpen={setModalOpen2} openSignupModal={openModal} />
       )}
+    <BrandingRight>
+      <img className="ssugssugImg" src="./img/ssugssug.png" alt="쑥쑥이"/>
+    </BrandingRight>
     </div>
   );
 };

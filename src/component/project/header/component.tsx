@@ -14,27 +14,16 @@ const StyledHeader = styled.header`
   align-items: center;
   justify-content: space-between;
   position: absolute;
-  top: 73px;
+  top: 53px;
 
   .nav_logo {
     position: relative;
     left: 122px;
-    font-size: 30px;
-    font-family: Inter;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    color: #808080;
-
-    .nav-logo-link {
-      text-decoration: none;
-      color: #808080;
-    }
   }
 
   .menuToggleBtn {
     display: none;
-    color: #808080;
+    color: #000;
     font-size: 15px;
     position: absolute;
     right: 20px;
@@ -55,24 +44,14 @@ const StyledHeader = styled.header`
 const StyledLeftHeader = styled.div`
   position: relative;
   left: 122px;
-  font-size: 30px;
-  font-family: Inter;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-  color: #808080;
-  .nav-logo-link {
-    text-decoration: none;
-    color: #808080;
-  }
 `;
 
 const StyledNavMenu = styled.ul<NavMenuProps>`
   list-style: none;
   display: flex;
   position: absolute;
-  left: 400px;
-  color: #808080;
+  left: 300px;
+  color: #000;
   font-family: Inter;
   font-size: 16px;
   font-style: normal;
@@ -83,16 +62,21 @@ const StyledNavMenu = styled.ul<NavMenuProps>`
     margin-right: 89px;
     &:hover {
       cursor: pointer;
-      background: #f2f2f2;
+      background: rgba(255, 242, 242, 0.50);
       border-radius: 4px;
     }
   }
 
   .nav-menu-list {
     text-decoration: none;
-    color: #808080;
+    color: #000;
     display: block;
     padding: 10px 10px;
+    font-family: Pretendard;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
   }
 
   @media screen and (max-width: 768px) {
@@ -122,23 +106,22 @@ const StyledRightHeader = styled.div`
     cursor: pointer;
 
     img {
-      width: auto;
-      height: 16px;
+      width: 13px;
+      height: 14px;
+
     }
   }
 `;
 const Modal = styled.div`
   background: white;
-  width: 405.35px;
-  height: 557.805px;
+  width: 305.35px;
+  height: 457.805px;
   border: 2px solid #FFE2E2;
   border-radius: 17px; 
-  position: fixed;
   top: 440px;
   right: 20px;
-  transform: translate(-50%, -50%);
+  transform: translate(15%, 55%);
   padding: 20px;
-  z-index: 999;
 `;
 
 
@@ -146,7 +129,7 @@ const LeftHeader = () => {
   return (
     <StyledLeftHeader>
       <Link to={"/"} className="nav-logo-link">
-        <img src='./img/headerLogo.png'alt=''/>
+        <img src='./img/headerLogo.png'alt='헤더로고'/>
       </Link>
     </StyledLeftHeader>
   );
@@ -189,7 +172,7 @@ const RightHeader = () => {
   return (
     <StyledRightHeader>
       <div className="header-button" onClick={toggleModal}>
-        <img src="/Img/allim.png" alt="Allim" />
+        <img src="./img/allim.png" alt="Allim" />
         {isModalOpen && (
         <Modal className="modal">
           {/* 모달 내용 */}
@@ -205,13 +188,13 @@ const RightHeader = () => {
         )}
       </div>
       <Link to="/question" className="header-button">
-        <img src="/Img/Union (Stroke).png" alt="Question" />
+        <img src="./img/mainQApage.png" alt="Question" />
       </Link>
       <Link to="/search" className="header-button">
-        <img src="/Img/mainSearch.jpg" alt="Search" />
+        <img src="./img/mainSearch.png" alt="Search" />
       </Link>
       <Link to="/mypage" className="header-button">
-        <img src="/Img/mainMypage.jpg" alt="Mypage" />
+        <img src="./img/mainMypage.png" alt="Mypage" />
       </Link>
     </StyledRightHeader>
   );
