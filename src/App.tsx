@@ -12,6 +12,7 @@ import { Detail } from "./component/project/cook/detail.tsx";
 import { Supplies } from "./component/project/supplies";
 import { Question } from "./component/project/question/questionWrite";
 import QuestionConfirm from "./component/project/question/questionConfirm";
+import { Detail2 } from "./component/project/supplies/detail.tsx";
 
 function App() {
   return (
@@ -26,9 +27,10 @@ function App() {
         <Route path="/Cook" element={<Cook />} />
         <Route path="/Cook/:item" element={<Detail />} />
         <Route path="/Supplies" element={<Supplies />} />
+        <Route path="/Supplies/:item" element={<Detail2 />} />
         <Route path="/Community" element={<Community />} />
         <Route path="/Question" element={<Question />} />
-        <Route path="/Question/Confirm" element={<QuestionConfirm/>}/>
+        <Route path="/Question/Confirm" element={<QuestionConfirm />} />
       </Routes>
     </div>
   );

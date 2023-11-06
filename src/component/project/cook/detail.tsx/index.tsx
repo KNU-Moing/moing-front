@@ -67,7 +67,6 @@ export const Detail = () => {
         <CenterContainer>
           <CenterTitle>
             {item} Best 후기 {">"}
-            <ArrowComponenet />
           </CenterTitle>
         </CenterContainer>
       </Inner>

@@ -1,115 +1,173 @@
-/** @jsxImportSource @emotion/react */
 import React, { useState } from "react";
-import { css } from "@emotion/react";
 import {
-  ArrowComponenet,
-  BlockContainer,
+  BestContainer,
   CenterContainer,
   CenterTitle,
-  CookArrowBlock,
-  CookMainBlock,
-  CookSubBlock,
-  CookSubTitle2,
-  CookSubTitte,
-  CookTestBlock,
   FlexContainer,
-  FlexsContainer,
-  HeadContainer,
+  ImageContainer,
   Inner,
   RowContainer,
-  SearchContainer,
-} from "./component";
-import { useLocation, useParams } from "react-router-dom";
+  SelectBox,
+  SuppBlock,
+  SuppCenBlock,
+  SuppCenTitle,
+  SuppTitte,
+  SuppTitte2,
+} from "../component";
+import { FlexsContainer } from "../detail.tsx/component";
 
-export const Detail = () => {
-  const { item } = useParams();
+export const Detail2 = () => {
   return (
     <div>
       <Inner>
-        <HeadContainer> {item}</HeadContainer>
-        <SearchContainer />
+        <ImageContainer />
         <FlexsContainer />
+        <CenterContainer>
+          <CenterTitle>임신 초기에 도움이 되는 제품들 {">"}</CenterTitle>
+          임신 초기에 많은 산모가 추천을 한 제품들을 모아봤어요
+        </CenterContainer>
         <RowContainer>
-          <CookMainBlock>
-            [경기 용인] 자연속에서 함께하는 용인뽀송조리원
-          </CookMainBlock>
-          <CookMainBlock>
-            [경기 용인] 자연속에서 함께하는 용인뽀송조리원
-          </CookMainBlock>
+          <SuppBlock>
+            <SuppTitte>
+              [추천영양제]임신중기 영양제 네모네모회사 영양제
+            </SuppTitte>
+            <SuppTitte2>33000원</SuppTitte2>
+          </SuppBlock>
+          <SuppBlock>
+            <SuppTitte>
+              [추천영양제]임신중기 영양제 네모네모회사 영양제
+            </SuppTitte>
+            <SuppTitte2>33000원</SuppTitte2>
+          </SuppBlock>
+          <SuppBlock>
+            <SuppTitte>
+              [추천영양제]임신중기 영양제 네모네모회사 영양제
+            </SuppTitte>
+            <SuppTitte2>33000원</SuppTitte2>
+          </SuppBlock>
+          <SuppBlock>
+            <SuppTitte>
+              [추천영양제]임신중기 영양제 네모네모회사 영양제
+            </SuppTitte>
+            <SuppTitte2>33000원</SuppTitte2>
+          </SuppBlock>
         </RowContainer>
+        <BestContainer>
+          <SuppTitte2>이번주 실시간 랭킹</SuppTitte2>
+          <RowContainer>
+            <SuppCenBlock>
+              <SuppCenTitle
+                Title={"Best 3 제품"}
+                text={"이번주에 가장 많이 팔렸어요!"}
+              />
+            </SuppCenBlock>
+            <SuppBlock>
+              <SuppTitte>
+                [추천영양제]임신중기 영양제 네모네모회사 영양제
+              </SuppTitte>
+              <SuppTitte2>33000원</SuppTitte2>
+            </SuppBlock>
+            <SuppBlock>
+              <SuppTitte>
+                [추천영양제]임신중기 영양제 네모네모회사 영양제
+              </SuppTitte>
+              <SuppTitte2>33000원</SuppTitte2>
+            </SuppBlock>
+            <SuppBlock>
+              <SuppTitte>
+                [추천영양제]임신중기 영양제 네모네모회사 영양제
+              </SuppTitte>
+              <SuppTitte2>33000원</SuppTitte2>
+            </SuppBlock>
+          </RowContainer>
+        </BestContainer>
+        <BestContainer>
+          <SuppTitte2>이번주 실시간 랭킹</SuppTitte2>
+          <RowContainer>
+            <SuppCenBlock>
+              <SuppCenTitle
+                Title={"Best 3 제품"}
+                text={"이번주에 가장 많이 팔렸어요!"}
+              />
+            </SuppCenBlock>
+            <SuppBlock>
+              <SuppTitte>
+                [추천영양제]임신중기 영양제 네모네모회사 영양제
+              </SuppTitte>
+              <SuppTitte2>33000원</SuppTitte2>
+            </SuppBlock>
+            <SuppBlock>
+              <SuppTitte>
+                [추천영양제]임신중기 영양제 네모네모회사 영양제
+              </SuppTitte>
+              <SuppTitte2>33000원</SuppTitte2>
+            </SuppBlock>
+            <SuppBlock>
+              <SuppTitte>
+                [추천영양제]임신중기 영양제 네모네모회사 영양제
+              </SuppTitte>
+              <SuppTitte2>33000원</SuppTitte2>
+            </SuppBlock>
+          </RowContainer>
+        </BestContainer>
+        <BestContainer>
+          <SuppTitte2>이번주 실시간 랭킹</SuppTitte2>
+          <RowContainer>
+            <SuppCenBlock>
+              <SuppCenTitle
+                Title={"Best 3 제품"}
+                text={"이번주에 가장 많이 팔렸어요!"}
+              />
+            </SuppCenBlock>
+            <SuppBlock>
+              <SuppTitte>
+                [추천영양제]임신중기 영양제 네모네모회사 영양제
+              </SuppTitte>
+              <SuppTitte2>33000원</SuppTitte2>
+            </SuppBlock>
+            <SuppBlock>
+              <SuppTitte>
+                [추천영양제]임신중기 영양제 네모네모회사 영양제
+              </SuppTitte>
+              <SuppTitte2>33000원</SuppTitte2>
+            </SuppBlock>
+            <SuppBlock>
+              <SuppTitte>
+                [추천영양제]임신중기 영양제 네모네모회사 영양제
+              </SuppTitte>
+              <SuppTitte2>33000원</SuppTitte2>
+            </SuppBlock>
+          </RowContainer>
+        </BestContainer>
         <CenterContainer>
-          <CenterTitle>
-            조리원 Best 후기
-            <ArrowComponenet />
-          </CenterTitle>
+          <CenterTitle>이 상품은 어때요?{">"}</CenterTitle>
+          임산중기 산모들이 많이 구매한 제품들!
         </CenterContainer>
-        <FlexContainer>
-          <CookSubBlock>
-            <CookSubTitte>서울 어디 조리원 솔직한 리뷰</CookSubTitte>
-            <CookSubTitle2>
-              안녕하세요 ~ 제가 서울 관악구 00동에 있는 조리원에 가봤습니다 역시
-              좋은 ...
-            </CookSubTitle2>
-          </CookSubBlock>
-          <CookSubBlock>
-            <CookSubTitte>서울 어디 조리원 솔직한 리뷰</CookSubTitte>
-            <CookSubTitle2>
-              안녕하세요 ~ 제가 서울 관악구 00동에 있는 조리원에 가봤습니다 역시
-              좋은 ...
-            </CookSubTitle2>
-          </CookSubBlock>
-          <CookSubBlock>
-            <CookSubTitte>서울 어디 조리원 솔직한 리뷰</CookSubTitte>
-            <CookSubTitle2>
-              안녕하세요 ~ 제가 서울 관악구 00동에 있는 조리원에 가봤습니다 역시
-              좋은 ...
-            </CookSubTitle2>
-          </CookSubBlock>
-          <CookSubBlock>
-            <CookSubTitte>서울 어디 조리원 솔직한 리뷰</CookSubTitte>
-            <CookSubTitle2>
-              안녕하세요 ~ 제가 서울 관악구 00동에 있는 조리원에 가봤습니다 역시
-              좋은 ...
-            </CookSubTitle2>
-          </CookSubBlock>
-          <CookSubBlock>
-            <CookSubTitte>서울 어디 조리원 솔직한 리뷰</CookSubTitte>
-            <CookSubTitle2>
-              안녕하세요 ~ 제가 서울 관악구 00동에 있는 조리원에 가봤습니다 역시
-              좋은 ...
-            </CookSubTitle2>
-          </CookSubBlock>
-          <CookSubBlock>
-            <CookSubTitte>서울 어디 조리원 솔직한 리뷰</CookSubTitte>
-            <CookSubTitle2>
-              안녕하세요 ~ 제가 서울 관악구 00동에 있는 조리원에 가봤습니다 역시
-              좋은 ...
-            </CookSubTitle2>
-          </CookSubBlock>
-        </FlexContainer>
-      </Inner>
-      <BlockContainer />
-      <Inner>
-        <CenterContainer>
-          <CenterTitle>예비 엄마들의 조리원 정보 공유</CenterTitle>
-        </CenterContainer>
-
         <RowContainer>
-          <CookTestBlock>
-            <CookSubTitte>서울 어디 조리원 솔직한 리뷰</CookSubTitte>
-            <CookSubTitle2>
-              안녕하세요 ~ 제가 서울 관악구 00동에 있는 조리원에 가봤습니다 역시
-              좋은 ...
-            </CookSubTitle2>
-          </CookTestBlock>
-          <CookTestBlock>
-            <CookSubTitte>서울 어디 조리원 솔직한 리뷰</CookSubTitte>
-            <CookSubTitle2>
-              안녕하세요 ~ 제가 서울 관악구 00동에 있는 조리원에 가봤습니다 역시
-              좋은 ...
-            </CookSubTitle2>
-          </CookTestBlock>
-          <CookArrowBlock>조리원 정보가 더 궁금하신가요?</CookArrowBlock>
+          <SuppBlock>
+            <SuppTitte>
+              [추천영양제]임신중기 영양제 네모네모회사 영양제
+            </SuppTitte>
+            <SuppTitte2>33000원</SuppTitte2>
+          </SuppBlock>
+          <SuppBlock>
+            <SuppTitte>
+              [추천영양제]임신중기 영양제 네모네모회사 영양제
+            </SuppTitte>
+            <SuppTitte2>33000원</SuppTitte2>
+          </SuppBlock>
+          <SuppBlock>
+            <SuppTitte>
+              [추천영양제]임신중기 영양제 네모네모회사 영양제
+            </SuppTitte>
+            <SuppTitte2>33000원</SuppTitte2>
+          </SuppBlock>
+          <SuppBlock>
+            <SuppTitte>
+              [추천영양제]임신중기 영양제 네모네모회사 영양제
+            </SuppTitte>
+            <SuppTitte2>33000원</SuppTitte2>
+          </SuppBlock>
         </RowContainer>
       </Inner>
     </div>

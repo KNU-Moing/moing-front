@@ -1,17 +1,9 @@
 import React, { useState } from "react";
 import {
-  ArrowComponenet,
   BestContainer,
-  BlockContainer,
   CenterContainer,
   CenterTitle,
-  CookMainBlock,
-  CookSubBlock,
-  CookSubTitle2,
-  CookSubTitte,
-  CookTestBlock,
   FlexContainer,
-  FlexsContainer,
   ImageContainer,
   Inner,
   RowContainer,
@@ -22,21 +14,18 @@ import {
   SuppTitte,
   SuppTitte2,
 } from "./component";
+import { FlexsContainer } from "./detail.tsx/component";
 
 export const Supplies = () => {
   return (
     <div>
       <Inner>
         <ImageContainer />
-        <FlexContainer>
-          <SelectBox />
-          <SelectBox />
-          <SelectBox />
-          <SelectBox />
-          <SelectBox />
-          <SelectBox />
-          <SelectBox />
-        </FlexContainer>
+        <FlexsContainer />
+        <CenterContainer>
+          <CenterTitle>이 상품은 어때요? {">"}</CenterTitle>
+          임산중기 산모들이 많이 구매한 제품들!
+        </CenterContainer>
         <RowContainer>
           <SuppBlock>
             <SuppTitte>
@@ -151,7 +140,7 @@ export const Supplies = () => {
           </RowContainer>
         </BestContainer>
         <CenterContainer>
-          <CenterTitle>이 상품은 어때요?</CenterTitle>
+          <CenterTitle>이 상품은 어때요?{">"}</CenterTitle>
           임산중기 산모들이 많이 구매한 제품들!
         </CenterContainer>
         <RowContainer>

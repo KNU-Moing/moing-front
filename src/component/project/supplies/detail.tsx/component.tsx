@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { css } from "@emotion/react";
 import theme from "../../../../styles/theme";
+import { useNavigate } from "react-router-dom";
 
 export const CookMainBlock = ({ children }: { children: React.ReactNode }) => (
   <div
@@ -251,12 +252,16 @@ const CookSlide = ({
       display: flex;
       align-items: center;
       justify-content: center;
-      background-color: ${isSelected ? "#aaa" : "#d9d9d9"};
+      background-color: ${isSelected ? "#FF9494" : "white"};
       font-family: Pretendard;
       border-radius: 10px;
       ${theme.typography.body3Bold}
       transform: translateY(${isSelected ? "0" : "10px"});
       transition: transform 0.3s ease;
+      width: 10rem;
+      height: 10rem;
+      border: 1px solid #ff9494;
+      border-radius: 5rem;
     `}
   >
     {children}
@@ -275,17 +280,18 @@ const CookSlide2 = ({
     onClick={onClick}
     css={css`
       display: flex;
-      width: calc(32% - 1.6rem);
+      width: 10%;
       align-items: center;
       justify-content: center;
       font-family: Pretendard;
       ${theme.typography.body3Bold}
       cursor: pointer;
       padding: 10px;
-      border-radius: 10px;
-      background-color: ${isSelected ? "#d9d9d9" : "#fff"};
+      border-radius: 30px;
+      background-color: ${isSelected ? "#FF9494" : "white"};
       transform: translateY(${isSelected ? "0" : "20px"});
       transition: transform 0.3s ease;
+      border: 1px solid #ff9494;
     `}
   >
     {children}
@@ -375,149 +381,22 @@ export const FlexsContainer = () => {
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
   const [Option, setOption] = useState<string>("지역을 선택해주세요");
+  const navigate = useNavigate();
   const getDataForOption = (option: string | null) => {
-    if (option === "서울") {
-      return [
-        "강남/역삼/삼성",
-        "서울역/이태원/용산",
-        "구로/신도림/금천",
-        "신사/청담/압구정",
-        "종로/인사동",
-        "김포공항/염창/강서",
-        "서초/고대/사당",
-        "홍대/합정/마포/서대문",
-        "건대입구/성수/왕십리",
-        "잠실/송파/강동",
-        "여의도",
-        "성북/강북/노원/도봉",
-        "을지로/명동/종구/동대문",
-        "영등포역",
-      ];
-    } else if (option === "경기") {
-      return [
-        "수원역/구운/행궁/장안구",
-        "성남/분당/위례",
-        "동탄/화성/오산/병정",
-        "하남/광주/여주/이천",
-        "안산/상록수/선부동/월피동",
-        "군포/의왕/긍정/산본",
-        "평택/송탄/안성",
-        "일산/고양/부천",
-        "파주/의정부/구리",
-        "남양주/포천/양주/연천",
-        "양평/가평/청평",
-        "김포",
-        "월곶/정왕/오이도/거북섬",
-        "제부도/대부도",
-      ];
-    } else if (option === "충북") {
-      return [
-        "흥덕구/서원구",
-        "상당구/청원구",
-        "청주/수안보",
-        "제천/단양",
-        "진천/음성",
-        "보은/옥천",
-        "과산/증평/영동",
-      ];
-    } else if (option === "충남") {
-      return [
-        "천안 서북구",
-        "천안 동남구",
-        "아산",
-        "공주/동학사/세종",
-        "계룡/금산/논산/청양",
-        "예산/흑성",
-        "태안/안면도",
-        "서산",
-        "당진",
-        "보령/대천",
-        "서천/부여",
-      ];
-    } else if (option === "전남") {
-      return [
-        "여수",
-        "순천",
-        "광양",
-        "목포",
-        "무안/영암/신안",
-        "나주/함평/영광/장성",
-        "담양/곡성/화산/구례",
-        "혜남/완도/진도",
-        "강진/장흥",
-        "보선/고흥",
-      ];
-    } else if (option === "전북") {
-      return [
-        "덕진구",
-        "완산구/완주",
-        "군산",
-        "악산",
-        "남원/임실/순창",
-        "무주/진안/장수",
-        "정읍/부안/김제/고창",
-      ];
-    } else if (option === "경남") {
-      return [
-        "상남동/용호동",
-        "중앙동/창원시청",
-        "명서동/북곡동/팔용동",
-        "마산",
-        "진해",
-        "김해/장유",
-        "양산/밀양",
-        "진주",
-        "거제/통영/고성",
-        "사천/남해",
-        "하동/산청/함양",
-        "거창/함안",
-        "창념/의령",
-      ];
-    } else if (option === "경북") {
-      return [
-        "포항/남구",
-        "포항/북구",
-        "경주",
-        "구미",
-        "경산",
-        "안동",
-        "영천/청도",
-        "김천/칠곡/성주",
-        "문경/상주/영주/예천/의성/봉화",
-        "울진/영덕/청송",
-        "울릉도",
-      ];
-    } else if (option === "강원") {
-      return [
-        "춘천/강촌",
-        "원주",
-        "사천/주문진",
-        "강릉",
-        "영월/정선",
-        "속초/고성",
-        "양양",
-        "동해/삼척/태백",
-        "평창",
-        "홍천/횡성",
-        "화천/철원/인제/양구",
-      ];
-    } else if (option === "충북") {
-      return [
-        "흥덕구/서원구",
-        "상당구/청원구",
-        "청주/수안보",
-        "제천/단양",
-        "진천/음성",
-        "보은/옥천",
-        "과산/증평/영동",
-      ];
-    } else if (option === "제주") {
-      return [
-        "서귀포/중문/모슬포",
-        "하귀/애월/한림/협재",
-        "황덕/감녕/세화",
-        "남원/표선/성산",
-      ];
+    if (option === "초기") {
+      return ["영양제", "속옷", "튼살크림", "음식", "태교", "속옷", "소모품"];
+    } else if (option === "중기") {
+      return ["영양제", "속옷", "튼살크림", "음식", "태교", "속옷", "소모품"];
+    } else if (option === "말기") {
+      return ["영양제", "속옷", "튼살크림", "음식", "태교", "속옷", "소모품"];
+    } else if (option === "산후조리") {
+      return ["영양제", "속옷", "튼살크림", "음식", "태교", "속옷", "소모품"];
+    } else if (option === "임부복") {
+      return ["영양제", "속옷", "튼살크림", "음식", "태교", "속옷", "소모품"];
+    } else if (option === "아기용품") {
+      return ["영양제", "속옷", "튼살크림", "음식", "태교", "속옷", "소모품"];
+    } else if (option === "추천템") {
+      return ["영양제", "속옷", "튼살크림", "음식", "태교", "속옷", "소모품"];
     } else {
       return [];
     }
@@ -528,8 +407,14 @@ export const FlexsContainer = () => {
   };
 
   const handleItemSelect = (item: string) => {
-    setSelectedItem(item);
-    setOption(item);
+    if (selectedItem === item) {
+      const encodedItem = encodeURIComponent(item);
+      setSelectedItem(encodedItem);
+      navigate(`/Supplies/${encodedItem}`);
+    } else {
+      setSelectedItem(item);
+      setOption(item);
+    }
   };
 
   const selectedData = getDataForOption(selectedOption);
@@ -560,16 +445,13 @@ export const FlexsContainer = () => {
         `}
       >
         {[
-          "서울",
-          "경기",
-          "충북",
-          "충남",
-          "전남",
-          "전북",
-          "경남",
-          "경북",
-          "강원",
-          "제주",
+          "초기",
+          "중기",
+          "말기",
+          "산후조리",
+          "임부복",
+          "아기용품",
+          "추천템",
         ].map((option) => (
           <CookSlide
             key={option}
@@ -588,7 +470,7 @@ export const FlexsContainer = () => {
               gap: 1.6rem;
               width: 100%;
               margin-top: 3rem;
-              justify-content: flex-start;
+              justify-content: space-around;
               cursor: pointer;
             `}
           >
