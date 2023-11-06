@@ -19,6 +19,7 @@ import {
   InputHospital,
   ModalTitle,
   SubmitContext,
+  InfoLayout,
 } from "./modalComponent";
 
 interface ModalProps {
@@ -114,17 +115,17 @@ export const InfoModal = ({
     >
       <CancelBtn onClick={closeModal} />
 
-      <div
-        css={css`
-          margin-bottom: ${theme.spacing.xl};
-        `}
-      >
-        <ModalTitle title="변경 할 정보를 입력해주세요."></ModalTitle>
+      <ModalTitle title="변경 할 정보를 입력해주세요."></ModalTitle>
+      <InfoLayout>
         <EmailInfo email={email} handleShow={handleShow}></EmailInfo>
         {isShown === false ? (
           ""
         ) : (
-          <div>
+          <div
+            css={css`
+              margin-bottom: ${theme.spacing.xxl};
+            `}
+          >
             <InputWithBtn
               context="변경 이메일"
               btnContext="인증하기"
@@ -143,7 +144,7 @@ export const InfoModal = ({
         )}
         <InputPwd context="새 비밀번호" setPwd={setUpdatePwd}></InputPwd>
         <InputPwd context="새 비밀번호 확인" setPwd={setCheckPwd}></InputPwd>
-      </div>
+      </InfoLayout>
 
       <SubmitBtn onClick={handleSubmit} />
     </Modal>
