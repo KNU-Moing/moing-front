@@ -20,7 +20,15 @@ interface InputWithBtnProps {
   setState: React.Dispatch<React.SetStateAction<string>>;
   onClick: () => void;
 }
-
+export const InfoLayout = ({ children }: { children: React.ReactNode }) => (
+  <div
+    css={css`
+      margin: ${theme.spacing.xxl} 0 ${theme.spacing.md} 0;
+    `}
+  >
+    {children}
+  </div>
+);
 export const ModalTitle = ({ title }: { title: string }) => {
   return (
     <div
@@ -56,11 +64,12 @@ export const SubmitBtn = ({ onClick }: ButtonProp) => {
       css={css`
         border: none;
         border-radius: 40px;
-        width: 8rem;
-        height: 3rem;
-        font-size: ${theme.font.xxs};
+        width: 10rem;
+        height: 2.5rem;
+        font-size: 1rem;
         color: ${theme.palette.gray.white};
         background-color: ${theme.palette.pink[100]};
+        margin-top: ${theme.spacing.xs};
       `}
     >
       변경하기
@@ -71,11 +80,11 @@ export const SubmitBtn = ({ onClick }: ButtonProp) => {
 const InfoContainer = ({ children }: { children: React.ReactNode }) => (
   <div
     css={css`
-      font-size: ${theme.font.xxs};
+      font-size: ${theme.font.xs};
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: ${theme.spacing.sm};
+      margin-top: ${theme.spacing.sm};
     `}
   >
     {children}
@@ -87,7 +96,7 @@ const InputContainer = ({ children }: { children: React.ReactNode }) => (
     css={css`
       height: 2.5rem;
       width: 23vw;
-      border-radius: 15px;
+      border-radius: 10px;
       background-color: ${theme.palette.gray.white};
       display: flex;
       justify-content: space-between;
@@ -136,7 +145,7 @@ const InputBtn = ({
       background-color: ${theme.palette.gray.white};
       border-left: solid 2px ${theme.palette.pink[100]};
       color: ${theme.palette.pink[100]};
-      fontsize: ${theme.font.xs};
+      fontsize: ${theme.font.sm};
       border: none;
     `}
   >
@@ -159,7 +168,7 @@ export const InputPwd = ({ context, setPwd }: InputPwdProps) => {
         css={css`
           width: 18vw;
           height: 2.5rem;
-          border-radius: 15px;
+          border-radius: 10px;
           background-color: ${theme.palette.gray.white};
           color: ${theme.palette.pink[100]};
           border: none;
@@ -221,7 +230,7 @@ export const InputHospital = ({
   return (
     <div
       css={css`
-        width: 28vw;
+        width: 30vw;
         height: 2.5rem;
         display: flex;
         justify-content: space-between;
@@ -269,12 +278,16 @@ export const InputHospital = ({
 
 export const SubmitContext = ({ name }: { name: string }) => {
   return (
-    <p>
+    <p
+      css={css`
+        margin-top: ${theme.spacing.xl};
+      `}
+    >
       <b>{name}</b>에 요청을 보냈습니다
       <p
         css={css`
           margin-top: ${theme.spacing.sm};
-          ${theme.typography.body5};
+          ${theme.typography.body4};
         `}
       >
         <b>병원 방문 후 인증</b> 후에 <b>변경</b>이 <b>완료</b>됩니다
