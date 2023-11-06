@@ -37,7 +37,7 @@ export const TodayChart = ({ children }: { children: React.ReactNode }) => (
   <div
     css={css`
       color: ${theme.palette.gray[600]};
-      padding: ${theme.spacing.sm} 0;
+      padding: 0 0 ${theme.spacing.sm} 0;
     `}
   >
     {children}
@@ -61,7 +61,7 @@ export const ImgContainer = ({ imgList }: { imgList: string[] }) => (
       }
       &::-webkit-scrollbar-thumb {
         border-radius: 20px;
-        background-color: ${theme.palette.gray[200]};
+        background-color: ${theme.palette.pink[700]};
       }
     `}
   >
@@ -231,6 +231,7 @@ export const WeeksTipLContainer = ({ days }: { days: number }) => {
         width: 40%;
         height: 100%;
         position: relative;
+        color: ${theme.palette.gray.white};
       `}
     >
       {circles.map((circle, index) => (
@@ -287,8 +288,7 @@ export const Circle = ({
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: ${theme.palette.gray[200]};
-        color: ${theme.palette.gray[600]};
+        background-color: ${theme.palette.pink[100]};
         border-radius: 100%;
         position: absolute;
         z-index: 0;
@@ -456,6 +456,10 @@ export const GraphButton = ({
         font-weight: ${content.checked
           ? theme.typography.body5Bold.fontWeight
           : theme.typography.body5.fontWeight};
+        ${content.checked
+          ? `transform: scale( 1.2 ) translateX( -0.3rem )`
+          : `transform: scale( 1.0 ) `};
+        transition: 0.4s;
       `}
       onClick={handleGraph}
     >
@@ -511,10 +515,8 @@ export const WeeksChart = ({ week, src }: { week: number; src: string }) => {
         text-align: center;
         width: 15vw;
         &:hover {
-          background-color: ${theme.palette.gray[200]};
+          background-color: #ffd7d7;
           border-radius: 10px;
-          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16),
-            0 3px 6px rgba(0, 0, 0, 0.23);
         }
       `}
       onClick={handleGOChart}
@@ -528,7 +530,7 @@ export const WeeksChart = ({ week, src }: { week: number; src: string }) => {
       ></img>
       <div
         css={css`
-          margin: ${theme.spacing.xxxs} 0;
+          margin: ${theme.spacing.xxs} 0;
           color: ${theme.palette.gray[600]};
           ${theme.typography.body5};
         `}
