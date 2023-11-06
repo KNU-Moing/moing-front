@@ -5,6 +5,7 @@ import {
   ContextOverlay,
   TitleContent,
 } from "../component";
+import Footer from "../../Footer";
 import { ContentBoxLayer, MoreButton } from "../../../emotion/component";
 import {
   TodayChart,
@@ -183,6 +184,7 @@ export const Notebook = () => {
             onClick={() => navigate("/diary")}
           ></CategoryButton>
         </Category>
+
         <ContextOverlay>
           <TodayChart>
             <TitleContent content="오늘의 진료 기록"></TitleContent>
@@ -294,7 +296,7 @@ export const Notebook = () => {
               styleFlex="block"
               title="진료 기록 보기"
               styleWidth="60%"
-              styleHeight="50vh"
+              styleHeight="52vh"
             >
               <MoreButton onClick={moreHandle} styleLeft="44vw"></MoreButton>
               <ChartContainer>
@@ -311,13 +313,14 @@ export const Notebook = () => {
               title="임신 중기 추천 제품!"
               styleFlex="block"
               styleWidth="39%"
-              styleHeight="50vh"
+              styleHeight="52vh"
             >
               {""}
             </ContentBoxLayer>
           </EtcOverLay>
         </ContextOverlay>
       </Overlay>
+      <Footer></Footer>
     </div>
   );
 };

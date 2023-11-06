@@ -13,21 +13,20 @@ export const BackButton = () => {
 
   return (
     <img
-      src= "./img/goBack.png"
+      src="./img/goBack.png"
       alt="뒤로 가기"
       css={css`
         cursor: pointer;
-        width: 30px; 
-        height: 49px; 
-        position: absolute; 
+        width: 30px;
+        height: 49px;
+        position: absolute;
         top: 25%;
-        left: 120px; 
+        left: 120px;
       `}
       onClick={goBack}
     />
   );
 };
-
 
 export const Overlay = ({
   children,
@@ -340,8 +339,7 @@ export const ContentBoxLayer = ({
   <div
     css={css`
       display: ${styleFlex};
-
-      border: 1px solid ${theme.palette.gray[300]};
+      border: 1px solid ${theme.palette.pink[100]};
       border-radius: 20px;
       width: ${styleWidth};
       height: ${styleHeight};

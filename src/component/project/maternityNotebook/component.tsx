@@ -7,6 +7,7 @@ export const Overlay = ({ children }: { children: React.ReactNode }) => (
   <div
     css={css`
       padding-top: 24vh;
+      padding-bottom: 16vh;
     `}
   >
     {children}
@@ -66,6 +67,7 @@ export const TitleContent = ({ content }: { content: string }) => {
   return (
     <div
       css={css`
+        padding-top: 1.2rem;
         flex-grow: 8;
         ${theme.typography.body4Bold};
       `}
