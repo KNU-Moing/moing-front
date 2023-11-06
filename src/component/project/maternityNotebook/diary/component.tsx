@@ -11,7 +11,7 @@ export const TitleBar = ({ children }: { children: React.ReactNode }) => (
     css={css`
       width: 90%;
       display: flex;
-      padding: ${theme.spacing.sm} 0;
+      padding: 0 0 ${theme.spacing.sm} 0;
       color: ${theme.palette.gray[600]};
     `}
   >
@@ -20,7 +20,6 @@ export const TitleBar = ({ children }: { children: React.ReactNode }) => (
 );
 
 export const WriteButton = () => {
-  const src = "/Img/notebookWriteBtn.png";
   return (
     <button
       css={css`
@@ -28,17 +27,24 @@ export const WriteButton = () => {
         align-items: center;
         border: none;
         background-color: #ffffff;
-        padding: 0 ${theme.spacing.md};
+        padding: 0 ${theme.spacing.xs};
         color: ${theme.palette.gray[600]};
         font: ${theme.typography.body4};
       `}
       onClick={() => alert("글쓰기 페이지 이동")}
     >
-      글쓰기
-      <img
-        src={src}
+      <div
         css={css`
-          width: 20px;
+          padding: 1.2rem 0.2rem 0 0;
+        `}
+      >
+        글쓰기
+      </div>
+
+      <img
+        src="img/DiaryWriteIcon.png"
+        css={css`
+          height: 2em;
         `}
       ></img>
     </button>
@@ -64,10 +70,20 @@ export const CustomSelect = ({
     setIsOpened(!isOpened);
   };
   return (
-    <div>
+    <div
+      css={css`
+        padding-top: 1.2rem;
+      `}
+    >
       <SelectBtn onClick={handleClick}>
         <RiArrowDropDownLine></RiArrowDropDownLine>
-        {selected}
+        <div
+          css={css`
+            margin-left: ${theme.spacing.xxs};
+          `}
+        >
+          {selected}
+        </div>
       </SelectBtn>
       <SelectUl isShown={isOpened}>
         {sortList.map((item) => (
@@ -86,9 +102,8 @@ const SelectBtn = ({
 }) => (
   <button
     css={css`
-      width: 7rem;
+      width: 8rem;
       display: flex;
-      justify-content: space-between;
       align-items: center;
       border: none;
       background-color: #ffffff;
@@ -182,7 +197,7 @@ export const DiaryBox = ({ diary }: { diary: DiaryType }) => {
         padding: ${theme.spacing.md};
         width: 36vw;
         border-radius: 10px;
-        border: 1px solid ${theme.palette.gray[500]};
+        border: 1px solid ${theme.palette.pink[100]};
       `}
       onClick={handleNavi}
     >
@@ -223,7 +238,7 @@ const DiaryContent = ({ content }: { content: string }) => {
         ${theme.typography.body5};
       `}
     >
-      {content.length < 130 ? content : content.slice(0, 125) + "..."}
+      {content.length < 130 ? content : content.slice(0, 180) + "..."}
     </div>
   );
 };
