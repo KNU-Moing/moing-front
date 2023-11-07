@@ -6,11 +6,14 @@ import {
   TitleContent,
 } from "../component";
 import Footer from "../../Footer";
-import { ContentBoxLayer, MoreButton } from "../../../emotion/component";
+import {
+  ContentBoxLayer,
+  MoreButton,
+  TwoBoxLayout,
+} from "../../../emotion/component";
 import {
   TodayChart,
   ImgContainer,
-  ChartDetailLayout,
   ChartDetailSection,
   ChartContent,
   HospitalVisitDay,
@@ -189,7 +192,7 @@ export const Notebook = () => {
           <TodayChart>
             <TitleContent content="오늘의 진료 기록"></TitleContent>
             <ImgContainer imgList={imgList}></ImgContainer>
-            <ChartDetailLayout>
+            <TwoBoxLayout>
               <ChartDetailSection>
                 <ContentBoxLayer
                   title="산모 정보"
@@ -266,7 +269,7 @@ export const Notebook = () => {
                   </WeeksTipLayout>
                 </ContentBoxLayer>
               </ChartDetailSection>
-            </ChartDetailLayout>
+            </TwoBoxLayout>
           </TodayChart>
 
           <ContentBoxLayer
