@@ -14,27 +14,31 @@ import {
   FlexsContainer,
   Inner,
   RowContainer,
+  TexContainer,
 } from "./component";
+import { StyledHeader } from "../header/component";
 
 export const Cook = () => {
   return (
     <div>
+      <StyledHeader></StyledHeader>
       <Inner>
         <FlexsContainer />
-        <RowContainer>
-          <CookMainBlock>
-            [경기 용인] 자연속에서 함께하는 용인뽀송조리원
-          </CookMainBlock>
-          <CookMainBlock>
-            [경기 용인] 자연속에서 함께하는 용인뽀송조리원
-          </CookMainBlock>
-        </RowContainer>
-        <CenterContainer>
-          <CenterTitle>
-            조리원 Best 후기
-            <ArrowComponenet />
-          </CenterTitle>
-        </CenterContainer>
+        <TexContainer>
+          이달의 HOT 조리원
+          <RowContainer>
+            <CookMainBlock>
+              [경기 용인] 자연속에서 함께하는 용인뽀송조리원
+            </CookMainBlock>
+            <CookMainBlock>
+              [경기 용인] 자연속에서 함께하는 용인뽀송조리원
+            </CookMainBlock>
+          </RowContainer>
+          <CenterContainer>
+            <CenterTitle>조리원 Best 후기 {">"}</CenterTitle>
+          </CenterContainer>
+        </TexContainer>
+
         <FlexContainer>
           <CookSubBlock>
             <CookSubTitte>서울 어디 조리원 솔직한 리뷰</CookSubTitte>

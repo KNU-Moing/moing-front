@@ -32,14 +32,16 @@ export const ModalSignup = ({ setModalOpen, openSignInModal }: any) => {
         <Modal closeModal={closeModal}>
           <TopContainer>
             <TopSelectContainer
-              color="#CACACA"
+              color="#FF9494"
+              fontcolor="white"
               style="border-radius: 25px 0 0 0;"
               onClick={openSignIn}
             >
               로그인
             </TopSelectContainer>
             <TopSelectContainer
-              color="#F4F4F4"
+              color="white"
+              fontcolor="black"
               style="border-radius: 0 25px 0 0;"
             >
               회원가입
@@ -68,8 +70,8 @@ export const ModalSignup = ({ setModalOpen, openSignInModal }: any) => {
               <InputContainer placeholder="닉네임" />
             </BodyContainer>
             <Rowdiv>
-              <Images>산모</Images>
-              <Images>보호자</Images>
+              <Images backgroundColor="#FF9494">산모</Images>
+              <Images backgroundColor="#84BDFF">보호자</Images>
             </Rowdiv>
             <Rowdiv>
               <CheckButton>가입하기</CheckButton>
@@ -96,13 +98,15 @@ export const ModalSignIn = ({ setModalOpen, openSignupModal }: any) => {
         <Modal closeModal={closeModal}>
           <TopContainer>
             <TopSelectContainer
-              color="#F4F4F4"
+              color="white"
+              fontcolor="black"
               style="border-radius: 25px 0 0 0;"
             >
               로그인
             </TopSelectContainer>
             <TopSelectContainer
-              color="#cacaca"
+              color="#FF9494"
+              fontcolor="white"
               style="border-radius: 0 25px 0 0;"
               onClick={openSignup}
             >

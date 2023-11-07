@@ -517,21 +517,17 @@ export const SuppBlock = ({ children }: { children: React.ReactNode }) => (
       ${theme.typography.body4Bold}
     `}
   >
-    <div
+    <img
+      src="/img/TEST1.PNG"
       css={css`
         display: flex;
         flex-direction: column;
-        width: 24.5rem;
-        height: 30rem;
-        background-color: #d9d9d9;
-        font-family: Pretendard;
-        border-radius: 10px;
-        &:hover {
-          transform: scale(1.05);
-          transition: transform 0.3s ease;
-        }
+        gap: 1.6rem;
+        font-family: Inter;
+        ${theme.typography.body4Bold}
       `}
-    />
+    ></img>
+
     {children}
   </div>
 );
@@ -614,13 +610,14 @@ export const BestContainer = ({ children }: { children: React.ReactNode }) => (
   </div>
 );
 export const ImageContainer = () => (
-  <div
+  <img
+    src="/img/tex.PNG"
     css={css`
       width: 100%;
       height: 30rem;
       background-color: #d9d9d9;
     `}
-  ></div>
+  ></img>
 );
 export const SelectBox = () => (
   <div
