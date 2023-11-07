@@ -17,6 +17,7 @@ export const Overlay = ({ children }: { children: React.ReactNode }) => (
   </div>
 );
 
+/** 추천 토픽 레이아웃 */
 export const RecommendLayout = ({
   children,
 }: {
@@ -56,7 +57,8 @@ export const TopicBox = ({ children }: { children: React.ReactNode }) => (
   </div>
 );
 
-export const TitleBar = ({ children }: { children: React.ReactNode }) => (
+/** 커뮤니티 상단 헤더, 타이틀 */
+export const TitleBar = () => (
   <div
     css={css`
       display: flex;
@@ -67,8 +69,7 @@ export const TitleBar = ({ children }: { children: React.ReactNode }) => (
       font: ${theme.typography.body2};
     `}
   >
-    <div>쑥쑥이엄마의 고민을 덜어드릴게요</div>
-    {children}
+    쑥쑥이엄마의 고민을 덜어드릴게요
   </div>
 );
 export const TitleIcon = ({ styleRight }: { styleRight: string }) => (
@@ -84,7 +85,7 @@ export const TitleIcon = ({ styleRight }: { styleRight: string }) => (
     `}
   ></button>
 );
-
+/** 세부적인 내용들을 담을 공간 */
 export const Container = ({ children }: { children: React.ReactNode }) => (
   <div
     css={css`
@@ -97,7 +98,7 @@ export const Container = ({ children }: { children: React.ReactNode }) => (
     {children}
   </div>
 );
-
+/** 커뮤니티 게시물 등 세부 내용 */
 export const CommunityContent = ({
   title,
   content,

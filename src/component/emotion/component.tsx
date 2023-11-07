@@ -323,6 +323,7 @@ export const LoginButton = ({ children }: { children: React.ReactNode }) => (
   </div>
 );
 
+/** 분홍 테두리가 있는 박스, 타이틀 고정 */
 export const ContentBoxLayer = ({
   children,
   title,
@@ -361,7 +362,7 @@ const ContentTitle = ({ title }: { title: string }) => (
     {title}
   </div>
 );
-
+/** 더보기 버튼 */
 export const MoreButton = ({
   onClick,
   styleLeft,

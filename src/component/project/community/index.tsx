@@ -5,7 +5,6 @@ import {
   Container,
   CommunityContent,
   TitleBar,
-  TitleIcon,
   RecommendLayout,
 } from "./component";
 import { ContentBoxLayer, MoreButton } from "../../emotion/component";
@@ -13,18 +12,24 @@ import {
   ChartDetailLayout,
   Circle,
 } from "../maternityNotebook/notebook/component";
+import theme from "../../../styles/theme";
 
 export const Community = () => {
   const [circles, setCircles] = useState([
     {
-      styles: "width: 4.5rem; height: 4.5rem; top: 12.5rem; left: -26.5rem;",
-      content: "튼살",
-      fontSize: "1.2rem",
-    },
-    {
       styles: "width: 14.5rem; height: 14.5rem; top: 6rem; left: -20rem;",
       content: "태동",
       fontSize: "2rem",
+    },
+    {
+      styles: "width: 13rem; height: 13rem; top: 11rem; left: 9rem;",
+      content: "영양제",
+      fontSize: "1.9rem",
+    },
+    {
+      styles: "width: 11rem; height: 11rem; top: 6rem; left: 19rem;",
+      content: "철분",
+      fontSize: "1.7rem",
     },
     {
       styles: "width: 8rem; height: 8rem; top: 3rem; left: -6rem;",
@@ -37,14 +42,9 @@ export const Community = () => {
       fontSize: "1.4rem",
     },
     {
-      styles: "width: 13rem; height: 13rem; top: 11rem; left: 9rem;",
-      content: "영양제",
-      fontSize: "1.9rem",
-    },
-    {
-      styles: "width: 11rem; height: 11rem; top: 6rem; left: 19rem;",
-      content: "철분",
-      fontSize: "1.7rem",
+      styles: "width: 4.5rem; height: 4.5rem; top: 12.5rem; left: -26.5rem;",
+      content: "튼살",
+      fontSize: "1.2rem",
     },
   ]);
   const [recommends, setRecommends] = useState([
@@ -99,15 +99,16 @@ export const Community = () => {
               styles={circle.styles}
               content={circle.content}
               fontSize={circle.fontSize}
+              color={
+                index == 0 || index == 2 || index == 3
+                  ? "#84BDFF"
+                  : theme.palette.pink[100]
+              }
               onClick={() => handleTopicDetail(circle.content)}
             ></Circle>
           ))}
         </RecommendLayout>
-        <TitleBar>
-          <TitleIcon styleRight="0rem"></TitleIcon>
-          <TitleIcon styleRight="3rem"></TitleIcon>
-          <TitleIcon styleRight="6rem"></TitleIcon>
-        </TitleBar>
+        <TitleBar></TitleBar>
         <ChartDetailLayout>
           <ContentBoxLayer
             title="의사 선생님께 많이 묻는 질문"

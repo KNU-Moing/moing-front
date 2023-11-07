@@ -240,6 +240,7 @@ export const WeeksTipLContainer = ({ days }: { days: number }) => {
           styles={circle}
           content=""
           fontSize=""
+          color={theme.palette.pink[100]}
           onClick={() => {}}
         ></Circle>
       ))}
@@ -271,15 +272,18 @@ export const WeeksTipLContainer = ({ days }: { days: number }) => {
     </div>
   );
 };
+/** 원형 컴포넌트 */
 export const Circle = ({
   styles,
   content,
   fontSize,
+  color,
   onClick,
 }: {
   styles: string;
   content: string;
   fontSize: string;
+  color: string;
   onClick: React.MouseEventHandler<HTMLDivElement>;
 }) => {
   return (
@@ -288,7 +292,8 @@ export const Circle = ({
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: ${theme.palette.pink[100]};
+        background-color: ${color};
+        color: ${theme.palette.gray.white};
         border-radius: 100%;
         position: absolute;
         z-index: 0;
