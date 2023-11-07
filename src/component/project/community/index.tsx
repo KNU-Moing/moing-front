@@ -7,11 +7,12 @@ import {
   TitleBar,
   RecommendLayout,
 } from "./component";
-import { ContentBoxLayer, MoreButton } from "../../emotion/component";
 import {
-  ChartDetailLayout,
+  ContentBoxLayer,
+  MoreButton,
   Circle,
-} from "../maternityNotebook/notebook/component";
+  TwoBoxLayout,
+} from "../../emotion/component";
 import theme from "../../../styles/theme";
 
 export const Community = () => {
@@ -109,7 +110,7 @@ export const Community = () => {
           ))}
         </RecommendLayout>
         <TitleBar></TitleBar>
-        <ChartDetailLayout>
+        <TwoBoxLayout>
           <ContentBoxLayer
             title="의사 선생님께 많이 묻는 질문"
             styleFlex="block"
@@ -144,7 +145,7 @@ export const Community = () => {
               ))}
             </Container>
           </ContentBoxLayer>
-        </ChartDetailLayout>
+        </TwoBoxLayout>
 
         <ContentBoxLayer
           title="엄마들의 수다 수다"

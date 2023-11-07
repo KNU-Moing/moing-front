@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import React from "react";
 import { TipType, GraphBtnType } from ".";
+import { Circle } from "../../../emotion/component";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -75,23 +76,6 @@ export const ImgContainer = ({ imgList }: { imgList: string[] }) => (
         src={img}
       ></img>
     ))}
-  </div>
-);
-
-export const ChartDetailLayout = ({
-  children,
-}: {
-  children: React.ReactNode;
-}) => (
-  <div
-    css={css`
-      width: 90%;
-      display: flex;
-      justify-content: space-between;
-      gap: ${theme.spacing.lg};
-    `}
-  >
-    {children}
   </div>
 );
 
@@ -269,51 +253,6 @@ export const WeeksTipLContainer = ({ days }: { days: number }) => {
           {week}주차 {day}일
         </div>
       </div>
-    </div>
-  );
-};
-/** 원형 컴포넌트 */
-export const Circle = ({
-  styles,
-  content,
-  fontSize,
-  color,
-  onClick,
-}: {
-  styles: string;
-  content: string;
-  fontSize: string;
-  color: string;
-  onClick: React.MouseEventHandler<HTMLDivElement>;
-}) => {
-  return (
-    <div
-      css={css`
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: ${color};
-        color: ${theme.palette.gray.white};
-        border-radius: 100%;
-        position: absolute;
-        z-index: 0;
-        ${styles}
-        font-weight:bold;
-        font-size: ${fontSize};
-        transform: scale(1);
-        transition-duration: 0.3s;
-        ${fontSize === ""
-          ? ""
-          : `&:hover {
-            transform: scale(1.05);
-           transition-duration: 0.3s;
-           box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-        }
-        `}
-      `}
-      onClick={onClick}
-    >
-      {content}
     </div>
   );
 };
