@@ -13,21 +13,20 @@ export const BackButton = () => {
 
   return (
     <img
-      src= "./img/goBack.png"
+      src="./img/goBack.png"
       alt="뒤로 가기"
       css={css`
         cursor: pointer;
-        width: 30px; 
-        height: 49px; 
-        position: absolute; 
+        width: 30px;
+        height: 49px;
+        position: absolute;
         top: 25%;
-        left: 120px; 
+        left: 120px;
       `}
       onClick={goBack}
     />
   );
 };
-
 
 export const Overlay = ({
   children,
@@ -83,10 +82,10 @@ export const Modaldiv = ({ children }: { children: React.ReactNode }) => (
     css={css`
       display: flex;
       flex-direction: column;
-      gap: 1.6rem;
-      padding: 3.2rem 3.2rem 1rem 3.2rem;
-      width: 32rem;
-      background-color: white;
+      gap: 0.8rem;
+      padding: 0.4rem 3.2rem 0rem 3.2rem;
+      width: 28rem;
+      background-color: #f5f6fa;
       font-family: Inter;
       ${theme.typography.body4Bold}
       border-radius: 0 0 25px 25px;
@@ -100,7 +99,7 @@ export const BodyContainer = ({ children }: { children: React.ReactNode }) => (
     css={css`
       display: flex;
       flex-direction: column;
-      gap: 1.2rem;
+      gap: 0.8rem;
       font-family: Inter;
       color: black;
       ${theme.typography.body4Bold}
@@ -119,7 +118,7 @@ export const InputContainer = ({ placeholder }: { placeholder: string }) => (
       flex-direction: column;
       padding: 1.2rem;
       background-color: #fff8f8;
-      width: 29.6rem;
+      width: 25.6rem;
       border-radius: 20px;
       font-family: Inter;
       ${theme.typography.body4Bold}
@@ -150,9 +149,9 @@ export const InputSelectContainer = ({
       css={css`
         display: flex;
         flex-direction: column;
-        padding: 1.2rem;
+        padding: 0.8rem;
         background-color: #fff8f8;
-        width: 22.6rem;
+        width: 18.6rem;
         border-radius: 20px 0 0 20px;
         font-family: Inter;
         ${theme.typography.body4Bold}
@@ -168,7 +167,7 @@ export const InputSelectContainer = ({
       css={css`
         display: flex;
         flex-direction: column;
-        padding: 1.2rem;
+        padding: 0.8rem;
         background-color: #fff8f8;
         width: 7rem;
         border-radius: 0 20px 20px 0;
@@ -217,7 +216,7 @@ export const TopContainer = ({ children }: { children: React.ReactNode }) => (
       display: flex;
       flex-direction: row;
       align-items: center;
-      width: 38.4rem;
+      width: 34.4rem;
       justify-content: center;
     `}
   >
@@ -235,7 +234,7 @@ export const Images = ({
     css={css`
       display: flex;
       flex-direction: column;
-      padding: 2.6rem;
+      padding: 2rem;
       background-color: ${backgroundColor};
       border-radius: 10px;
       align-items: center;
@@ -270,7 +269,7 @@ export const TopSelectContainer = ({
       ${theme.typography.body4Bold}
       align-items: center;
       justify-content: center;
-      width: 17.6rem;
+      width: 16.6rem;
       cursor: pointer;
       ${style};
     `}
@@ -289,7 +288,7 @@ export const Images2 = ({ children }: { children: React.ReactNode }) => (
       align-items: center;
       justify-content: center;
       width: 16rem;
-      height: 3rem;
+      height: 2rem;
     `}
   >
     {children}
@@ -300,12 +299,13 @@ export const CheckButton = ({ children }: { children: React.ReactNode }) => (
     css={css`
       display: flex;
       flex-direction: column;
-      padding: 1.2rem 3.2rem;
+      padding: 0.8rem 2rem;
       background-color: #ff9494;
       color: white;
       border-radius: 30px;
       align-items: center;
       justify-content: center;
+      margin-bottom: 1rem;
     `}
   >
     {children}
