@@ -14,35 +14,24 @@ const StyledHeader = styled.header`
   align-items: center;
   justify-content: space-between;
   position: absolute;
-  top: 73px;
+  top: 3.3125rem; 
 
   .nav_logo {
     position: relative;
-    left: 122px;
-    font-size: 30px;
-    font-family: Inter;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    color: #808080;
-
-    .nav-logo-link {
-      text-decoration: none;
-      color: #808080;
-    }
+    left: 7.625rem;
   }
 
   .menuToggleBtn {
     display: none;
-    color: #808080;
-    font-size: 15px;
+    color: #000;
+    font-size: 0.9375rem;
     position: absolute;
-    right: 20px;
-    top: 15px;
+    right: 1.25rem; 
+    top: 0.9375rem;
     cursor: pointer;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 48rem) { 
     flex-direction: column;
     align-items: flex-start;
 
@@ -54,58 +43,53 @@ const StyledHeader = styled.header`
 
 const StyledLeftHeader = styled.div`
   position: relative;
-  left: 122px;
-  font-size: 30px;
-  font-family: Inter;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-  color: #808080;
-  .nav-logo-link {
-    text-decoration: none;
-    color: #808080;
-  }
+  left: 7.625rem; 
 `;
 
 const StyledNavMenu = styled.ul<NavMenuProps>`
   list-style: none;
   display: flex;
   position: absolute;
-  left: 400px;
-  color: #808080;
+  left: 18.75rem;
+  color: #000;
   font-family: Inter;
-  font-size: 16px;
+  font-size: 1rem; 
   font-style: normal;
   font-weight: 500;
   line-height: normal;
 
   li {
-    margin-right: 89px;
+    margin-right: 5.5625rem; 
     &:hover {
       cursor: pointer;
-      background: #f2f2f2;
-      border-radius: 4px;
+      background: rgba(255, 242, 242, 0.50);
+      border-radius: 0.25rem;
     }
   }
 
   .nav-menu-list {
     text-decoration: none;
-    color: #808080;
+    color: #000;
     display: block;
-    padding: 10px 10px;
+    padding: 0.625rem 0.625rem; 
+    font-family: Pretendard;
+    font-size: 0.9375rem; 
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 48rem) {
     display: ${(props) => (props.isToggleOpen ? "block" : "none")};
     flex-direction: column;
     color: #808080;
     align-items: center;
     width: 100%;
-    margin-top: 5px;
+    margin-top: 0.3125rem; 
 
     li {
       margin-right: 0;
-      margin-bottom: 10px;
+      margin-bottom: 0.625rem; 
     }
   }
 `;
@@ -113,40 +97,38 @@ const StyledNavMenu = styled.ul<NavMenuProps>`
 const StyledRightHeader = styled.div`
   display: flex;
   align-items: center;
-  margin-top: 10px;
+  margin-top: 0.625rem; 
   position: absolute;
-  right: 131px;
+  right: 8.1875rem;
 
   .header-button {
-    margin-left: 28px;
+    margin-left: 1.75rem; 
     cursor: pointer;
 
     img {
-      width: auto;
-      height: 16px;
+      width: 0.8125rem; 
+      height: 0.875rem; 
     }
   }
 `;
+
 const Modal = styled.div`
   background: white;
-  width: 405.35px;
-  height: 557.805px;
-  border: 2px solid #FFE2E2;
-  border-radius: 17px; 
-  position: fixed;
-  top: 440px;
-  right: 20px;
-  transform: translate(-50%, -50%);
-  padding: 20px;
-  z-index: 999;
+  width: 19.0844rem; 
+  height: 28.6128rem; 
+  border: 0.125rem solid #FFE2E2; 
+  border-radius: 1.0625rem;
+  top: 27.5rem; 
+  right: 1.25rem; 
+  transform: translate(15%, 55%);
+  padding: 1.25rem; 
 `;
-
 
 const LeftHeader = () => {
   return (
     <StyledLeftHeader>
       <Link to={"/"} className="nav-logo-link">
-        <img src='./img/headerLogo.png'alt=''/>
+        <img src='./img/headerLogo.png' alt='헤더로고'/>
       </Link>
     </StyledLeftHeader>
   );
@@ -180,23 +162,23 @@ const NavMenu = ({ isToggleOpen }: NavMenuProps) => {
 };
 
 const RightHeader = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false); // useState를 RightHeader 컴포넌트 내에서 선언
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const toggleModal = () => {
-    setIsModalOpen(!isModalOpen); // 모달 열림/닫힘 상태를 토글합니다.
+    setIsModalOpen(!isModalOpen);
   }
 
   return (
     <StyledRightHeader>
       <div className="header-button" onClick={toggleModal}>
-        <img src="/Img/allim.png" alt="Allim" />
+        <img src="./img/allim.png" alt="Allim" />
         {isModalOpen && (
         <Modal className="modal">
           {/* 모달 내용 */}
           <h1 style={{
           color: '#000',
           fontFamily: 'Pretendard', 
-          fontSize: '25px', 
+          fontSize: '1.5625rem', 
           fontStyle: 'normal', 
           fontWeight: 500,
           lineHeight: 'normal' 
@@ -205,13 +187,13 @@ const RightHeader = () => {
         )}
       </div>
       <Link to="/question" className="header-button">
-        <img src="/Img/Union (Stroke).png" alt="Question" />
+        <img src="./img/mainQApage.png" alt="Question" />
       </Link>
       <Link to="/search" className="header-button">
-        <img src="/Img/mainSearch.jpg" alt="Search" />
+        <img src="./img/mainSearch.png" alt="Search" />
       </Link>
       <Link to="/mypage" className="header-button">
-        <img src="/Img/mainMypage.jpg" alt="Mypage" />
+        <img src="./img/mainMypage.png" alt="Mypage" />
       </Link>
     </StyledRightHeader>
   );

@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import Header from "../header/index";
 import Branding from "./mainComponent/Branding/branding";
 import { Weekhelp } from "./mainComponent/Weekhelp/weekhelp";
 import { Intro } from "./mainComponent/Intro/intro";
