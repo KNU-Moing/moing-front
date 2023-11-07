@@ -8,12 +8,12 @@ export const Consider = () => {
     <ConsiderContainer>
       <ConsiderQ>
         <h1>Q</h1>
-        <p><span>아내가 임신</span>중에<span>어떻게 해야하는지</span></p>
+        <p>아내가 임신중에 어떻게 해야하는지</p>
         <p>찾아봐도 이해가 안되는 부분들이 있어요.</p>
       </ConsiderQ>
       <ConsiderA>
         <h1>A</h1>
-        <h3>MO-ING에서 도와드립니다!</h3>
+        <h3><img src="./img/considerLogoImg.png" alt="예비아빠고민"/>에서 도와드립니다!</h3>
       </ConsiderA>
     </ConsiderContainer>
     </>

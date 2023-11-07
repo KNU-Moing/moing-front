@@ -2,9 +2,7 @@ import styled from '@emotion/styled';
 
 
 export const WeekhelpComponent = styled.div`
-
 `
-
 export const WeekhelpText = styled.text`
 position: relative; 
 top: 100px;
@@ -41,21 +39,21 @@ export const WeekhelpRoundContainer = styled.div`
   flex-direction: row; /* 요소들을 가로로 나란히 배치 */
   align-items: center; /* 세로 가운데 정렬 */
   margin-top: 200px; /* 원하는 간격 설정 */
-  margin-left: 20%;
+  margin-left: 12%;
 }
   `;
 
 export const WeekhelpRound = styled.div`
-width: 260px;
-height: 260px;
+width: 300px;
+height: 300px;
 flex-shrink: 0;
-border-radius: 260px;
+border-radius: 300px;
 background: #FF9494;
 display: flex;
 justify-content: center; /* 가로 정렬 중앙 */
 align-items: center; /* 세로 정렬 중앙 */
 position: relative;
-margin: 0 25px; /* 좌우 간격을 25px로 설정 */
+margin: 0 40px; /* 좌우 간격을 25px로 설정 */
 transition: transform 0.3s; /* 변환을 부드럽게 만듭니다. */
 
   &:hover {
