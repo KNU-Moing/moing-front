@@ -1,28 +1,36 @@
+import { Overlay, Telephone, PinkContainer } from "./component";
 
-const Stroke = () => {
-    return (
-        <div style={{
-            borderWidth: '1px', 
-            borderColor: '#FF9494', 
-            borderStyle: 'solid',
-            width: '1969.807px',
-            height: '0px',
-            flexShrink: 0
-        }}>
-        </div>
-    );
-}
-
-
-
-const Footer = () =>{
-    return(
-        <>
-        <Stroke/>
-        <img src="./img/footerLogo.png" alt="footerLogo"></img>
-        </>
-
-    );
-}
+const Footer = () => {
+  const contents = [
+    { top: "대표이사 사장 유경빈", bottom: "용인 강남대학교" },
+    {
+      top: "사업등록번호 12394712",
+      bottom: "통신판매업 신고번호 293123",
+    },
+    {
+      top: "사업등록번호 12394712",
+      bottom: "통신판매업 신고번호 293123",
+    },
+    {
+      top: "사업등록번호 12394712",
+      bottom: "통신판매업 신고번호 293123",
+    },
+  ];
+  return (
+    <div>
+      <Overlay>
+        <img src="./img/footerLogo.png" alt="footerLogo" width="110rem"></img>
+        <Telephone></Telephone>
+        {contents.map((content, index) => (
+          <PinkContainer
+            key={index}
+            topContent={content.top}
+            bottomContent={content.bottom}
+          ></PinkContainer>
+        ))}
+      </Overlay>
+    </div>
+  );
+};
 
 export default Footer;
