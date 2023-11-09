@@ -43,6 +43,16 @@ export const IntroImgStyle = styled.div`
     height: 405.349px;
     flex-shrink: 0;
   }
+  .introHat{
+    width: 430px;
+    height: 430px;
+    flex-shrink: 0;
+  }
+  .introChart{
+    width: 430px;
+    height: 430px;
+    flex-shrink: 0;
+  }
 `;
 
 export const IntroTextStyle = styled.text`
@@ -99,7 +109,19 @@ export const Button = styled.button<{ active: boolean }>`
 
 export function Content1() {
   return (
-    <p>이 버튼은 출산 전 지식을 도와주는 내용입니다.</p>
+    <>
+    <IntroImgStyle>
+      <img className='introHat' src='./Img/introHatImg.png' alt='서비스소개모자이미지'/>
+    </IntroImgStyle>
+    <IntroTextStyle>
+    <h3>01</h3>
+    <h4>출산 전 지식 도움 </h4>
+    <p>출산 전 여러 정보에 대해 간편하게 볼 수 있는 서비스입니다.<br/>
+    사야할 영양제와 산모 용품 그리고 아이에게 필요한 제품 등을<br/>
+    쉽게 구매할 수 있으며 알아볼 수 있습니다. 의사선생님과 연결<br/>
+    된 커뮤니티로 다양한 지식도 물어볼 수 있습니다!</p>
+    </IntroTextStyle>
+    </>
   );
 }
 
@@ -120,13 +142,27 @@ export function Content2() {
       저희 MOING에서 산모수첩 공유 서비스를 이용해보세요
     </p>
     </IntroTextStyle>
-
     </>
   );
 }
 
 export function Content3() {
   return (
-    <p>이 버튼은 출산 후 케어에 관한 내용입니다.</p>
+    <>
+    <IntroImgStyle>
+      <img className="introChart" src='./img/introChartImg.png' alt='서비스소개차트이미지'/>
+    </IntroImgStyle>
+    <IntroTextStyle>
+    <h3>03</h3>
+    <h4>출산 후 케어 도움</h4>
+    <h3>출산 후에도 도와주는 MOING!</h3>
+    <p>출산 후 몸 관리 힘드시죠? 출산 후에도 여러 정보를 주며 도움을 드립니다.<br/>
+    여러 제품 추천과 활성화 된 커뮤니티 그리고 의사선생님에게 묻는 질문 등<br/>
+    으로 출산 후에도 체계적으로  여러 도움을 주는 서비스입니다.<br/>
+    출산 전에도 중에도 후에도 도움을 주는 MOING!
+    </p>
+    </IntroTextStyle>
+
+    </>
   );
 }

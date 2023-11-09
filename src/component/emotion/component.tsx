@@ -2,7 +2,7 @@
 import React from "react";
 import { css } from "@emotion/react";
 import theme from "../../styles/theme";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { useNavigate } from "react-router-dom"; 
 
 export const BackButton = () => {
   const navigate = useNavigate();
@@ -273,7 +273,7 @@ export const TopSelectContainer = ({
       cursor: pointer;
       ${style};
     `}
-    onClick={onClick} // 클릭 이벤트 핸들러 연결
+    onClick={onClick} 
   >
     {children}
   </div>

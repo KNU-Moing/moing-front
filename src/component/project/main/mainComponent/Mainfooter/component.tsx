@@ -3,14 +3,7 @@ import styled from "@emotion/styled";
 
 export const MainFooterContainer = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 80vh;
-`;
-
-export const MainFooterText = styled.div`
-  text-align: center;
+  
   color: #808080;
   font-family: Inter;
   font-size: 24px;
@@ -21,8 +14,11 @@ export const MainFooterText = styled.div`
   h3 {
     font-size: 36px; 
   }
-
-  h1 {
-    font-size: 48px; 
+  .mainFooterLogo{
+    width: 384.54px;
+    height: 260.757px;
+    flex-shrink: 0;
   }
-`;
+ `;
+
+
