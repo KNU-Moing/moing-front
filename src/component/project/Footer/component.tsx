@@ -5,8 +5,9 @@ import { css } from "@emotion/react";
 export const Overlay = ({ children }: { children: React.ReactNode }) => (
   <div
     css={css`
+      margin-top: 7rem;
       border-top: 1px solid ${theme.palette.pink[100]};
-      padding: 1.4rem 7.5rem 1rem 7.5rem;
+      padding: 1.4rem 0rem 1rem 7.5rem;
       display: flex;
       gap: ${theme.spacing.xs};
     `}
@@ -49,7 +50,7 @@ export const PinkContainer = ({
   return (
     <div
       css={css`
-        margin: 1.4rem 3.2rem 0.2rem 1.4rem;
+        margin: 1.4rem 2.8rem 0.2rem 1.4rem;
       `}
     >
       <Content
@@ -82,7 +83,7 @@ const Content = ({
         font-weight: ${isBold
           ? theme.typography.body6Bold.fontWeight
           : theme.typography.body6.fontWeight};
-        font-size: ${theme.typography.body6.fontSize};
+        font-size: 0.7rem;
         padding: 0.18rem;
       `}
     >

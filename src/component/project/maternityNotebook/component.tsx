@@ -1,13 +1,11 @@
 import theme from "../../../styles/theme";
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import styled from "@emotion/styled";
 
 export const Overlay = ({ children }: { children: React.ReactNode }) => (
   <div
     css={css`
       padding-top: 24vh;
-      padding-bottom: 16vh;
     `}
   >
     {children}

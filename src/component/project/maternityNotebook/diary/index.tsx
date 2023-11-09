@@ -15,6 +15,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import StyledHeader from "../../header";
 import { useEffect, useState } from "react";
+import Footer from "../../Footer";
 
 export type DiaryType = {
   index: number;
@@ -94,6 +95,7 @@ export const Diary = () => {
           </DiaryOverlay>
         </ContextOverlay>
       </Overlay>
+      <Footer></Footer>
     </div>
   );
 };

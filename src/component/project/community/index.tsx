@@ -14,6 +14,7 @@ import {
   TwoBoxLayout,
 } from "../../emotion/component";
 import theme from "../../../styles/theme";
+import Footer from "../Footer";
 
 export const Community = () => {
   const [circles, setCircles] = useState([
@@ -165,6 +166,7 @@ export const Community = () => {
           </Container>
         </ContentBoxLayer>
       </Overlay>
+      <Footer></Footer>
     </div>
   );
 };
