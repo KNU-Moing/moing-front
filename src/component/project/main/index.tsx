@@ -80,8 +80,6 @@ export const Main = () => {
 
   return (
     <div>
-      {/* 상단에 고정된 헤더 */}
-      {/* 마우스 휠 이벤트 처리 및 섹션 표시 */}
       <div
         onWheel={handleWheel}
         style={{ height: "100vh", overflow: "hidden" }}

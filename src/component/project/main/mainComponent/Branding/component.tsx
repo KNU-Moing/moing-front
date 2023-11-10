@@ -36,6 +36,9 @@ export const CustomButton = styled.button`
     color: #FF9494;
     margin-top: 5px; 
     background-color: transparent;
+    &:hover {
+      background-color: #FFEBEB;
+    }
 `;
 
 export const BrandingRight = styled.div`

@@ -8,8 +8,8 @@ export const PageContainer = styled.div`
 `;
 
 export const HeaderContainer = styled.div`
-  margin-left: 211px;
-  margin-top: 20px;
+  margin-left: 15%;
+  margin-top: 1.25rem;
   color: #000;
   font-family: Pretendard;
   font-size: 30px;
@@ -28,30 +28,25 @@ export const ContentContainer = styled.div`
 
 export const IntroImgStyle = styled.div`
   display: flex;
-  align-items: top; 
-  
-  .introMsg {
-    width: 140.276px;
-    height: 140.276px;
-    transform: rotate(-16.795deg);
-    flex-shrink: 0;
-    margin-right: -150px; 
-  }
+  align-items: center; 
+  margin-right: 100px;
 
   .introBook {
-    width: 405.349px;
-    height: 405.349px;
+    width: 355px;
+    height: 355px;
     flex-shrink: 0;
   }
   .introHat{
-    width: 430px;
-    height: 430px;
+    width: 355px;
+    height: 355px;
     flex-shrink: 0;
+    
   }
   .introChart{
-    width: 430px;
-    height: 430px;
+    width: 355px;
+    height: 355px;
     flex-shrink: 0;
+
   }
 `;
 
@@ -62,6 +57,7 @@ font-family: Pretendard;
 font-size: 20px;
 font-style: normal;
 font-weight: 600;
+line-height: normal; 
 
 }
 h4{
@@ -116,6 +112,7 @@ export function Content1() {
     <IntroTextStyle>
     <h3>01</h3>
     <h4>출산 전 지식 도움 </h4>
+    <h3>출산 전에 여러 지식을 간편하게 볼 수 있어요!</h3>
     <p>출산 전 여러 정보에 대해 간편하게 볼 수 있는 서비스입니다.<br/>
     사야할 영양제와 산모 용품 그리고 아이에게 필요한 제품 등을<br/>
     쉽게 구매할 수 있으며 알아볼 수 있습니다. 의사선생님과 연결<br/>
@@ -129,8 +126,7 @@ export function Content2() {
   return (
     <>
     <IntroImgStyle>
-      <img className="introMsg" src='./img/introMsgImg.png' alt='서비스소개메시지이미지'/>
-      <img className="introBook" src='./img/introBookImg.png' alt='서비스소개책이미지'/>
+      <img className="introBook" src='./img/introBook.png' alt='서비스소개책이미지'/>
     </IntroImgStyle>
     <IntroTextStyle>
     <h3>02</h3>

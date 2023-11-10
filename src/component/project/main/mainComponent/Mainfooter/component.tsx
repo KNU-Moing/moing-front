@@ -3,22 +3,25 @@ import styled from "@emotion/styled";
 
 export const MainFooterContainer = styled.div`
   display: flex;
-  
-  color: #808080;
-  font-family: Inter;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
+  height: 45vh;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10rem;
+  margin-left: 2rem;
 
-  h3 {
-    font-size: 36px; 
+.mainFooterText {
+  color: #000;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 35px;
+  font-style: normal;
+  font-weight: 550;
+  line-height: 72px; 
+  margin-right: 24px; 
   }
-  .mainFooterLogo{
-    width: 384.54px;
-    height: 260.757px;
+  .mainFooterLogo {
+    width: 370px;
+    height: 260px;
     flex-shrink: 0;
   }
- `;
-
-
+`;

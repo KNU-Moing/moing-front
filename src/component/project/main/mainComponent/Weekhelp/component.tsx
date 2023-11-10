@@ -23,7 +23,7 @@ font-family: Pretendard;
 font-size: 16px;
 font-style: normal;
 font-weight: 400;
-line-height: 150%; /* 0px */
+line-height: 150%;
 letter-spacing: 0.5px;
 
 .weekhelpSmallLogo{
@@ -36,10 +36,10 @@ letter-spacing: 0.5px;
 
 export const WeekhelpRoundContainer = styled.div`
   display: flex;
-  flex-direction: row; /* 요소들을 가로로 나란히 배치 */
-  align-items: center; /* 세로 가운데 정렬 */
-  margin-top: 200px; /* 원하는 간격 설정 */
-  margin-left: 12%;
+  justify-content: center;
+  flex-direction: row; 
+  align-items: center; 
+  margin-top: 200px;
 }
   `;
 
@@ -50,14 +50,14 @@ flex-shrink: 0;
 border-radius: 300px;
 background: #FF9494;
 display: flex;
-justify-content: center; /* 가로 정렬 중앙 */
-align-items: center; /* 세로 정렬 중앙 */
+justify-content: center; 
+align-items: center; 
 position: relative;
-margin: 0 40px; /* 좌우 간격을 25px로 설정 */
-transition: transform 0.3s; /* 변환을 부드럽게 만듭니다. */
+margin: 0 40px; 
+transition: transform 0.3s;
 
   &:hover {
-    transform: scale(1.05); /* 1.05배 확대 */
+    transform: scale(1.05); 
   }
 
 .emotion-img01{
@@ -80,8 +80,8 @@ transition: transform 0.3s; /* 변환을 부드럽게 만듭니다. */
   bottom: 0;
   left: 0;
   right: 0;
-  text-align: center; /* 텍스트를 가운데 정렬 */
-  color: #fff; /* 텍스트 색상 설정 (선택사항) */
-  padding: 5px; /* 텍스트 주변에 간격 추가 (선택사항) */
+  text-align: center; 
+  color: #fff; 
+  padding: 5px; 
 }
 `
