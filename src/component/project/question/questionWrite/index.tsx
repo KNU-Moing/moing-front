@@ -1,9 +1,11 @@
 import React, { useState, ChangeEvent } from "react";
+import axios from "axios";
 import { StyledInput, StyledButton, StyledQuestionContainer, ContainerDiv, QABox, StyledQABox } from "./component";
 import { LeftHeader, NavMenu, RightHeader, StyledHeader } from "../../header/component";
 import { BackButton } from "../../../emotion/component";
 import Modal from 'react-modal';
 import { useNavigate } from 'react-router-dom'; // useNavigate 훅을 가져옴
+
 
 export const Question = () => {
   const [questionText, setQuestionText] = useState("");
@@ -32,11 +34,35 @@ export const Question = () => {
 
   const navigate = useNavigate(); // useNavigate 훅을 사용하여 라우팅을 관리
 
-  const handleConfirmation = () => {
+  const handleConfirmation = async () => {
     handleCloseModal();
-    navigate('/question/confirm'); // 라우팅을 수행
+  
+    try {
+      const postData = {
+        data: 'your_data_here',
+      };
+  
+      const response = await axios.post('/Comment', postData);
+  
+      console.log('Server response:', response.data);
+  
+      navigate('/question/confirm');
+    } catch (error: any) {
+      if (axios.isAxiosError(error)) {
+        if (error.response) {
+          console.error('Axios error details:', error.response);
+          console.error('Status:', error.response.status);
+          console.error('Message:', error.response.data);
+        } else {
+          console.error('No response received from the server:', error.request);
+        }
+      } else {
+        console.error('Error setting up the request:', error.message);
+      }
+    }
   };
-
+  
+  
   const [isToggleOpen, setIsToggleOpen] = useState<boolean>(false);
 
   const handleToggleOpen = () => {
