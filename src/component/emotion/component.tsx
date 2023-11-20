@@ -2,7 +2,7 @@
 import React from "react";
 import { css } from "@emotion/react";
 import theme from "../../styles/theme";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 
 export const BackButton = () => {
   const navigate = useNavigate();
@@ -273,7 +273,7 @@ export const TopSelectContainer = ({
       cursor: pointer;
       ${style};
     `}
-    onClick={onClick} 
+    onClick={onClick}
   >
     {children}
   </div>
@@ -408,29 +408,36 @@ const ContentTitle = ({ title }: { title: string }) => (
 );
 /** 더보기 버튼 */
 export const MoreButton = ({
-  onClick,
+  pagename,
   styleLeft,
 }: {
-  onClick: React.MouseEventHandler<HTMLButtonElement>;
+  pagename: string;
   styleLeft: string;
-}) => (
-  <button
-    css={css`
-      ${theme.typography.body5}
-      background-color: #fff;
-      color: ${theme.palette.gray[600]};
-      height: 3rem;
-      padding: 0;
-      border: none;
-      position: relative;
-      left: ${styleLeft};
-      bottom: 7.8vh;
-    `}
-    onClick={onClick}
-  >
-    더보기
-  </button>
-);
+}) => {
+  const navigate = useNavigate();
+  const goMorePage = () => {
+    navigate(pagename);
+  };
+
+  return (
+    <button
+      css={css`
+        ${theme.typography.body5}
+        background-color: #fff;
+        color: ${theme.palette.gray[600]};
+        height: 3rem;
+        padding: 0;
+        border: none;
+        position: relative;
+        left: ${styleLeft};
+        bottom: 7.8vh;
+      `}
+      onClick={goMorePage}
+    >
+      더보기
+    </button>
+  );
+};
 /** 원형 컴포넌트 */
 export const Circle = ({
   styles,
