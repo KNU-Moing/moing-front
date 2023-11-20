@@ -3,6 +3,7 @@ import React from "react";
 import { css } from "@emotion/react";
 import theme from "../../styles/theme";
 import { useNavigate } from "react-router-dom";
+import backPng from "../../../src/assets/goBack.png";
 
 export const BackButton = () => {
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ export const BackButton = () => {
 
   return (
     <img
-      src="./img/goBack.png"
+      src={backPng}
       alt="뒤로 가기"
       css={css`
         cursor: pointer;
