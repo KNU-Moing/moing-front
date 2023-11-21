@@ -18,6 +18,21 @@ export const TitleBar = ({ children }: { children: React.ReactNode }) => (
     {children}
   </div>
 );
+export const CategoryContainer = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => (
+  <div
+    css={css`
+      display: flex;
+      justify-content: flex-start;
+      flex-grow: 9;
+    `}
+  >
+    {children}
+  </div>
+);
 
 export const WriteButton = () => {
   return (

@@ -6,6 +6,7 @@ import { SignIn } from "./component/project/sign/signIn";
 import { SignUp } from "./component/project/sign/signUp";
 import { Community } from "./component/project/community";
 import { QnA } from "./component/project/community/QnA.tsx";
+import { Board } from "./component/project/community/Board.tsx";
 import { Notebook } from "./component/project/maternityNotebook/notebook";
 import { Diary } from "./component/project/maternityNotebook/diary";
 import { Cook } from "./component/project/cook";
@@ -31,6 +32,7 @@ function App() {
         <Route path="/Supplies/:item" element={<Detail2 />} />
         <Route path="/Community" element={<Community />} />
         <Route path="/Community/QnA" element={<QnA />} />
+        <Route path="/Community/Board" element={<Board />} />
         <Route path="/Question" element={<Question />} />
         <Route path="/Question/Confirm" element={<QuestionConfirm />} />
       </Routes>

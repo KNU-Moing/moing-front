@@ -135,10 +135,7 @@ export const Community = () => {
             styleWidth="100%"
             styleHeight="56vh"
           >
-            <MoreButton
-              pagename="community/QnA"
-              styleLeft="35.5vw"
-            ></MoreButton>
+            <MoreButton pagename="Board" styleLeft="35.5vw"></MoreButton>
             <Container>
               {recommends.map((recommend, index) => (
                 <CommunityContent

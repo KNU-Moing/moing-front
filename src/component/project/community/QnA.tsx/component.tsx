@@ -3,7 +3,7 @@ import theme from "../../../../styles/theme";
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import { BackButton, ContentBoxLayer } from "../../../emotion/component";
-import { title } from "process";
+import { Content } from "../component";
 
 export const Overlay = ({ children }: { children: React.ReactNode }) => (
   <div
@@ -105,21 +105,7 @@ export const ButtonBar = ({ children }: { children: React.ReactNode }) => {
         width: 80%;
         display: flex;
         justify-content: flex-end;
-        padding-bottom: ${theme.spacing.md};
-      `}
-    >
-      {children}
-    </div>
-  );
-};
-
-export const QnAContainer = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <div
-      css={css`
-        display: flex;
-        flex-direction: column;
-        gap: ${theme.spacing.xs};
+        padding-bottom: ${theme.spacing.lg};
       `}
     >
       {children}
@@ -150,7 +136,7 @@ export const QnABox = ({
     </ContentBoxLayer>
   );
 };
-const ContentBox = ({ children }: { children: React.ReactNode }) => {
+export const ContentBox = ({ children }: { children: React.ReactNode }) => {
   return (
     <div
       css={css`
@@ -160,20 +146,6 @@ const ContentBox = ({ children }: { children: React.ReactNode }) => {
       `}
     >
       {children}
-    </div>
-  );
-};
-const Content = ({ content, isBold }: { content: string; isBold: boolean }) => {
-  return (
-    <div
-      css={css`
-        width: 65rem;
-        ${isBold ? theme.typography.body4Bold : theme.typography.body4}
-        padding: ${theme.spacing.xs} ${theme.spacing.sm} ${theme.spacing
-          .sm} ${theme.spacing.xl};
-      `}
-    >
-      {content}
     </div>
   );
 };
