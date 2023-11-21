@@ -2,6 +2,11 @@ import { useState } from "react";
 import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
 import theme from "../../../styles/theme";
+import logo from "../../../assets/headerLogo.png";
+import alarmIcon from "../../../assets/allim.png";
+import QAIcon from "../../../assets/mainQApage.png";
+import searchIcon from "../../../assets/mainSearch.png";
+import myPageIcon from "../../../assets/mainMypage.png";
 
 // 타입 선언
 type NavMenuProps = {
@@ -222,7 +227,7 @@ const LeftHeader = () => {
   return (
     <StyledLeftHeader>
       <Link to={"/"} className="nav-logo-link">
-        <img src="./img/headerLogo.png" alt="헤더로고" />
+        <img src={logo} alt="헤더로고" />
       </Link>
     </StyledLeftHeader>
   );
@@ -242,7 +247,7 @@ const NavMenu = ({ isToggleOpen }: NavMenuProps) => {
         </Link>
       </li>
       <li>
-        <Link to={"/"} className="nav-menu-list">
+        <Link to={"/supplies"} className="nav-menu-list">
           산모용품
         </Link>
       </li>
@@ -296,7 +301,7 @@ const RightHeader = () => {
   return (
     <StyledRightHeader>
       <div className="header-button" onClick={toggleModal}>
-        <img src="./img/allim.png" alt="Allim" />
+        <img src={alarmIcon} alt="Allim" />
         {isModalOpen && (
           <ModalBox className="modal">
             {/* 모달 내용 */}
@@ -314,13 +319,13 @@ const RightHeader = () => {
         )}
       </div>
       <Link to="/question" className="header-button">
-        <img src="./img/mainQApage.png" alt="Question" />
+        <img src={QAIcon} alt="Question" />
       </Link>
       <Link to="/search" className="header-button">
-        <img src="./img/mainSearch.png" alt="Search" />
+        <img src={searchIcon} alt="Search" />
       </Link>
       <Link to="/mypage" className="header-button">
-        <img src="./img/mainMypage.png" alt="Mypage" />
+        <img src={myPageIcon} alt="Mypage" />
       </Link>
     </StyledRightHeader>
   );

@@ -1,3 +1,4 @@
+import questionIcon from "../../../assets/myPageQuestionIcon.png";
 import theme from "../../../styles/theme";
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
@@ -260,7 +261,7 @@ export const InputHospital = ({
       ></input>
       {context === "" ? (
         <img
-          src="img/myPageQuestionIcon.png"
+          src={questionIcon}
           width="17rem"
           height="22rem"
           css={css`
