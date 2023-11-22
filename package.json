@@ -16,6 +16,7 @@
     "@types/react-router-dom": "^5.3.3",
     "axios": "^1.6.0",
     "chart.js": "^4.4.0",
+    "cors": "^2.8.5",
     "http-proxy-middleware": "^2.0.6",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
@@ -52,6 +53,9 @@
       "last 1 safari version"
     ]
   },
+
+  "proxy" : "http://localhost:8080/172.31.36.228",
+
   "devDependencies": {
     "@types/react-modal": "^3.16.0"
   }

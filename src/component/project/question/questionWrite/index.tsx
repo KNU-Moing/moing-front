@@ -4,6 +4,7 @@ import { LeftHeader, NavMenu, RightHeader, StyledHeader } from "../../header/com
 import { BackButton } from "../../../emotion/component";
 import Modal from 'react-modal';
 import { useNavigate } from 'react-router-dom'; // useNavigate 훅을 가져옴
+import axios from 'axios';
 
 export const Question = () => {
   const [questionText, setQuestionText] = useState("");
@@ -22,11 +23,23 @@ export const Question = () => {
     setIsModalOpen(false);
   };
 
-  const handleSubmit = () => {
-    if (questionText.trim() !== "") { // 입력 내용이 공백이 아닌 경우에만 처리
-      setInputList([...inputList, questionText]); // 새로운 입력 내용을 배열에 추가
-      setQuestionText(""); // 입력 내용을 초기화
-      handleOpenModal();
+  const handleSubmit = async () => {
+    if (questionText.trim() !== "") {
+      try {
+        // Send the questionText to the server
+        const response = await axios.post('/chat/room', {
+          questionText: questionText,
+        });
+
+        // Check the response from the server if needed
+        console.log(response.data);
+
+        setInputList([...inputList, questionText]);
+        setQuestionText("");
+        handleOpenModal();
+      } catch (error) {
+        console.error('Error submitting data:', error);
+      }
     }
   };
 
