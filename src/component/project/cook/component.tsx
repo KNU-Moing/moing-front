@@ -516,6 +516,7 @@ export const FlexsContainer = () => {
         flex-wrap: wrap;
         gap: 2rem;
         width: 100%;
+        margin-top: 5rem;
         justify-content: space-around;
         font-family: Inter;
         margin-top: 3rem;

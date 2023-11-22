@@ -22,8 +22,11 @@ import Header from "../header";
 export const Cook = () => {
   return (
     <div>
-      <Header/>
+
+      <Header />
+
       <Inner>
+          
         <FlexsContainer />
         <TexContainer>
           이달의 HOT 조리원
