@@ -54,7 +54,7 @@
     ]
   },
 
-  "proxy" : "http://localhost:8080/172.31.36.228",
+  "proxy" : "http://localhost:8080/",
 
   "devDependencies": {
     "@types/react-modal": "^3.16.0"
