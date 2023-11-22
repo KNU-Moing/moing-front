@@ -1,4 +1,5 @@
 import { Overlay, Telephone, PinkContainer } from "./component";
+import footerlogo from "../../../assets/footerLogo.png";
 
 const Footer = () => {
   const contents = [
@@ -19,7 +20,7 @@ const Footer = () => {
   return (
     <div>
       <Overlay>
-        <img src="./img/footerLogo.png" alt="footerLogo" width="110rem"></img>
+        <img src={footerlogo} alt="footerLogo" width="110rem"></img>
         <Telephone></Telephone>
         {contents.map((content, index) => (
           <PinkContainer

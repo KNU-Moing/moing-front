@@ -2,9 +2,9 @@ import theme from "../../../../styles/theme";
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import { RiArrowDropDownLine } from "react-icons/ri";
-import styled from "@emotion/styled";
 import { useState } from "react";
 import { DiaryType } from "./index";
+import writeIcon from "../../../../assets/DiaryWriteIcon.png";
 
 export const TitleBar = ({ children }: { children: React.ReactNode }) => (
   <div
@@ -13,6 +13,21 @@ export const TitleBar = ({ children }: { children: React.ReactNode }) => (
       display: flex;
       padding: 0 0 ${theme.spacing.sm} 0;
       color: ${theme.palette.gray[600]};
+    `}
+  >
+    {children}
+  </div>
+);
+export const CategoryContainer = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => (
+  <div
+    css={css`
+      display: flex;
+      justify-content: flex-start;
+      flex-grow: 9;
     `}
   >
     {children}
@@ -42,9 +57,10 @@ export const WriteButton = () => {
       </div>
 
       <img
-        src="img/DiaryWriteIcon.png"
+        src={writeIcon}
         css={css`
-          height: 2em;
+          margin-top: 1.3rem;
+          height: 1rem;
         `}
       ></img>
     </button>
