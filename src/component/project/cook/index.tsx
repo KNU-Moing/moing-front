@@ -17,11 +17,12 @@ import {
   TexContainer,
 } from "./component";
 import { StyledHeader } from "../header/component";
+import Header from "../header";
 
 export const Cook = () => {
   return (
     <div>
-      <StyledHeader></StyledHeader>
+      <Header/>
       <Inner>
         <FlexsContainer />
         <TexContainer>

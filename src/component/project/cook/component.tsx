@@ -37,7 +37,7 @@ export const Inner = ({ children }: { children: React.ReactNode }) => (
       display: flex;
       margin-top: 10px;
       flex-direction: column;
-      gap: 10rem;
+      gap: 5rem;
       padding: 7.5rem;
       ${theme.typography.body4Bold}
     `}
@@ -518,6 +518,7 @@ export const FlexsContainer = () => {
         width: 100%;
         justify-content: space-around;
         font-family: Inter;
+        margin-top: 3rem;
         ${theme.typography.body4Bold}
       `}
     >
