@@ -85,7 +85,7 @@ export const Modaldiv = ({ children }: { children: React.ReactNode }) => (
       gap: 0.8rem;
       padding: 0.4rem 3.2rem 0rem 3.2rem;
       width: 28rem;
-      background-color: #f5f6fa;
+      background-color: white;
       font-family: Inter;
       ${theme.typography.body4Bold}
       border-radius: 0 0 25px 25px;
