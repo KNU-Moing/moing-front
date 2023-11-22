@@ -18,12 +18,17 @@ import {
 } from "./component";
 import { useLocation, useParams } from "react-router-dom";
 import { CookSubBlock, CookSubTitle2, CookSubTitte } from "../component";
+
+import { StyledHeader } from "../../header/component";
+
 import Header from "../../header";
 
 export const Detail = () => {
   const { item } = useParams();
   return (
     <div>
+
+      <Header/>
       <Inner>
         <HeadContainer> {item}</HeadContainer>
         <SearchContainer />

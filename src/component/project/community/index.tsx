@@ -118,7 +118,7 @@ export const Community = () => {
             styleWidth="100%"
             styleHeight="56vh"
           >
-            <MoreButton onClick={moreHandle} styleLeft="35.5vw"></MoreButton>
+            <MoreButton pagename="QnA" styleLeft="35.5vw"></MoreButton>
             <Container>
               {questions.map((recommend, index) => (
                 <CommunityContent
@@ -135,7 +135,7 @@ export const Community = () => {
             styleWidth="100%"
             styleHeight="56vh"
           >
-            <MoreButton onClick={moreHandle} styleLeft="35.5vw"></MoreButton>
+            <MoreButton pagename="Board" styleLeft="35.5vw"></MoreButton>
             <Container>
               {recommends.map((recommend, index) => (
                 <CommunityContent
@@ -154,7 +154,7 @@ export const Community = () => {
           styleWidth="90%"
           styleHeight="34vh"
         >
-          <MoreButton onClick={moreHandle} styleLeft="77.4vw"></MoreButton>
+          <MoreButton pagename="community/QnA" styleLeft="77.4vw"></MoreButton>
           <Container>
             {recommends.map((recommend, index) => (
               <CommunityContent

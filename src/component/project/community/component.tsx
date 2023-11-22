@@ -125,3 +125,38 @@ export const CommunityContent = ({
     </div>
   </div>
 );
+
+/** 공용 컴포넌트들 */
+export const Content = ({
+  content,
+  isBold,
+}: {
+  content: string;
+  isBold: boolean;
+}) => {
+  return (
+    <div
+      css={css`
+        width: 65rem;
+        ${isBold ? theme.typography.body4Bold : theme.typography.body4}
+        padding: ${theme.spacing.xs} ${theme.spacing.sm} ${theme.spacing
+          .sm} ${theme.spacing.xl};
+      `}
+    >
+      {content}
+    </div>
+  );
+};
+export const BoxContainer = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <div
+      css={css`
+        display: flex;
+        flex-direction: column;
+        gap: ${theme.spacing.xs};
+      `}
+    >
+      {children}
+    </div>
+  );
+};

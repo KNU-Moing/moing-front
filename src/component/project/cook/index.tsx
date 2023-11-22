@@ -22,7 +22,9 @@ import Header from "../header";
 export const Cook = () => {
   return (
     <div>
+
       <Header />
+
       <Inner>
           
         <FlexsContainer />

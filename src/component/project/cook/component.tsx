@@ -519,6 +519,7 @@ export const FlexsContainer = () => {
         margin-top: 5rem;
         justify-content: space-around;
         font-family: Inter;
+        margin-top: 3rem;
         ${theme.typography.body4Bold}
       `}
     >

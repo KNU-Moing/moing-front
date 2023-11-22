@@ -39,7 +39,7 @@ export const Inner = ({ children }: { children: React.ReactNode }) => (
       display: flex;
       margin-top: 10px;
       flex-direction: column;
-      gap: 5rem;
+      gap: 3rem;
       padding: 7.5rem;
       ${theme.typography.body4Bold}
     `}
@@ -325,6 +325,7 @@ export const HeadContainer = ({ children }: { children: React.ReactNode }) => (
       gap: 1.2rem;
       align-items: center;
       justify-content: space-between;
+      margin-top: 5rem;
     `}
   >
     <div

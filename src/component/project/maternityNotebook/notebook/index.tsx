@@ -254,10 +254,7 @@ export const Notebook = () => {
                   styleWidth="100%"
                   styleHeight="50.2vh"
                 >
-                  <MoreButton
-                    onClick={moreHandle}
-                    styleLeft="35.5vw"
-                  ></MoreButton>
+                  <MoreButton pagename="" styleLeft="35.5vw"></MoreButton>
                   <WeeksTipLayout>
                     <WeeksTipLContainer days={97}></WeeksTipLContainer>
                     <WeeksTipRContainer>
@@ -301,7 +298,7 @@ export const Notebook = () => {
               styleWidth="60%"
               styleHeight="52vh"
             >
-              <MoreButton onClick={moreHandle} styleLeft="44vw"></MoreButton>
+              <MoreButton pagename="" styleLeft="44vw"></MoreButton>
               <ChartContainer>
                 {hospitalChart.map((chart) => (
                   <WeeksChart
