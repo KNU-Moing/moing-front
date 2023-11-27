@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import StyledHeader from "../../header";
 import Footer from "../../Footer";
 import {
@@ -51,13 +51,6 @@ export const QnA = () => {
   const sortList = ["최신순", "오래된순", "grape", "orange"];
   const [selected, setSelected] = useState("최신순");
 
-  //화면 이동
-  const boxRef = React.useRef<any>(); // ref 변수 선언
-  // DOM 조작 함수
-  const scrollToTop = () => {
-    alert("이동해조라");
-  };
-
   //페이지 네이션 부분
   const itemsPerPage = 4;
   const [currentPage, setCurrentPage] = useState(1);
@@ -75,7 +68,7 @@ export const QnA = () => {
     rows.push(currentQAData.slice(i, i + numColumns));
   }
   return (
-    <div ref={boxRef}>
+    <div>
       <StyledHeader></StyledHeader>
       <Overlay>
         <HeaderWithBack context="의사 선생님께 많이 묻는 질문"></HeaderWithBack>

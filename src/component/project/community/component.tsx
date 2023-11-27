@@ -199,7 +199,10 @@ export const PaginationBar = ({
       `}
     >
       <MoveBtn
-        onClick={() => setCurrentPage(currentPage - 1)}
+        onClick={() => {
+          setCurrentPage(currentPage - 1);
+          scrollToTop();
+        }}
         disabled={canGoPrevious}
         imgSrc={beforeIcon}
       ></MoveBtn>
@@ -226,7 +229,10 @@ export const PaginationBar = ({
       ))}
 
       <MoveBtn
-        onClick={() => setCurrentPage(currentPage + 1)}
+        onClick={() => {
+          setCurrentPage(currentPage + 1);
+          scrollToTop();
+        }}
         disabled={canGoNext}
         imgSrc={nextIcon}
       ></MoveBtn>
