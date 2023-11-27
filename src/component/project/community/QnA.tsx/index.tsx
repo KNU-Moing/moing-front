@@ -15,7 +15,7 @@ import {
 } from "../../maternityNotebook/diary/component";
 
 export const QnA = () => {
-  const [qaDatas, setQaDatas] = useState([
+  const [qaData, setQaData] = useState([
     {
       question:
         "입덧이 다른 사람들에 비해 너무 심한 것 같아서 고민입니다. 이럴땐 어떡하면 좋을까요?",
@@ -60,7 +60,7 @@ export const QnA = () => {
   const endIndex = startIndex + itemsPerPage;
 
   // Slice the QA data based on the current page
-  const currentQAData = qaDatas.slice(startIndex, endIndex);
+  const currentQAData = qaData.slice(startIndex, endIndex);
 
   const numColumns = 1;
   const rows = [];
@@ -96,7 +96,7 @@ export const QnA = () => {
         </BoxContainer>
         <PaginationBar
           scrollTo={400}
-          datasLength={qaDatas.length}
+          datasLength={qaData.length}
           endIndex={endIndex}
           itemsPerPage={itemsPerPage}
           currentPage={currentPage}
