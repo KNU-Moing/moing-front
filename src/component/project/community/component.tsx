@@ -1,6 +1,8 @@
 import theme from "../../../styles/theme";
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
+import nextIcon from "../../../assets/paginationNextBtn.png";
+import beforeIcon from "../../../assets/paginationBeforeBtn.png";
 
 export const Overlay = ({ children }: { children: React.ReactNode }) => (
   <div
@@ -160,3 +162,94 @@ export const BoxContainer = ({ children }: { children: React.ReactNode }) => {
     </div>
   );
 };
+
+export const PaginationBar = ({
+  scrollTo,
+  datasLength,
+  endIndex,
+  itemsPerPage,
+  currentPage,
+  setCurrentPage,
+}: {
+  scrollTo: number;
+  datasLength: number;
+  endIndex: number;
+  itemsPerPage: number;
+  currentPage: number;
+  setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
+}) => {
+  const canGoNext = datasLength > endIndex;
+  const canGoPrevious = currentPage > 1;
+
+  const totalPageCount = Math.ceil(datasLength / itemsPerPage);
+
+  const scrollToTop = () => {
+    window.scroll({
+      top: scrollTo,
+    });
+  };
+
+  return (
+    <div
+      css={css`
+        margin-top: 6rem;
+        display: flex;
+        align-items: center;
+        gap: ${theme.spacing.sm};
+      `}
+    >
+      <MoveBtn
+        onClick={() => setCurrentPage(currentPage - 1)}
+        disabled={canGoPrevious}
+        imgSrc={beforeIcon}
+      ></MoveBtn>
+
+      {Array.from({ length: totalPageCount }).map((_, index) => (
+        <button
+          key={index + 1}
+          onClick={() => {
+            setCurrentPage(index + 1);
+            scrollToTop();
+          }}
+          css={css`
+            background: transparent;
+            border: none;
+            color: ${theme.palette.pink[100]};
+            ${currentPage === index + 1
+              ? theme.typography.body4Bold
+              : theme.typography.body4};
+            padding-bottom: ${theme.spacing.xxs};
+          `}
+        >
+          {index + 1}
+        </button>
+      ))}
+
+      <MoveBtn
+        onClick={() => setCurrentPage(currentPage + 1)}
+        disabled={canGoNext}
+        imgSrc={nextIcon}
+      ></MoveBtn>
+    </div>
+  );
+};
+const MoveBtn = ({
+  onClick,
+  disabled,
+  imgSrc,
+}: {
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
+  disabled: boolean;
+  imgSrc: string;
+}) => (
+  <button
+    css={css`
+      background: transparent;
+      border: none;
+    `}
+    onClick={onClick}
+    disabled={!disabled}
+  >
+    <img src={imgSrc} alt="paginationNext" />
+  </button>
+);

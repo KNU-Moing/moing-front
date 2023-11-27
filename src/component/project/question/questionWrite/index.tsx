@@ -1,10 +1,22 @@
 import React, { useState, ChangeEvent } from "react";
-import { StyledInput, StyledButton, StyledQuestionContainer, ContainerDiv, QABox, StyledQABox } from "./component";
-import { LeftHeader, NavMenu, RightHeader, StyledHeader } from "../../header/component";
+import {
+  StyledInput,
+  StyledButton,
+  StyledQuestionContainer,
+  ContainerDiv,
+  QABox,
+  StyledQABox,
+} from "./component";
+import {
+  LeftHeader,
+  NavMenu,
+  RightHeader,
+  StyledHeader,
+} from "../../header/component";
 import { BackButton } from "../../../emotion/component";
-import Modal from 'react-modal';
-import { useNavigate } from 'react-router-dom'; // useNavigate 훅을 가져옴
-import axios from 'axios';
+import Modal from "react-modal";
+import { useNavigate } from "react-router-dom"; // useNavigate 훅을 가져옴
+import axios from "axios";
 
 export const Question = () => {
   const [questionText, setQuestionText] = useState("");
@@ -27,7 +39,7 @@ export const Question = () => {
     if (questionText.trim() !== "") {
       try {
         // Send the questionText to the server
-        const response = await axios.post('/chat/room', {
+        const response = await axios.post("/chat/room", {
           questionText: questionText,
         });
 
@@ -38,7 +50,7 @@ export const Question = () => {
         setQuestionText("");
         handleOpenModal();
       } catch (error) {
-        console.error('Error submitting data:', error);
+        console.error("Error submitting data:", error);
       }
     }
   };
@@ -47,7 +59,7 @@ export const Question = () => {
 
   const handleConfirmation = () => {
     handleCloseModal();
-    navigate('/question/confirm'); // 라우팅을 수행
+    navigate("/question/confirm"); // 라우팅을 수행
   };
 
   const [isToggleOpen, setIsToggleOpen] = useState<boolean>(false);
@@ -66,23 +78,30 @@ export const Question = () => {
       <BackButton />
       <ContainerDiv>
         <div>
-          <h2 style={{
-            fontSize: '25px',
-            textAlign: 'center',
-            fontFamily: 'Pretendard Variable',
-            fontStyle: 'normal',
-            fontWeight: '600',
-            lineHeight: '50px'
-            }}>오늘의 질문</h2>
-          <p style={{
-            fontSize: '20px',
-            textAlign: 'center',
-            fontFamily: 'Pretendard Variable',
-            fontStyle: 'normal',
-            fontWeight: '400',
-            lineHeight: 'normal'
-          }}>
-            오늘은 날이 화창하네요<br/>
+          <h2
+            style={{
+              fontSize: "25px",
+              textAlign: "center",
+              fontFamily: "Pretendard Variable",
+              fontStyle: "normal",
+              fontWeight: "600",
+              lineHeight: "50px",
+            }}
+          >
+            오늘의 질문
+          </h2>
+          <p
+            style={{
+              fontSize: "20px",
+              textAlign: "center",
+              fontFamily: "Pretendard Variable",
+              fontStyle: "normal",
+              fontWeight: "400",
+              lineHeight: "normal",
+            }}
+          >
+            오늘은 날이 화창하네요
+            <br />
             쑥쑥이 엄마가 오늘 낮에 먹고 싶었던 음식은 무엇인가요?
           </p>
         </div>
@@ -99,12 +118,7 @@ export const Question = () => {
         </div>
         <StyledQuestionContainer>
           {inputList.map((text, index) => (
-            <StyledInput
-              key={index}
-              type="text"
-              value={text}
-              readOnly
-            />
+            <StyledInput key={index} type="text" value={text} readOnly />
           ))}
         </StyledQuestionContainer>
       </ContainerDiv>
@@ -129,7 +143,7 @@ export const Question = () => {
         <p>작성한 내용 저장 완료!</p>
         <button onClick={handleConfirmation}>확인</button>
       </Modal>
-      <QABox/>
+      <QABox />
     </>
   );
 };
