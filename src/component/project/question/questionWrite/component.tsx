@@ -1,5 +1,7 @@
 import styled from "@emotion/styled";
 import React, { useState } from "react";
+import nextIcon from "../../../../assets/paginationNextBtn.png";
+import beforeIcon from "../../../../assets/paginationBeforeBtn.png";
 
 export const ContainerDiv = styled.div`
   display: flex;
@@ -9,12 +11,12 @@ export const ContainerDiv = styled.div`
   margin-top: 200px;
 `;
 
-export const StyledInput = styled.input`  
+export const StyledInput = styled.input`
   width: 1000px;
   height: 100px;
   border-radius: 40px;
   border: none;
-  background: #FFF2F2;
+  background: #fff2f2;
 
   &::placeholder {
     color: red;
@@ -25,11 +27,11 @@ export const StyledButton = styled.button`
   width: 182px;
   height: 55px;
   border-radius: 92px;
-  background: #FF9494;
+  background: #ff9494;
   border: none;
   margin-top: 34px;
-  cursor: pointer; 
-  color: #FFFFFF;
+  cursor: pointer;
+  color: #ffffff;
   font-size: 17px;
   font-style: normal;
   font-weight: 500;
@@ -37,11 +39,11 @@ export const StyledButton = styled.button`
 `;
 
 export const StyledQuestionContainer = styled.div`
-display: flex;
-grid-template-columns: repeat(2, 1fr); 
-gap: 10px; 
-align-items: center; 
-justify-content: center;
+  display: flex;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
   margin-top: 100px;
 `;
 
@@ -49,14 +51,14 @@ export const StyledQABox = styled.div`
   width: 600px;
   height: 300px;
   border-radius: 30px;
-  border: 0.5px solid #FF9494;
+  border: 0.5px solid #ff9494;
   padding: 30px;
   text-align: center;
   margin: 28px;
 
   h3 {
     color: #000;
-    font-family: 'Inter';
+    font-family: "Inter";
     font-size: 23px;
     font-style: normal;
     font-weight: 600;
@@ -66,20 +68,20 @@ export const StyledQABox = styled.div`
 
   p {
     color: #000;
-    font-family: 'Inter';
-    font-size: 18px; 
-    font-weight: normal; 
-    line-height: 1.5; 
+    font-family: "Inter";
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 1.5;
     text-align: left;
     &.boldTextMom {
       font-weight: bold;
-      color: #FF9494;
+      color: #ff9494;
+    }
+    &.boldTextDad {
+      font-weight: bold;
+      color: #81bbff;
+    }
   }
-  &.boldTextDad{
-    font-weight: bold;
-    color: #81BBFF;
-  }
-}
 `;
 
 const qaData = [
@@ -165,7 +167,7 @@ const QABoxPagination: React.FC = () => {
   return (
     <div>
       {rows.map((row, rowIndex) => (
-        <div key={rowIndex} style={{ display: 'flex' }}>
+        <div key={rowIndex} style={{ display: "flex" }}>
           {row.map((qa) => (
             <StyledQABox key={qa.id}>
               <h3>{qa.question}</h3>
@@ -179,52 +181,59 @@ const QABoxPagination: React.FC = () => {
       ))}
 
       {/* Pagination buttons */}
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between"}}>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}
+      >
         <div>
-          <button  style={{
-      background: "transparent",
-      border: "none",
-    }}
-            onClick={() => setCurrentPage(currentPage - 1)}
-            disabled={!canGoPrevious} 
-          >
-            <img src="./img/paginationBeforeBtn.png" alt="paginationBefore"/>
-          </button>
-        </div>
-        <div>
-        {Array.from({ length: totalPageCount }).map((_, index) => (
           <button
-            key={index + 1}
-            onClick={() => setCurrentPage(index + 1)}
             style={{
               background: "transparent",
-              color: currentPage === index + 1 ? "#FF9494" : "#FF9494",
               border: "none",
-              marginRight: "5px",
-              fontFamily: "Pretendard Variable",
-              fontSize: "18px",
-              fontStyle: "normal",
-              fontWeight: 400,
-              lineHeight: "normal",
             }}
+            onClick={() => setCurrentPage(currentPage - 1)}
+            disabled={!canGoPrevious}
           >
-            {index + 1}
+            <img src={beforeIcon} alt="paginationBefore" />
           </button>
-        ))}
-      </div>
+        </div>
         <div>
-          <button style={{
-      background: "transparent",
-      border: "none"
-    }}
+          {Array.from({ length: totalPageCount }).map((_, index) => (
+            <button
+              key={index + 1}
+              onClick={() => setCurrentPage(index + 1)}
+              style={{
+                background: "transparent",
+                color: currentPage === index + 1 ? "#FF9494" : "#FF9494",
+                border: "none",
+                marginRight: "5px",
+                fontFamily: "Pretendard Variable",
+                fontSize: "18px",
+                fontStyle: "normal",
+                fontWeight: 400,
+                lineHeight: "normal",
+              }}
+            >
+              {index + 1}
+            </button>
+          ))}
+        </div>
+        <div>
+          <button
+            style={{
+              background: "transparent",
+              border: "none",
+            }}
             onClick={() => setCurrentPage(currentPage + 1)}
-            disabled={!canGoNext} 
+            disabled={!canGoNext}
           >
-            <img src="./img/paginationNextBtn.png" alt="paginationNext"/>
+            <img src={nextIcon} alt="paginationNext" />
           </button>
         </div>
       </div>
-      
     </div>
   );
 };
