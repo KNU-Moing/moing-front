@@ -15,7 +15,9 @@ import { Supplies } from "./component/project/supplies";
 import { Question } from "./component/project/question/questionWrite";
 import QuestionConfirm from "./component/project/question/questionConfirm";
 import { Detail2 } from "./component/project/supplies/detail.tsx";
+import CookPut from "./component/project/cookput";
 import { RegistCook } from "./component/project/cook/regist.tsx";
+
 
 function App() {
   return (
@@ -37,6 +39,7 @@ function App() {
         <Route path="/Community/Board" element={<Board />} />
         <Route path="/Question" element={<Question />} />
         <Route path="/Question/Confirm" element={<QuestionConfirm />} />
+        <Route path="/Cookput" element={<CookPut/>}/>
       </Routes>
     </div>
   );
