@@ -106,9 +106,8 @@ const StyledRightHeader = styled.div`
   margin-top: 0.625rem;
   position: absolute;
   right: 8.1875rem;
-
+  gap: 1.85rem;
   .header-button {
-    margin-left: 1.75rem;
     cursor: pointer;
 
     img {
@@ -118,6 +117,9 @@ const StyledRightHeader = styled.div`
   }
 `;
 
+/*
+알림 Modal Part
+*/
 const ModalBox = styled.div`
   background: white;
   width: 21.2rem;
@@ -142,7 +144,7 @@ const ModalBox = styled.div`
     content: "";
     display: block;
     position: absolute;
-    left: 20.2rem;
+    left: 19.9rem;
     top: -1rem;
     width: 0;
     z-index: 1;
@@ -155,7 +157,7 @@ const ModalBox = styled.div`
     content: "";
     display: block;
     position: absolute;
-    left: 20.2rem;
+    left: 19.9rem;
     top: -1.1rem;
     width: 0;
     z-index: 0;
@@ -222,6 +224,84 @@ const ModalNotice = ({
     </NoticeLayout>
   );
 };
+
+const Tooltip = ({
+  children,
+  message,
+  isModalOpen,
+}: {
+  children: React.ReactNode;
+  message: string;
+  isModalOpen: boolean;
+}) => {
+  return (
+    <Container isModalOpen={isModalOpen}>
+      {children}
+      <div className="tooltip">{message}</div>
+    </Container>
+  );
+};
+const Container = styled.div`
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  display: inline-block;
+
+  &:hover > .tooltip,
+  &:active > .tooltip {
+    ${({ isModalOpen }: { isModalOpen: boolean }) =>
+      isModalOpen ? `` : `display: block`};
+  }
+
+  .tooltip {
+    white-space: pre-line;
+    display: none;
+    position: absolute;
+    bottom: -0.4rem;
+    background-color: ${theme.palette.gray.white};
+    border: ${theme.palette.pink[600]} solid 1px;
+    border-radius: 20px;
+    color: ${theme.palette.pink[100]};
+    box-shadow: 0 1px 3px ${theme.palette.pink[600]};
+    ${theme.typography.body5Bold};
+    height: auto;
+    letter-spacing: -0.25px;
+    margin-top: 6.8px;
+    padding: 6px 13px;
+    width: max-content;
+    z-index: 100;
+    transform: translate(-44%, 110%);
+  }
+
+  // 말풍선 테두리와 꼬리를 위한 before, after
+  .tooltip::after {
+    border-color: ${theme.palette.gray.white} transparent;
+    border-style: solid;
+    border-width: 0 6px 8px 6.5px;
+    content: "";
+    display: block;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    top: -7px;
+    width: 0;
+    z-index: 1;
+  }
+
+  .tooltip::before {
+    border-color: ${theme.palette.pink[600]} transparent;
+    border-style: solid;
+    border-width: 0 6px 8px 6.5px;
+    content: "";
+    display: block;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    top: -8px;
+    width: 0;
+    z-index: 0;
+  }
+`;
 
 const LeftHeader = () => {
   return (
@@ -301,7 +381,9 @@ const RightHeader = () => {
   return (
     <StyledRightHeader>
       <div className="header-button" onClick={toggleModal}>
-        <img src={alarmIcon} alt="Allim" />
+        <Tooltip message="알림" isModalOpen={isModalOpen}>
+          <img src={alarmIcon} alt="Allim" />
+        </Tooltip>
         {isModalOpen && (
           <ModalBox className="modal">
             {/* 모달 내용 */}
@@ -318,15 +400,21 @@ const RightHeader = () => {
           </ModalBox>
         )}
       </div>
-      <Link to="/question" className="header-button">
-        <img src={QAIcon} alt="Question" />
-      </Link>
-      <Link to="/search" className="header-button">
-        <img src={searchIcon} alt="Search" />
-      </Link>
-      <Link to="/mypage" className="header-button">
-        <img src={myPageIcon} alt="Mypage" />
-      </Link>
+      <Tooltip message="오늘의 질문" isModalOpen={false}>
+        <Link to="/question" className="header-button">
+          <img src={QAIcon} alt="Question" />
+        </Link>
+      </Tooltip>
+      <Tooltip message="통합 검색" isModalOpen={false}>
+        <Link to="/search" className="header-button">
+          <img src={searchIcon} alt="Search" />
+        </Link>
+      </Tooltip>
+      <Tooltip message="마이페이지" isModalOpen={false}>
+        <Link to="/mypage" className="header-button">
+          <img src={myPageIcon} alt="Mypage" />
+        </Link>
+      </Tooltip>
     </StyledRightHeader>
   );
 };
