@@ -1,3 +1,4 @@
+import axios from "axios";
 import {
   BodyContainer,
   CheckButton,
@@ -14,9 +15,13 @@ import {
   TopContainer,
   TopSelectContainer,
 } from "./component";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 export const ModalSignup = ({ setModalOpen, openSignInModal }: any) => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [nickname, setNickname] = useState("");
   const closeModal = () => {
     setModalOpen(false);
   };
@@ -25,7 +30,26 @@ export const ModalSignup = ({ setModalOpen, openSignInModal }: any) => {
     closeModal();
     openSignInModal();
   };
+  const handleSignup = async () => {
+    try {
+      // 사용자가 입력한 정보를 서버로 전송
+      const response = await axios.post("/user/sign-up", {
+        account: username,
+        password,
+        email,
+        nickname,
+        // ... 다른 필요한 정보들도 추가해주세요
+      });
 
+      console.log("Signup successful!", response.data);
+
+      // 회원가입 성공 후 추가적인 작업이 있다면 여기에서 처리
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        console.error("Login failed:", error.response?.data);
+      }
+    }
+  };
   return (
     <Overlay closeModal={closeModal}>
       <ModalBack>
@@ -84,6 +108,8 @@ export const ModalSignup = ({ setModalOpen, openSignInModal }: any) => {
 };
 
 export const ModalSignIn = ({ setModalOpen, openSignupModal }: any) => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const closeModal = () => {
     setModalOpen(false);
   };
@@ -91,6 +117,28 @@ export const ModalSignIn = ({ setModalOpen, openSignupModal }: any) => {
   const openSignup = () => {
     closeModal();
     openSignupModal();
+  };
+  const handleUsernameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setUsername(e.target.value);
+  };
+
+  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(e.target.value);
+  };
+
+  const handleLogin = async () => {
+    console.log("유저 이름" + username + " 비밀번호 " + password);
+    axios
+      .post(`/user/sign-in?id=${username}&password=${password}`)
+      .then((response) => {
+        console.log("로그인 성공!");
+        console.log("로그인 결과:", response.data.token);
+        console.log("유저 정보:", response.data);
+      })
+      .catch((error) => {
+        console.log("Request failed:", error);
+        console.log("로그인 에러:", error);
+      });
   };
   return (
     <Overlay closeModal={closeModal}>
@@ -117,11 +165,19 @@ export const ModalSignIn = ({ setModalOpen, openSignupModal }: any) => {
             {/* <button onClick={closeModal}>X</button> */}
             <BodyContainer>
               ID/PW
-              <InputContainer placeholder="아이디" />
-              <InputContainer placeholder="패스워드" />
+              <InputContainer
+                placeholder="아이디"
+                value={username}
+                onChange={handleUsernameChange}
+              />
+              <InputContainer
+                placeholder="패스워드"
+                value={password}
+                onChange={handlePasswordChange}
+              />
             </BodyContainer>
             <Rowdiv>
-              <CheckButton>로그인</CheckButton>
+              <CheckButton onClick={handleLogin}>로그인</CheckButton>
             </Rowdiv>
             <LoginButton>카카오 로그인</LoginButton>
           </Modaldiv>

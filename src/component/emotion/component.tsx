@@ -112,7 +112,15 @@ export const BodyContainer = ({ children }: { children: React.ReactNode }) => (
   </div>
 );
 
-export const InputContainer = ({ placeholder }: { placeholder: string }) => (
+export const InputContainer = ({
+  placeholder,
+  value,
+  onChange,
+}: {
+  placeholder: string;
+  value?: string;
+  onChange?: (event: any) => void;
+}) => (
   <input
     css={css`
       display: flex;
@@ -130,6 +138,8 @@ export const InputContainer = ({ placeholder }: { placeholder: string }) => (
         color: #ffd1d1;
       }
     `}
+    value={value}
+    onChange={onChange}
     placeholder={placeholder}
   ></input>
 );
@@ -295,7 +305,13 @@ export const Images2 = ({ children }: { children: React.ReactNode }) => (
     {children}
   </div>
 );
-export const CheckButton = ({ children }: { children: React.ReactNode }) => (
+export const CheckButton = ({
+  onClick,
+  children,
+}: {
+  children: React.ReactNode;
+  onClick?: (event: any) => void;
+}) => (
   <div
     css={css`
       display: flex;
@@ -308,6 +324,7 @@ export const CheckButton = ({ children }: { children: React.ReactNode }) => (
       justify-content: center;
       margin-bottom: 1rem;
     `}
+    onClick={onClick}
   >
     {children}
   </div>
