@@ -20,10 +20,12 @@ export const Overlay = ({ children }: { children: React.ReactNode }) => (
 
 export const MyPageContainer = ({
   styleWidth,
+  styleDisplay,
   title,
   children,
 }: {
   styleWidth: string;
+  styleDisplay: string;
   title: string;
   children: React.ReactNode;
 }) => (
@@ -50,7 +52,7 @@ export const MyPageContainer = ({
         padding: ${theme.spacing.sm};
         margin-top: ${theme.spacing.xs};
         border-radius: 20px;
-        display: flex;
+        display: ${styleDisplay};
       `}
     >
       {children}
@@ -302,25 +304,72 @@ export const ChangeButton = ({ onClick }: ButtonProp) => {
   );
 };
 
-export const BlankSection = (props: { title: string }) => {
+/*
+*
+몸 상태
+*/
+export const BodyCondition = ({
+  title,
+  styleJustifyContent,
+  children,
+}: {
+  title: string;
+  styleJustifyContent: string;
+  children: React.ReactNode;
+}) => {
   return (
-    <div style={{ marginLeft: `${theme.spacing.md}` }}>
+    <div
+      css={css`
+        padding: ${theme.spacing.xs} 0 0 ${theme.spacing.xs};
+        width: 95%;
+      `}
+    >
       <div
-        style={{
-          fontSize: theme.typography.body2Bold.fontSize,
-          fontWeight: theme.typography.body2Bold.fontWeight,
-        }}
+        css={css`
+          ${theme.typography.body4Bold}
+          padding: 0 ${theme.spacing.xs};
+        `}
       >
-        {props.title}
+        {title}
       </div>
       <div
-        style={{
-          backgroundColor: theme.palette.gray[200],
-          height: "70vh",
-          width: "35vw",
-          borderRadius: "20px",
-        }}
-      ></div>
+        css={css`
+          display: flex;
+          justify-content: ${styleJustifyContent};
+        `}
+      >
+        {children}
+      </div>
+    </div>
+  );
+};
+
+export const UnderLine = () => {
+  return (
+    <hr
+      css={css`
+        border-top: 1px solid ${theme.palette.pink[100]};
+        width: 100%;
+      `}
+    ></hr>
+  );
+};
+
+/*
+*
+주차별 도움
+*/
+export const TipTitle = () => {
+  return (
+    <div
+      css={css`
+        color: ${theme.palette.pink[100]};
+        text-align: center;
+        ${theme.typography.body4}
+        margin: ${theme.spacing.xxs} 0 ${theme.spacing.sm} 0;
+      `}
+    >
+      임신 중기의 시작!
     </div>
   );
 };

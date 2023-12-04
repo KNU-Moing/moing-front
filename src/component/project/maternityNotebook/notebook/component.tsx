@@ -106,7 +106,8 @@ export const ChartContent = ({
     <div
       css={css`
         text-align: center;
-        padding: ${theme.spacing.md} ${theme.spacing.xl};
+        padding: ${theme.spacing.md};
+        width: 7vw;
       `}
     >
       <div
