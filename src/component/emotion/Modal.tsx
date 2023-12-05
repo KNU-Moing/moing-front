@@ -22,6 +22,9 @@ export const ModalSignup = ({ setModalOpen, openSignInModal }: any) => {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [nickname, setNickname] = useState("");
+  const [phoneNumber, setphoneNumber] = useState("");
+  const [pregnancyDate, setpregnancyDate] = useState("");
+  const [birthday, setbirthday] = useState("");
   const closeModal = () => {
     setModalOpen(false);
   };
@@ -30,26 +33,65 @@ export const ModalSignup = ({ setModalOpen, openSignInModal }: any) => {
     closeModal();
     openSignInModal();
   };
-  const handleSignup = async () => {
+  const handleUsernameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setUsername(e.target.value);
+  };
+
+  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(e.target.value);
+  };
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
+  };
+
+  const handleNicknameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setNickname(e.target.value);
+  };
+  const handlephoneNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setphoneNumber(e.target.value);
+  };
+  const handlesetbirthdayChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setbirthday(e.target.value);
+  };
+  const handlepregnancyDateChange = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setpregnancyDate(e.target.value);
+  };
+  const handleSignUp = async () => {
     try {
-      // 사용자가 입력한 정보를 서버로 전송
-      const response = await axios.post("/user/sign-up", {
-        account: username,
-        password,
-        email,
-        nickname,
-        // ... 다른 필요한 정보들도 추가해주세요
+      const response = await axios.post("/user/sign-up", null, {
+        params: {
+          account: username,
+          birthday: birthday,
+          email: email,
+          nickname: nickname,
+          password: password,
+          phoneNumber: phoneNumber,
+          pregnancyDate: pregnancyDate,
+          role: "admin",
+          username: nickname,
+        },
       });
 
-      console.log("Signup successful!", response.data);
+      console.log("회원가입 성공");
+      console.log("유저 정보:", response.data);
+    } catch (error: any) {
+      console.error("Request failed:", error);
+      console.error("로그인 에러:", error);
 
-      // 회원가입 성공 후 추가적인 작업이 있다면 여기에서 처리
-    } catch (error) {
-      if (axios.isAxiosError(error)) {
-        console.error("Login failed:", error.response?.data);
+      if (error.response) {
+        console.error("서버 응답 데이터:", error.response.data);
+        console.error("서버 응답 상태 코드:", error.response.status);
+        console.error("서버 응답 헤더:", error.response.headers);
+      } else if (error.request) {
+        console.error("서버 응답 없음");
+      } else {
+        console.error("오류 메시지:", error.message);
       }
     }
   };
+
   return (
     <Overlay closeModal={closeModal}>
       <ModalBack>
@@ -78,27 +120,46 @@ export const ModalSignup = ({ setModalOpen, openSignInModal }: any) => {
               <InputSelectContainer
                 placeholder="아이디"
                 buttonholder="중복 확인"
+                value={username}
+                onChange={handleUsernameChange}
               />
-              <InputContainer placeholder="패스워드" />
+              <InputContainer
+                placeholder="패스워드"
+                value={password}
+                onChange={handlePasswordChange}
+              />
             </BodyContainer>
             <BodyContainer>
               정보 입력
               <InputSelectContainer
                 placeholder="이메일"
                 buttonholder="인증하기"
+                value={email}
+                onChange={handleEmailChange}
               />
-              <InputSelectContainer
-                placeholder="인증번호"
-                buttonholder="인증하기"
+              <InputContainer
+                placeholder="닉네임"
+                value={nickname}
+                onChange={handleNicknameChange}
               />
-              <InputContainer placeholder="닉네임" />
+              <InputContainer
+                placeholder="핸드폰 번호"
+                value={phoneNumber}
+                onChange={handlephoneNumberChange}
+              />
+              <InputContainer
+                placeholder="임신일"
+                value={pregnancyDate}
+                onChange={handlepregnancyDateChange}
+              />
+              <InputContainer
+                placeholder="생년월일"
+                value={birthday}
+                onChange={handlesetbirthdayChange}
+              />
             </BodyContainer>
             <Rowdiv>
-              <Images backgroundColor="#FF9494">산모</Images>
-              <Images backgroundColor="#84BDFF">보호자</Images>
-            </Rowdiv>
-            <Rowdiv>
-              <CheckButton>가입하기</CheckButton>
+              <CheckButton onClick={handleSignUp}>가입하기</CheckButton>
             </Rowdiv>
           </Modaldiv>
         </Modal>

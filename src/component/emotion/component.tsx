@@ -105,7 +105,7 @@ export const BodyContainer = ({ children }: { children: React.ReactNode }) => (
       color: black;
       ${theme.typography.body4Bold}
       border-radius: 0 0 25px 25px;
-      font-size: 24px;
+      font-size: 20px;
     `}
   >
     {children}
@@ -146,9 +146,13 @@ export const InputContainer = ({
 export const InputSelectContainer = ({
   placeholder,
   buttonholder,
+  value,
+  onChange,
 }: {
   placeholder: string;
   buttonholder: string;
+  value?: string;
+  onChange?: (event: any) => void;
 }) => (
   <div
     css={css`
@@ -173,6 +177,8 @@ export const InputSelectContainer = ({
         }
       `}
       placeholder={placeholder}
+      value={value}
+      onChange={onChange}
     />
     <div
       css={css`
