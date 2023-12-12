@@ -39,8 +39,8 @@ export const Question = () => {
     if (questionText.trim() !== "") {
       try {
         // Send the questionText to the server
-        const response = await axios.post("/chat/room", {
-          questionText: questionText,
+        const response = await axios.post("/question", {
+          questionText
         });
 
         // Check the response from the server if needed

@@ -179,8 +179,6 @@ const QABoxPagination: React.FC = () => {
           ))}
         </div>
       ))}
-
-      {/* Pagination buttons */}
       <div
         style={{
           display: "flex",
