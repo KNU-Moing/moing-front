@@ -395,9 +395,7 @@ export const FlexsContainer = () => {
       return ["영양제", "속옷", "튼살크림", "음식", "태교", "속옷", "소모품"];
     } else if (option === "아기용품") {
       return ["영양제", "속옷", "튼살크림", "음식", "태교", "속옷", "소모품"];
-    } else if (option === "추천템") {
-      return ["영양제", "속옷", "튼살크림", "음식", "태교", "속옷", "소모품"];
-    } else {
+    }  else {
       return [];
     }
   };
@@ -451,7 +449,6 @@ export const FlexsContainer = () => {
           "산후조리",
           "임부복",
           "아기용품",
-          "추천템",
         ].map((option) => (
           <CookSlide
             key={option}

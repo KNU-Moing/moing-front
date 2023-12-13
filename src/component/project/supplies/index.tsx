@@ -15,12 +15,13 @@ import {
   SuppTitte2,
 } from "./component";
 import { FlexsContainer } from "./detail.tsx/component";
+import Header from "../header";
 
 export const Supplies = () => {
   return (
     <div>
+      <Header />
       <Inner>
-        <ImageContainer />
         <FlexsContainer />
         <CenterContainer>
           <CenterTitle>이 상품은 어때요? {">"}</CenterTitle>
