@@ -9,6 +9,9 @@ import { QnA } from "./component/project/community/QnA.tsx";
 import { Board } from "./component/project/community/Board.tsx";
 import { Notebook } from "./component/project/maternityNotebook/notebook";
 import { Diary } from "./component/project/maternityNotebook/diary";
+import { DiaryCreate } from "./component/project/maternityNotebook/diary/create.tsx";
+import { DiaryRead } from "./component/project/maternityNotebook/diary/read.tsx";
+import { DiaryUpdate } from "./component/project/maternityNotebook/diary/update.tsx";
 import { Cook } from "./component/project/cook";
 import { Detail } from "./component/project/cook/detail.tsx";
 import { Supplies } from "./component/project/supplies";
@@ -17,7 +20,6 @@ import QuestionConfirm from "./component/project/question/questionConfirm";
 import { Detail2 } from "./component/project/supplies/detail.tsx";
 import CookPut from "./component/project/cookput";
 import { RegistCook } from "./component/project/cook/regist.tsx";
-
 
 function App() {
   return (
@@ -29,6 +31,9 @@ function App() {
         <Route path="/SignUp" element={<SignUp />} />
         <Route path="/Notebook" element={<Notebook />} />
         <Route path="/Diary" element={<Diary />} />
+        <Route path="/Diary/Write" element={<DiaryCreate />} />
+        <Route path="/Diary/:item" element={<DiaryRead />} />
+        <Route path="/Diary/update/:item" element={<DiaryUpdate />} />
         <Route path="/Cook" element={<Cook />} />
         <Route path="/Cook/:item" element={<Detail />} />
         <Route path="/CookRegist/:item" element={<RegistCook />} />
@@ -39,7 +44,7 @@ function App() {
         <Route path="/Community/Board" element={<Board />} />
         <Route path="/Question" element={<Question />} />
         <Route path="/Question/Confirm" element={<QuestionConfirm />} />
-        <Route path="/Cookput" element={<CookPut/>}/>
+        <Route path="/Cookput" element={<CookPut />} />
       </Routes>
     </div>
   );
