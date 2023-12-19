@@ -9,7 +9,8 @@ import { QnA } from "./component/project/community/QnA.tsx";
 import { Board } from "./component/project/community/Board.tsx";
 import { Notebook } from "./component/project/maternityNotebook/notebook";
 import { Diary } from "./component/project/maternityNotebook/diary";
-import { DiaryCreate } from "./component/project/maternityNotebook/diary/create";
+import { DiaryCreate } from "./component/project/maternityNotebook/diary/create.tsx";
+import { DiaryRead } from "./component/project/maternityNotebook/diary/read.tsx";
 import { Cook } from "./component/project/cook";
 import { Detail } from "./component/project/cook/detail.tsx";
 import { Supplies } from "./component/project/supplies";
@@ -30,6 +31,7 @@ function App() {
         <Route path="/Notebook" element={<Notebook />} />
         <Route path="/Diary" element={<Diary />} />
         <Route path="/Diary/Write" element={<DiaryCreate />} />
+        <Route path="/Diary/:item" element={<DiaryRead />} />
         <Route path="/Cook" element={<Cook />} />
         <Route path="/Cook/:item" element={<Detail />} />
         <Route path="/CookRegist/:item" element={<RegistCook />} />

@@ -206,8 +206,9 @@ export const DiaryOverlay = ({ children }: { children: React.ReactNode }) => (
 );
 
 export const DiaryBox = ({ diary }: { diary: DiaryType }) => {
+  const navigate = useNavigate();
   const handleNavi = () => {
-    alert(`diary/${diary.index}페이지로 이동`);
+    navigate(`/diary/${diary.index}`);
   };
   return (
     <div
