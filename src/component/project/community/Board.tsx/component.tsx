@@ -5,14 +5,18 @@ import theme from "../../../../styles/theme";
 import { css } from "@emotion/react";
 import searchIcon from "../../../../assets/mainSearch.png";
 import { GraphBtnType } from "../../maternityNotebook/notebook";
+import { useNavigate } from "react-router";
 
 export const ContentBox = ({
   title,
   content,
+  index,
 }: {
   title: string;
   content: string;
+  index: number;
 }) => {
+  const navigate = useNavigate();
   return (
     <ContentBoxLayer
       title=""
@@ -24,6 +28,7 @@ export const ContentBox = ({
         css={css`
           margin-left: ${theme.spacing.lg};
         `}
+        onClick={() => navigate(`/Community/Board/${index}`)}
       >
         <Content content={title} isBold={true}></Content>
         <Content content={content} isBold={false}></Content>

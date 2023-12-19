@@ -6,7 +6,11 @@ import { SignIn } from "./component/project/sign/signIn";
 import { SignUp } from "./component/project/sign/signUp";
 import { Community } from "./component/project/community";
 import { QnA } from "./component/project/community/QnA.tsx";
+import { QnACreate } from "./component/project/community/QnA.tsx/create.tsx";
 import { Board } from "./component/project/community/Board.tsx";
+import { BoardCreate } from "./component/project/community/Board.tsx/create.tsx";
+import { BoardRead } from "./component/project/community/Board.tsx/read.tsx";
+import { BoardUpdate } from "./component/project/community/Board.tsx/update.tsx";
 import { Notebook } from "./component/project/maternityNotebook/notebook";
 import { Diary } from "./component/project/maternityNotebook/diary";
 import { DiaryCreate } from "./component/project/maternityNotebook/diary/create.tsx";
@@ -41,7 +45,11 @@ function App() {
         <Route path="/Supplies/:item" element={<Detail2 />} />
         <Route path="/Community" element={<Community />} />
         <Route path="/Community/QnA" element={<QnA />} />
+        <Route path="/Community/QnA/Write" element={<QnACreate />} />
         <Route path="/Community/Board" element={<Board />} />
+        <Route path="/Community/Board/Write" element={<BoardCreate />} />
+        <Route path="/Community/Board/:item" element={<BoardRead />} />
+        <Route path="/Community/Board/update/:item" element={<BoardUpdate />} />
         <Route path="/Question" element={<Question />} />
         <Route path="/Question/Confirm" element={<QuestionConfirm />} />
         <Route path="/Cookput" element={<CookPut />} />

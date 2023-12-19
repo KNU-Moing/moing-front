@@ -103,7 +103,7 @@ export const QnA = () => {
             selected={selected}
             sortList={sortList}
           ></CustomSelect>
-          <WriteButton></WriteButton>
+          <WriteButton url="/Community/QnA/Write"></WriteButton>
         </ButtonBar>
         <BoxContainer>
           {rows.map((row, rowIndex) => (

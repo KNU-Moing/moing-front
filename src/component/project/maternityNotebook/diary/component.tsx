@@ -35,7 +35,7 @@ export const CategoryContainer = ({
   </div>
 );
 
-export const WriteButton = () => {
+export const WriteButton = ({ url }: { url: String }) => {
   const navigate = useNavigate();
   return (
     <button
@@ -48,7 +48,7 @@ export const WriteButton = () => {
         color: ${theme.palette.gray[600]};
         font: ${theme.typography.body4};
       `}
-      onClick={() => navigate("/diary/write")}
+      onClick={() => navigate(`${url}`)}
     >
       <div
         css={css`

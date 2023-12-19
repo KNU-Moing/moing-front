@@ -86,7 +86,7 @@ export const Diary = () => {
               selected={selected}
               sortList={sortList}
             ></CustomSelect>
-            <WriteButton></WriteButton>
+            <WriteButton url="/diary/write"></WriteButton>
           </TitleBar>
           <DiaryOverlay>
             {diaryList.map((dairy) => (
