@@ -5,6 +5,7 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 import { useState } from "react";
 import { DiaryType } from "./index";
 import writeIcon from "../../../../assets/DiaryWriteIcon.png";
+import { useNavigate } from "react-router";
 
 export const TitleBar = ({ children }: { children: React.ReactNode }) => (
   <div
@@ -35,6 +36,7 @@ export const CategoryContainer = ({
 );
 
 export const WriteButton = () => {
+  const navigate = useNavigate();
   return (
     <button
       css={css`
@@ -46,7 +48,7 @@ export const WriteButton = () => {
         color: ${theme.palette.gray[600]};
         font: ${theme.typography.body4};
       `}
-      onClick={() => alert("글쓰기 페이지 이동")}
+      onClick={() => navigate("/diary/write")}
     >
       <div
         css={css`
