@@ -11,6 +11,7 @@ import { Notebook } from "./component/project/maternityNotebook/notebook";
 import { Diary } from "./component/project/maternityNotebook/diary";
 import { DiaryCreate } from "./component/project/maternityNotebook/diary/create.tsx";
 import { DiaryRead } from "./component/project/maternityNotebook/diary/read.tsx";
+import { DiaryUpdate } from "./component/project/maternityNotebook/diary/update.tsx";
 import { Cook } from "./component/project/cook";
 import { Detail } from "./component/project/cook/detail.tsx";
 import { Supplies } from "./component/project/supplies";
@@ -32,6 +33,7 @@ function App() {
         <Route path="/Diary" element={<Diary />} />
         <Route path="/Diary/Write" element={<DiaryCreate />} />
         <Route path="/Diary/:item" element={<DiaryRead />} />
+        <Route path="/Diary/update/:item" element={<DiaryUpdate />} />
         <Route path="/Cook" element={<Cook />} />
         <Route path="/Cook/:item" element={<Detail />} />
         <Route path="/CookRegist/:item" element={<RegistCook />} />

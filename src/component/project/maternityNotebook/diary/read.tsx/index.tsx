@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { StyledHeader } from "../../../header/component";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 
 export const DiaryRead = () => {
+  const navigate = useNavigate();
   const { item } = useParams();
   const [content, setContent] = useState("일기 내용");
 
@@ -10,7 +11,7 @@ export const DiaryRead = () => {
     alert(content);
   };
   const handleUpdate = () => {
-    alert(content);
+    navigate(`/diary/update/${item}`);
   };
 
   return (
