@@ -51,7 +51,7 @@ export const CancelBtn = ({ onClick }: ButtonProp) => {
         top: ${theme.spacing.md};
         right: ${theme.spacing.md};
         border: none;
-        background-color: ${theme.palette.pink[800]};
+        background-color: ${theme.palette.gray.white};
       `}
     >
       <img src="/img/exitIcon.png" width="20rem" height="20rem"></img>
@@ -92,16 +92,23 @@ const InfoContainer = ({ children }: { children: React.ReactNode }) => (
   </div>
 );
 
-const InputContainer = ({ children }: { children: React.ReactNode }) => (
+const InputContainer = ({
+  styleWidth,
+  children,
+}: {
+  styleWidth: string;
+  children: React.ReactNode;
+}) => (
   <div
     css={css`
       height: 2.5rem;
-      width: 23vw;
-      border-radius: 10px;
+      width: ${styleWidth};
+      border-radius: 20px;
+      border: 1px solid ${theme.palette.pink[100]};
       background-color: ${theme.palette.gray.white};
       display: flex;
       justify-content: space-between;
-      padding: 0 ${theme.spacing.xs} 0 ${theme.spacing.sm};
+      padding: 0 ${theme.spacing.sm};
     `}
   >
     {children}
@@ -144,10 +151,13 @@ const InputBtn = ({
     onClick={onClick}
     css={css`
       background-color: ${theme.palette.gray.white};
-      border-left: solid 2px ${theme.palette.pink[100]};
+      margin-top: 0.3rem;
+      padding-left: ${theme.spacing.xs};
+      height: 1.8rem;
+      border: none;
+      border-left: solid 0.5px ${theme.palette.pink[200]};
       color: ${theme.palette.pink[100]};
       fontsize: ${theme.font.sm};
-      border: none;
     `}
   >
     {context}
@@ -169,10 +179,10 @@ export const InputPwd = ({ context, setPwd }: InputPwdProps) => {
         css={css`
           width: 18vw;
           height: 2.5rem;
-          border-radius: 10px;
+          border-radius: 20px;
           background-color: ${theme.palette.gray.white};
           color: ${theme.palette.pink[100]};
-          border: none;
+          border: 1px solid ${theme.palette.pink[100]};
           padding: 0 ${theme.spacing.sm};
           &:focus {
             outline: none;
@@ -186,7 +196,7 @@ export const EmailInfo = ({ email, handleShow }: EmailInfoProps) => {
   return (
     <InfoContainer>
       이메일
-      <InputContainer>
+      <InputContainer styleWidth="24vw">
         <InputText value={email} onChange={() => {}}></InputText>
         <InputBtn onClick={handleShow} context="변경"></InputBtn>
       </InputContainer>
@@ -209,7 +219,7 @@ export const InputWithBtn = ({
   return (
     <InfoContainer>
       {context}
-      <InputContainer>
+      <InputContainer styleWidth="22vw">
         <InputText value={state} onChange={onChange}></InputText>
         <InputBtn onClick={onClick} context={btnContext}></InputBtn>
       </InputContainer>
@@ -239,7 +249,8 @@ export const InputHospital = ({
         margin-top: ${theme.spacing.sm};
         margin-bottom: ${theme.spacing.sm};
         padding: 0 ${theme.spacing.xl};
-        border-radius: 15px;
+        border-radius: 20px;
+        border: 1.5px solid ${theme.palette.pink[100]};
         position: relative;
       `}
     >

@@ -84,6 +84,7 @@ export const ModalSignup = ({ setModalOpen, openSignInModal }: any) => {
         console.error("서버 응답 데이터:", error.response.data);
         console.error("서버 응답 상태 코드:", error.response.status);
         console.error("서버 응답 헤더:", error.response.headers);
+        openSignIn();
       } else if (error.request) {
         console.error("서버 응답 없음");
       } else {
@@ -195,6 +196,7 @@ export const ModalSignIn = ({ setModalOpen, openSignupModal }: any) => {
         console.log("로그인 성공!");
         console.log("로그인 결과:", response.data.token);
         console.log("유저 정보:", response.data);
+        closeModal();
       })
       .catch((error) => {
         console.log("Request failed:", error);

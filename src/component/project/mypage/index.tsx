@@ -13,6 +13,9 @@ import {
   ProfileImg,
   InfoSection,
   InfoLayout,
+  BodyCondition,
+  UnderLine,
+  TipTitle,
 } from "./component";
 import Footer from "../Footer";
 import StyledHeader from "../header";
@@ -20,6 +23,10 @@ import StyledHeader from "../header";
 import { css } from "@emotion/react";
 import { HospitalModal, UpdatedModal, InfoModal } from "./modal";
 import theme from "../../../styles/theme";
+import {
+  ChartContent,
+  HospitalVisitDay,
+} from "../maternityNotebook/notebook/component";
 
 export const MyPage = () => {
   const dummyImage = "http://via.placeholder.com/120x120";
@@ -41,7 +48,7 @@ export const MyPage = () => {
           <Profile name="쑥쑥이 아빠" src={theme.palette.blue[200]}></Profile>
         </ProfileSection>
 
-        <MyPageContainer title="내 정보" styleWidth="70%">
+        <MyPageContainer title="내 정보" styleWidth="70%" styleDisplay="flex">
           <ProfileImg src={theme.palette.pink[400]} size="180px"></ProfileImg>
 
           <InfoLayout>
@@ -82,11 +89,54 @@ export const MyPage = () => {
             width: "70%",
           }}
         >
-          <MyPageContainer title="몸 상태" styleWidth="47%">
-            <div style={{ height: "40vh" }}></div>
+          <MyPageContainer
+            title="몸 상태"
+            styleWidth="47%"
+            styleDisplay="block"
+          >
+            <BodyCondition title="산모 정보" styleJustifyContent="flex-start">
+              <ChartContent
+                kind="산모 혈압"
+                value="110"
+                unit="mmlg"
+              ></ChartContent>
+              <ChartContent
+                kind="산모 체중"
+                value="65"
+                unit="kg"
+              ></ChartContent>
+              <ChartContent
+                kind="특별 검사"
+                value="없음"
+                unit=""
+              ></ChartContent>
+            </BodyCondition>
+            <UnderLine></UnderLine>
+            <BodyCondition title="태아 정보" styleJustifyContent="flex-start">
+              <ChartContent
+                kind="태아 크기"
+                value="8.5"
+                unit="cm"
+              ></ChartContent>
+              <ChartContent kind="태아 체중" value="40" unit="g"></ChartContent>
+            </BodyCondition>
+            <UnderLine></UnderLine>
+            <BodyCondition title="다음 내원일" styleJustifyContent="center">
+              <HospitalVisitDay
+                year={20}
+                month={0}
+                day={2}
+                days="목요일"
+              ></HospitalVisitDay>
+            </BodyCondition>
           </MyPageContainer>
-          <MyPageContainer title="주차별 도움" styleWidth="47%">
-            <div style={{ height: "40vh" }}></div>
+          <MyPageContainer
+            title="주차별 도움"
+            styleWidth="47%"
+            styleDisplay="block"
+          >
+            <TipTitle></TipTitle>
+            <UnderLine></UnderLine>
           </MyPageContainer>
         </p>
 
