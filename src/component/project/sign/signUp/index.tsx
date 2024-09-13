@@ -13,7 +13,7 @@ import {
   TopSelectContainer,
 } from "../../../emotion/component";
 
-export const SignUp = () => {
+export const SignUp: React.FC = () => {
   const customStyles = {
     overlay: {
       backgroundColor: "rgba(0, 0, 0, 0.5)",
@@ -28,13 +28,62 @@ export const SignUp = () => {
       border: "0px solid black",
     },
   };
-  const ModalSignup = ({
-    isOpen,
-    closeModal,
-  }: {
-    isOpen: any;
-    closeModal: any;
-  }) => {
+
+  // 2차 인증 모달 컴포넌트
+  const ModalTwoFactor: React.FC<{
+    isOpen: boolean;
+    closeModal: () => void;
+  }> = ({ isOpen, closeModal }) => {
+    return (
+      <Modal
+        isOpen={isOpen}
+        onRequestClose={closeModal}
+        style={customStyles}
+        contentLabel="2차 인증 모달"
+        shouldCloseOnOverlayClick={true}
+      >
+        <div id="container">
+          <div id="input-wrapper">
+            <div id="user-options">
+              <input id="user-id" placeholder="사용자 아이디" />
+              <input id="application-id" placeholder="애플리케이션 아이디" />
+              <select id="auth-option">
+                <option value="" disabled selected>
+                  인증 옵션 선택
+                </option>
+                <option value="sms">SMS 인증</option>
+                <option value="email">Email 인증</option>
+                <option value="sec-key-fido">FIDO 보안키 인증</option>
+                <option value="pc-fido">PC 생체 인증</option>
+                <option value="mob-fido">모바일 생체 인증</option>
+                <option value="mob-otp">OTP 인증</option>
+              </select>
+            </div>
+            <div id="code-container" className="hide">
+              <input id="code" placeholder="인증 코드를 입력하세요" />
+              <button id="verify-code">코드 보내기</button>
+            </div>
+            <div id="mobile-device-container"></div>
+            <div id="result-container" className="hide">
+              <p id="result"></p>
+            </div>
+            <div id="btn-container" className="flex">
+              <button id="reset" className="hide">
+                초기화
+              </button>
+              <button id="authenticate">인증</button>
+            </div>
+          </div>
+        </div>
+      </Modal>
+    );
+  };
+
+  // 회원가입 모달 컴포넌트
+  const ModalSignup: React.FC<{
+    isOpen: boolean;
+    closeModal: () => void;
+  }> = ({ isOpen, closeModal }) => {
     return (
       <Modal
         isOpen={isOpen}
@@ -60,7 +109,6 @@ export const SignUp = () => {
           </TopSelectContainer>
         </TopContainer>
         <Modaldiv>
-          {/* <button onClick={closeModal}>X</button> */}
           <BodyContainer>
             ID/PW
             <InputContainer placeholder="아이디" />
@@ -70,17 +118,18 @@ export const SignUp = () => {
             <CheckButton>로그인</CheckButton>
           </Rowdiv>
           <LoginButton>카카오 로그인</LoginButton>
+          <LoginButton onClick={openTwoFactorModal}>2차 로그인</LoginButton>
         </Modaldiv>
       </Modal>
     );
   };
-  const ModalSignIn = ({
-    isOpen,
-    closeModal,
-  }: {
-    isOpen: any;
-    closeModal: any;
-  }) => {
+
+  // 로그인 모달 컴포넌트
+  
+  const ModalSignIn: React.FC<{
+    isOpen: boolean;
+    closeModal: () => void;
+  }> = ({ isOpen, closeModal }) => {
     return (
       <Modal
         isOpen={isOpen}
@@ -106,7 +155,6 @@ export const SignUp = () => {
           </TopSelectContainer>
         </TopContainer>
         <Modaldiv>
-          {/* <button onClick={closeModal}>X</button> */}
           <BodyContainer>
             ID/PW
             <InputSelectContainer
@@ -138,8 +186,10 @@ export const SignUp = () => {
       </Modal>
     );
   };
+
   const [isSignupModalOpen, setSignupModalOpen] = useState(false);
   const [isSignInModalOpen, setSignInModalOpen] = useState(false);
+  const [isTwoFactorModalOpen, setTwoFactorModalOpen] = useState(false); // 2차 로그인 모달 상태
 
   const openSignupModal = () => {
     setSignupModalOpen(true);
@@ -157,12 +207,22 @@ export const SignUp = () => {
     setSignInModalOpen(false);
   };
 
+  const openTwoFactorModal = () => {
+    setTwoFactorModalOpen(true);
+  };
+
+  const closeTwoFactorModal = () => {
+    setTwoFactorModalOpen(false);
+  };
+
   return (
     <div>
       <button onClick={openSignupModal}>회원가입 모달 열기</button>
       <button onClick={openSignInModal}>로그인 모달 열기</button>
       <ModalSignup isOpen={isSignupModalOpen} closeModal={closeSignupModal} />
       <ModalSignIn isOpen={isSignInModalOpen} closeModal={closeSignInModal} />
+      <ModalTwoFactor isOpen={isTwoFactorModalOpen} closeModal={closeTwoFactorModal} />
     </div>
   );
+  
 };
