@@ -1,46 +1,32 @@
-# Getting Started with Create React App
+# 산모와 보호자를 연결해주는 서비스, Mo-ing
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 소개
+산모와 보호자, 저출산에 대해 깊이 고민을 하게 되었습니다. 산모나 육아를 하는 엄마들이 N사의 카페를 주로 이용하기는 하지만, 너무나 제약적인 부분도 많고 UI/UX에 한계가 있기 마련이죠. 또한, 산모나 육아를 직접 하는 엄마들이 위주로 사용하지만 보호자들은 그렇지 못하는 경우가 많습니다. 그래서 산모와 보호자 모두를 위한 서비스, 모잉을 개발하게 되었습니다.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+### 프로젝트의 주요 기능
 
-### `yarn start`
+1️⃣ **마이페이지에서 산모의 몸 상태를 기록 해요**
+: 혈압, 체중, 특별 검사, 태아 정보, 다음 내원일 등을 기록해요
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+2️⃣ **주차별 도움을 주는 팁을 제공해드려요**
+: 임신의 주차수로 도움이 되는 조언을 드려요.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+3️⃣ **매일 매일 다른 질문 일기를 작성해요**
+: 산모와 보호자의 공동 일기를 작성하며 서로의 생각을 나누어요.
 
-### `yarn test`
+4️⃣ 산모수첩
+: 진료 기록을 가시성 좋은 그래프로 제공해드려요.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+5️⃣ 산모일기
+: 산모수첩에 기록된 내용을 토대로 산모 개인의 일기를 작성할 수 있어요.
 
-### `yarn build`
+6️⃣ 산모용품
+: 초기, 중기, 말기, 산후조리, 임부복, 아기용품 등 다양한 카테고리 별로 산모용품을 추천해드려요. 클릭하면 구매 페이지로 넘어가요!
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+7️⃣ 조리원 예약
+: 각 지역별로 조리원을 검색할 수 있어요. 조리원에 대한 각 후기를 작성하고  조회할 수 있어요.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+8️⃣ 커뮤니티
+: 의사 선생님께 많이 묻는 질문, 실시간 채팅 기능 등을 제공해요.
