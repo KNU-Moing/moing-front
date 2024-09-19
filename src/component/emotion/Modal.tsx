@@ -25,11 +25,13 @@ export const ModalSignup = ({ setModalOpen, openSignInModal }: any) => {
   const [phoneNumber, setphoneNumber] = useState("");
   const [pregnancyDate, setpregnancyDate] = useState("");
   const [birthday, setbirthday] = useState("");
+ 
   const closeModal = () => {
     setModalOpen(false);
   };
 
   const openSignIn = () => {
+    
     closeModal();
     openSignInModal();
   };
@@ -58,6 +60,7 @@ export const ModalSignup = ({ setModalOpen, openSignInModal }: any) => {
   ) => {
     setpregnancyDate(e.target.value);
   };
+
   const handleSignUp = async () => {
     try {
       const response = await axios.post("/user/sign-up", null, {
@@ -169,9 +172,70 @@ export const ModalSignup = ({ setModalOpen, openSignInModal }: any) => {
   );
 };
 
+// 2차 인증 UI 컴포넌트 (추가)
+export const TwoFactorAuth: React.FC = ({ onClose }: any) => {
+  const [authOption, setAuthOption] = useState("");
+  const [code, setCode] = useState("");
+  const [userId, setUserId] = useState("");
+  const [appId, setAppId] = useState("");
+
+  const handleSendCode = async () => {
+    try {
+      // 여기에 실제 코드 전송 로직을 넣어주세요 (예: SMS, 이메일 인증)
+      await axios.post("/send-auth-code", { userId, appId, authOption });
+      console.log("코드 전송 성공");
+    } catch (error) {
+      console.error("코드 전송 실패:", error);
+    }
+  };
+
+  const handleVerifyCode = async () => {
+    try {
+      // 여기에 인증 코드 검증 로직을 넣어주세요
+      await axios.post("/verify-code", { code, userId, appId });
+      console.log("코드 검증 성공");
+      onClose(); // 인증 성공 후 모달 닫기
+    } catch (error) {
+      console.error("코드 검증 실패:", error);
+    }
+  };
+
+  return (
+    <div>
+      <h2>2차 인증</h2>
+      <input
+        placeholder="사용자 아이디"
+        value={userId}
+        onChange={(e) => setUserId(e.target.value)}
+      />
+      <input
+        placeholder="애플리케이션 아이디"
+        value={appId}
+        onChange={(e) => setAppId(e.target.value)}
+      />
+      <select value={authOption} onChange={(e) => setAuthOption(e.target.value)}>
+        <option value="">인증 옵션 선택</option>
+        <option value="sms">SMS 인증</option>
+        <option value="email">Email 인증</option>
+        <option value="sec-key-fido">FIDO 보안키 인증</option>
+      </select>
+      <button onClick={handleSendCode}>코드 보내기</button>
+      <input
+        placeholder="인증 코드를 입력하세요"
+        value={code}
+        onChange={(e) => setCode(e.target.value)}
+      />
+      <button onClick={handleVerifyCode}>코드 검증</button>
+    </div>
+  );
+};
+
+
 export const ModalSignIn = ({ setModalOpen, openSignupModal }: any) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [isTwoFactorVisible, setIsTwoFactorVisible] = useState(false); // 2차 인증 UI 표시 여부
+
   const closeModal = () => {
     setModalOpen(false);
   };
@@ -196,7 +260,7 @@ export const ModalSignIn = ({ setModalOpen, openSignupModal }: any) => {
         console.log("로그인 성공!");
         console.log("로그인 결과:", response.data.token);
         console.log("유저 정보:", response.data);
-        closeModal();
+        setIsTwoFactorVisible(true);
       })
       .catch((error) => {
         console.log("Request failed:", error);
@@ -207,43 +271,50 @@ export const ModalSignIn = ({ setModalOpen, openSignupModal }: any) => {
     <Overlay closeModal={closeModal}>
       <ModalBack>
         <Modal closeModal={closeModal}>
-          <TopContainer>
-            <TopSelectContainer
-              color="white"
-              fontcolor="black"
-              style="border-radius: 25px 0 0 0;"
-            >
-              로그인
-            </TopSelectContainer>
-            <TopSelectContainer
-              color="#FF9494"
-              fontcolor="white"
-              style="border-radius: 0 25px 0 0;"
-              onClick={openSignup}
-            >
-              회원가입
-            </TopSelectContainer>
-          </TopContainer>
-          <Modaldiv>
-            {/* <button onClick={closeModal}>X</button> */}
-            <BodyContainer>
-              ID/PW
-              <InputContainer
-                placeholder="아이디"
-                value={username}
-                onChange={handleUsernameChange}
-              />
-              <InputContainer
-                placeholder="패스워드"
-                value={password}
-                onChange={handlePasswordChange}
-              />
-            </BodyContainer>
-            <Rowdiv>
-              <CheckButton onClick={handleLogin}>로그인</CheckButton>
-            </Rowdiv>
-            <LoginButton>카카오 로그인</LoginButton>
-          </Modaldiv>
+          {isTwoFactorVisible ? (
+            // 2차 인증 UI
+            <TwoFactorAuth onClose={closeModal} />
+          ) : (
+            <div>
+              <TopContainer>
+                <TopSelectContainer
+                  color="white"
+                  fontcolor="black"
+                  style="border-radius: 25px 0 0 0;"
+                >
+                  로그인
+                </TopSelectContainer>
+                <TopSelectContainer
+                  color="#FF9494"
+                  fontcolor="white"
+                  style="border-radius: 0 25px 0 0;"
+                  onClick={openSignup}
+                >
+                  회원가입
+                </TopSelectContainer>
+              </TopContainer>
+              <Modaldiv>
+                <BodyContainer>
+                  ID/PW
+                  <InputContainer
+                    placeholder="아이디"
+                    value={username}
+                    onChange={handleUsernameChange}
+                  />
+                  <InputContainer
+                    placeholder="패스워드"
+                    value={password}
+                    onChange={handlePasswordChange}
+                  />
+                </BodyContainer>
+                <Rowdiv>
+                  <CheckButton onClick={handleLogin}>로그인</CheckButton>
+                </Rowdiv>
+                <LoginButton>카카오 로그인</LoginButton>
+                <LoginButton onClick={() => setIsTwoFactorVisible(true)}>2차 인증 로그인</LoginButton> 
+              </Modaldiv>
+            </div>
+          )}
         </Modal>
       </ModalBack>
     </Overlay>

@@ -11,3 +11,156 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+
+:root {
+  --grey050:#FAFCFF;
+  --grey100:#F6F9FF;
+  --grey200:#E8EEF5;
+  --grey300:#D3DDE6;
+  --grey400:#AEBAC6;
+  --grey500:#8F99A8;
+  --grey600:#78828E;
+  --grey700:#5D616F;
+  --grey800:#363E4F;
+  --grey900:#191E39;
+  --primary050: #F5FBFF;
+  --primary100: #EDF7FF;
+  --primary200: #BFE0FF;
+  --primary300: #95CBFD;
+  --primary400: #52A6F5;
+  --primary500: #007AEB;
+  --primary600: #0063BF;
+  --primary700: #004D94;
+  --primary800: #003261;
+  --primary900: #00294F;
+  --red100 :#FFF9F9;
+  --red200 :#FFE8E8;
+  --red400 :#FF6E6E;
+  --red600 :#EB1010;
+  --green20:#DBFFED;
+  --green40:#3FF19C;
+  --green60:#0CAF74;
+}
+
+body {
+  background-color: rgb(250, 252, 255);
+  margin: 0;
+}
+
+
+button {
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 10px 12px;
+  color: #333333;
+  /*white-space: nowrap;*/
+}
+
+input, select {
+  outline: none;
+  border: 1px solid rgb(232, 238, 245);
+  font-weight: 400;
+  font-size: 16px;
+  letter-spacing: -0.2px;
+  line-height: 24px;
+  padding: 10px 16px;
+  box-sizing: border-box;
+  display: flex;
+  border-radius: 6px;
+}
+
+select:invalid {
+  color: lightgray;
+}
+
+input:disabled {
+  color: var(--grey400);
+}
+
+#container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+#input-wrapper {
+  width: 30%;
+  padding: 40px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  justify-content: space-evenly;
+  background-color: white;
+  border: 1px solid rgb(232, 238, 245);
+  border-radius: 16px;
+}
+
+#user-options {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#user-options > * {
+  width: 100%;
+}
+
+#input-wrapper > * {
+  width: 75%;
+}
+
+#mobile-device-container {
+      display: none;
+      flex-direction: column;
+      row-gap: 8px;
+}
+
+
+
+
+.flex {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.success {
+  color: var(--green60);
+  font-weight: bold;
+}
+
+.error {
+  color: var(--red600);
+  font-weight: bold;
+}
+
+#authenticate, #verify-code {
+  width: 30%;
+  background-color: var(--primary500);
+  color: white;
+}
+
+#authenticate:hover, #verify-code:hover {
+  background-color: var(--primary400);
+}
+
+#reset {
+  width: 30%;
+  background-color: var(--grey200);
+  color: var(--grey600);
+}
+
+#reset:hover {
+  color: var(--grey400);
+}

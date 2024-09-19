@@ -1,17 +1,34 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
+import '../../../../index.css';
+
+
+import styled from '@emotion/styled'; // styled import 구문은 여기 있어야 합니다.
 import {
   BodyContainer,
   CheckButton,
   Images,
   InputContainer,
   InputSelectContainer,
-  LoginButton,
   Modaldiv,
   Rowdiv,
   TopContainer,
   TopSelectContainer,
 } from "../../../emotion/component";
+
+// LoginButton 정의는 import 구문 바깥에서 해야 합니다.
+export const LoginButton = styled.button`
+  background-color: #FF9494;
+  border: none;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  
+  &:hover {
+    background-color: #FF7373;
+  }
+`;
 
 export const SignUp: React.FC = () => {
   const customStyles = {
@@ -28,6 +45,8 @@ export const SignUp: React.FC = () => {
       border: "0px solid black",
     },
   };
+
+  
 
   // 2차 인증 모달 컴포넌트
   const ModalTwoFactor: React.FC<{
@@ -117,15 +136,15 @@ export const SignUp: React.FC = () => {
           <Rowdiv>
             <CheckButton>로그인</CheckButton>
           </Rowdiv>
-          <LoginButton>카카오 로그인</LoginButton>
-          <LoginButton onClick={openTwoFactorModal}>2차 로그인</LoginButton>
+          <LoginButton>카카오 로그인인</LoginButton>
+          <LoginButton onClick = {openTwoFactorModal}>2차 로그인</LoginButton>
+          <LoginButton>로그인 버튼 임시</LoginButton>
         </Modaldiv>
       </Modal>
     );
   };
 
   // 로그인 모달 컴포넌트
-  
   const ModalSignIn: React.FC<{
     isOpen: boolean;
     closeModal: () => void;
